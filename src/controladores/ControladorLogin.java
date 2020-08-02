@@ -22,6 +22,11 @@ public class ControladorLogin implements ActionListener {
 	public ControladorLogin(VistaLogin vista, ModeloLogin modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
+		try{
+			Thread.sleep(200);
+		}catch (Exception e2){
+			e2.printStackTrace();
+		}
 		ejecutar();
 	}
 	public void ejecutar() {
@@ -33,6 +38,8 @@ public class ControladorLogin implements ActionListener {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("vista finalizada");
+		agregarListeners();
 	}
 
 	public void agregarListeners(){
