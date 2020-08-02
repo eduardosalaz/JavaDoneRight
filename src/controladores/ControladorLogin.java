@@ -22,11 +22,6 @@ public class ControladorLogin implements ActionListener {
 	public ControladorLogin(VistaLogin vista, ModeloLogin modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
-		try{
-			Thread.sleep(200);
-		}catch (Exception e2){
-			e2.printStackTrace();
-		}
 		ejecutar();
 	}
 	public void ejecutar() {
@@ -67,12 +62,10 @@ public class ControladorLogin implements ActionListener {
 						ModeloPantallaAdmin modeloAdmin = new ModeloPantallaAdmin();
 						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin, modeloAdmin);
 						controladorAdmin.ejecutar();
-
 					}
 				}else {
-					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " para ingresar");
+					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");
 					intentos--;
-
 				}
 			}else {
 				JOptionPane.showMessageDialog(null, "Has superado la cantidad de intentos permitidos, intenta después");

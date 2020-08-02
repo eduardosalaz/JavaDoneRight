@@ -11,6 +11,7 @@ public class ControladorPantallaAdmin {
 		modeloAdmin = modelo;
 	}
 	public void ejecutar() {
+		System.out.println("administrador");
 		
 	}
 

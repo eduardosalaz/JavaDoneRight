@@ -13,6 +13,7 @@ public class ControladorPantallaUser {
 		
 	}
 	public void ejecutar() {
+		System.out.println("usuario");
 		
 	}
 
