@@ -1,8 +1,5 @@
 package modelos;
-import modelos.Usuario;
-
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModeloLogin {
-	private Conexion conexion = new Conexion();
 	public static PreparedStatement pstm = null;
 	public PreparedStatement pstm2 = null;
 	ResultSet rs = null;
@@ -19,8 +15,8 @@ public class ModeloLogin {
 	String passW;
 	public Connection con;
 	public ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-	public boolean login(int user, String pass){
 
+	public boolean login(int user, String pass){
 		con = Conexion.Conectar();
 		try {
 			String query = "SELECT * FROM usuario WHERE ID_Usuario = ?";
@@ -67,13 +63,4 @@ public class ModeloLogin {
 	public Usuario devolverUsuario() {
 		return usuarios.get(0);
 	}
-
-	public Conexion getConexion() {
-		return conexion;
-	}
-
-	public void setConexion(Conexion conexion) {
-		this.conexion = conexion;
-	}
-
 }

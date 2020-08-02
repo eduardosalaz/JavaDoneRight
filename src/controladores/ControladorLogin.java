@@ -5,16 +5,13 @@ import vistas.VistaPantallaUser;
 import vistas.VistaPantallaAdmin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
-
 import modelos.ModeloLogin;
 import modelos.Usuario;
 import modelos.ModeloPantallaUser;
 import modelos.ModeloPantallaAdmin;
 
 public class ControladorLogin implements ActionListener {
-
 	VistaLogin vista;
 	ModeloLogin modelo;
 	public int intentos = 5;
@@ -24,6 +21,7 @@ public class ControladorLogin implements ActionListener {
 		this.modelo = modelo;
 		ejecutar();
 	}
+
 	public void ejecutar() {
 		vista.lanzarVista();
 		while(!vista.finished){

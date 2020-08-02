@@ -10,6 +10,7 @@ public class ControladorPantallaAdmin {
 		vistaAdmin = vista;
 		modeloAdmin = modelo;
 	}
+
 	public void ejecutar() {
 		System.out.println("administrador");
 		

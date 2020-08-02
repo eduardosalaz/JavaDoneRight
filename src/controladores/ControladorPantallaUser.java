@@ -10,8 +10,8 @@ public class ControladorPantallaUser {
 	public ControladorPantallaUser(VistaPantallaUser vista, ModeloPantallaUser modelo) {
 		vistaUser = vista;
 		modeloUser = modelo;
-		
 	}
+
 	public void ejecutar() {
 		System.out.println("usuario");
 		

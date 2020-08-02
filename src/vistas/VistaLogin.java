@@ -1,46 +1,28 @@
 package vistas;
 
 import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import crearColores.CustomColors;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
-
-
 public class VistaLogin extends JFrame {
-
-
-    /**
-     *
-     */
     public static final long serialVersionUID = 1L;
     public CustomColors colores = new CustomColors();
     public JTextField txt_usuario;
     public JPasswordField pwd_password;
     public JButton btn_login;
     public boolean finished = false;
-    public String algo = "Hola";
-
-
-
 
     public static void main(String[] args) {
         VistaLogin vistaLogin = new VistaLogin();
         vistaLogin.lanzarVista();
-    }
-
-
-    public void imprimir(){
-        System.out.println("hola");
     }
 
     public void lanzarVista() {
@@ -56,10 +38,6 @@ public class VistaLogin extends JFrame {
         });
     }
 
-
-    /**
-     * Initialize the contents of the frame.
-     */
     public void crearGUI() {
         getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         setBounds(100, 100, 1600, 900);
