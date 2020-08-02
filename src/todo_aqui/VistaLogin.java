@@ -1,19 +1,9 @@
-package vistas;
+package todo_aqui;
 
-import java.awt.EventQueue;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import crearColores.CustomColors;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Image;
 
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-
+import javax.swing.*;
+import java.awt.*;
 
 
 public class VistaLogin extends JFrame {

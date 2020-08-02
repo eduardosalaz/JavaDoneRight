@@ -1,17 +1,10 @@
-package controladores;
+package todo_aqui;
 
-import vistas.VistaLogin;
-import vistas.VistaPantallaUser;
-import vistas.VistaPantallaAdmin;
+
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JOptionPane;
-
-import modelos.ModeloLogin;
-import modelos.Usuario;
-import modelos.ModeloPantallaUser;
-import modelos.ModeloPantallaAdmin;
 
 public class ControladorLogin implements ActionListener {
 
@@ -33,6 +26,8 @@ public class ControladorLogin implements ActionListener {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("vista finalizada");
+		agregarListeners();
 	}
 
 	public void agregarListeners(){
