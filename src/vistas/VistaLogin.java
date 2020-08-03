@@ -1,36 +1,37 @@
 package vistas;
 
 import java.awt.EventQueue;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.*;
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 
-public class VistaLogin extends JFrame {
-    public static final long serialVersionUID = 1L;
+public class VistaLogin {
+    public JFrame frame;
     public CustomColors colores = new CustomColors();
     public JTextField txt_usuario;
     public JPasswordField pwd_password;
     public JButton btn_login;
     public boolean finished = false;
 
-    public static void main(String[] args) {
-        VistaLogin vistaLogin = new VistaLogin();
-        vistaLogin.lanzarVista();
-    }
 
     public void lanzarVista() {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
         EventQueue.invokeLater(() -> {
             try {
                 crearGUI();
-                setVisible(true);
-                setResizable(false);
+                frame.setVisible(true);
+                frame.setResizable(false);
                 finished = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -39,12 +40,12 @@ public class VistaLogin extends JFrame {
     }
 
     public void crearGUI() {
-        getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        setBounds(100, 100, 1600, 900);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1600, 900);
-        getContentPane().setLayout(null);
-        getContentPane().setBackground(colores.gris);
+        frame = new JFrame();
+        frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        frame.setBounds(100, 100, 1600, 900);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1600, 900);
+        frame.getContentPane().setLayout(null);
 
         JLabel lbl_titulo = new JLabel("Smart Tienda 1.0");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -52,37 +53,36 @@ public class VistaLogin extends JFrame {
         lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
         lbl_titulo.setForeground(colores.amarillo);
         lbl_titulo.setBounds(560, 12, 463, 59);
-        getContentPane().add(lbl_titulo);
+        frame.getContentPane().add(lbl_titulo);
 
         JLabel lbl_img = new JLabel();
-        Image img = new ImageIcon("images/login2.png").getImage();
+        Image img = new ImageIcon("images/logo_1.png").getImage();
         lbl_img.setIcon(new ImageIcon(img));
         lbl_img.setBounds(717, 83, 150, 150);
-        getContentPane().add(lbl_img);
+        frame.getContentPane().add(lbl_img);
 
-        JLabel lblNewLabel = new JLabel("ID de Usuario:");
-        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-        lblNewLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblNewLabel.setBounds(667, 254, 250, 40);
-        lblNewLabel.setForeground(colores.azul);
-        getContentPane().add(lblNewLabel);
+        JLabel lbl_id = new JLabel("ID de Usuario:");
+        lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_id.setVerticalAlignment(SwingConstants.TOP);
+        lbl_id.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_id.setBounds(667, 254, 250, 40);
+        lbl_id.setForeground(colores.amarillo);
+        frame.getContentPane().add(lbl_id);
 
-        JLabel lblContrasea = new JLabel("Contraseña: ");
-        lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
-        lblContrasea.setVerticalAlignment(SwingConstants.TOP);
-        lblContrasea.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblContrasea.setBounds(667, 374, 250, 40);
-        lblContrasea.setForeground(colores.azul);
-        getContentPane().add(lblContrasea);
+        JLabel lbl_contra = new JLabel("Contraseña: ");
+        lbl_contra.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_contra.setVerticalAlignment(SwingConstants.TOP);
+        lbl_contra.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_contra.setBounds(667, 374, 250, 40);
+        lbl_contra.setForeground(colores.amarillo);
+        frame.getContentPane().add(lbl_contra);
 
         txt_usuario = new JTextField();
         txt_usuario.setHorizontalAlignment(SwingConstants.CENTER);
         txt_usuario.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
-        txt_usuario.setForeground(colores.azul);
+        txt_usuario.setForeground(colores.amarillo);
         txt_usuario.setBounds(667, 304, 250, 40);
-        txt_usuario.setBackground(colores.gris);
-        getContentPane().add(txt_usuario);
+        frame.getContentPane().add(txt_usuario);
         txt_usuario.setColumns(15);
 
         pwd_password = new JPasswordField();
@@ -90,17 +90,15 @@ public class VistaLogin extends JFrame {
         pwd_password.setHorizontalAlignment(SwingConstants.CENTER);
         pwd_password.setColumns(15);
         pwd_password.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
-        pwd_password.setBackground(colores.gris);
         pwd_password.setBounds(667, 424, 250, 40);
-        pwd_password.setForeground(colores.azul);
-        getContentPane().add(pwd_password);
+        pwd_password.setForeground(colores.amarillo);
+        frame.getContentPane().add(pwd_password);
 
         btn_login = new JButton("Login");
         btn_login.setVerticalAlignment(SwingConstants.TOP);
         btn_login.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         btn_login.setForeground(colores.amarillo);
         btn_login.setBounds(667, 494, 250, 50);
-        btn_login.setBackground(colores.gris);
-        getContentPane().add(btn_login);
+        frame.getContentPane().add(btn_login);
     }
 }
