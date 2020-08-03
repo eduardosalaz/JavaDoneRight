@@ -71,7 +71,7 @@ public class ControladorLogin implements ActionListener {
 				vista.pwd_password.setEnabled(false);
 				vista.btn_login.setEnabled(false);
 				try {
-					Thread.sleep(99999);
+					Thread.sleep(5000);
 					vista.txt_usuario.setEnabled(true);
 					vista.pwd_password.setEnabled(true);
 					vista.btn_login.setEnabled(true);
