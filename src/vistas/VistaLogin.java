@@ -47,6 +47,10 @@ public class VistaLogin {
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
 
+        Image ico = new ImageIcon("images/carro.png").getImage();
+        frame.setIconImage(ico);
+        frame.setTitle("Smart Tienda 1.0");
+
         JLabel lbl_titulo = new JLabel("Smart Tienda 1.0");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
         lbl_titulo.setVerticalAlignment(SwingConstants.TOP);

@@ -13,7 +13,10 @@ import modelos.ModeloPantallaAdmin;
 public class ControladorLogin implements ActionListener {
 	VistaLogin vista;
 	ModeloLogin modelo;
-	public int intentos = 5;
+	private int intentos = 5;
+	private boolean check, valido;
+	private int usuario;
+	private String password;
 
 	public ControladorLogin(VistaLogin vista, ModeloLogin modelo) {
 		this.vista = vista;
@@ -41,9 +44,17 @@ public class ControladorLogin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == vista.btn_login) {
-			int usuario = Integer.parseInt(vista.txt_usuario.getText());
-			String password = new String(vista.pwd_password.getPassword());
-			boolean check = modelo.login(usuario, password);
+			try{
+				usuario = Integer.parseInt(vista.txt_usuario.getText());
+				password = new String(vista.pwd_password.getPassword());
+				valido = true;
+			}catch (Exception e1){
+				JOptionPane.showMessageDialog(null, "Ese no es un input Válido");
+				valido = false;
+			}
+			if (valido) {
+				check = modelo.login(usuario, password);
+			}
 			if(intentos!=0) {
 				if(check) {
 					Usuario user = modelo.devolverUsuario();
