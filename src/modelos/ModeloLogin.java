@@ -65,9 +65,7 @@ public class ModeloLogin {
 			e.printStackTrace();
 			return false;
 		}
-
 	}
-
 	public Usuario devolverUsuario() {
 		return usuarios.get(0);
 	}
