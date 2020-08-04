@@ -3,6 +3,7 @@ package vistas;
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
@@ -11,7 +12,7 @@ public class VistaAdminUsers {
 
     public JFrame frame;
     private final CustomColors colores = new CustomColors();
-    public JButton btn_alta, btn_baja,btn_modificar, btn_listar;
+    public JButton btn_alta, btn_baja,btn_modificar, btn_listar, btn_home;
     public boolean finished = false;
 
     public void lanzarVista(){
@@ -108,5 +109,13 @@ public class VistaAdminUsers {
         btn_listar.setBackground(colores.oscuro);
         btn_listar.setBounds(876, 269, 310, 55);
         frame.getContentPane().add(btn_listar);
+
+        btn_home = new JButton();
+        btn_home.setBackground(colores.oscuro);
+        btn_home.setIcon(new ImageIcon("images/home_icon.png"));
+        btn_home.setBounds(10, 700, 150, 150);
+        Border bord = BorderFactory.createLineBorder(colores.amarillo);
+        btn_home.setBorder(bord);
+        frame.getContentPane().add(btn_home);
     }
 }

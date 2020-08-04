@@ -1,43 +1,120 @@
 package vistas;
 
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import javax.swing.border.Border;
 
+import com.bulenkov.darcula.DarculaLaf;
+import crearColores.CustomColors;
 public class VistaAdminProv {
-
+    private final CustomColors colores = new CustomColors();
+    public JButton btn_regsitrar, btn_borrar,btn_modificar, btn_listar, btn_home;
     private JFrame frame;
+    public boolean finished = false;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    VistaAdminProv window = new VistaAdminProv();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
+    public void lanzarVista(){
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
                     e.printStackTrace();
                 }
+                break;
             }
-        });
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Create the application.
-     */
-    public VistaAdminProv() {
-        initialize();
-    }
-
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
+    private void crearGUI() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 450, 300);
+        frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1600, 900);
+        frame.getContentPane().setLayout(null);
+        frame.getContentPane().setBackground(colores.oscuro);
+
+        Image ico = new ImageIcon("images/carro.png").getImage();
+        frame.setIconImage(ico);
+        frame.setTitle("Smart Tienda 1.0");
+
+        JLabel lbl_titulo = new JLabel("Smart Tienda 1.0");
+        lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_titulo.setVerticalAlignment(SwingConstants.TOP);
+        lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
+        lbl_titulo.setForeground(colores.amarillo);
+        lbl_titulo.setBounds(560, 12, 463, 59);
+
+        frame.getContentPane().add(lbl_titulo);
+
+        //Placeholder para el reloj
+        JLabel lblNewLabel = new JLabel("Mon 3, Aug 2020 13:13:45 -0500");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblNewLabel.setBounds(1288, 800, 286, 50);
+        frame.getContentPane().add(lblNewLabel);
+
+        JLabel lbl_prov = new JLabel("Proveedores");
+        lbl_prov.setVerticalAlignment(SwingConstants.TOP);
+        lbl_prov.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_prov.setForeground(colores.amarillo);
+        lbl_prov.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_prov.setBounds(626, 91, 331, 59);
+        lbl_prov.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_prov);
+
+        btn_regsitrar = new JButton("Registrar");
+        btn_regsitrar.setToolTipText("Registrar un nuevo proveedor");
+        btn_regsitrar.setVerticalAlignment(SwingConstants.TOP);
+        btn_regsitrar.setForeground(colores.amarillo);
+        btn_regsitrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_regsitrar.setBounds(438, 170, 310, 55);
+        btn_regsitrar.setBackground(colores.oscuro);
+        frame.getContentPane().add(btn_regsitrar);
+
+        btn_borrar = new JButton("Borrar");
+        btn_borrar.setVerticalAlignment(SwingConstants.TOP);
+        btn_borrar.setToolTipText("Eliminar un proveedor");
+        btn_borrar.setForeground(colores.amarillo);
+        btn_borrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_borrar.setBackground(colores.oscuro);
+        btn_borrar.setBounds(876, 170, 310, 55);
+        frame.getContentPane().add(btn_borrar);
+
+        btn_modificar = new JButton("Modificar");
+        btn_modificar.setVerticalAlignment(SwingConstants.TOP);
+        btn_modificar.setToolTipText("Modificar un proveedor existente");
+        btn_modificar.setForeground(colores.amarillo);
+        btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_modificar.setBackground(colores.oscuro);
+        btn_modificar.setBounds(438, 269, 310, 55);
+        frame.getContentPane().add(btn_modificar);
+
+        btn_listar = new JButton("Listar");
+        btn_listar.setVerticalAlignment(SwingConstants.TOP);
+        btn_listar.setToolTipText("Mostrar todos los proveedores");
+        btn_listar.setForeground(colores.amarillo);
+        btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_listar.setBackground(colores.oscuro);
+        btn_listar.setBounds(876, 269, 310, 55);
+        frame.getContentPane().add(btn_listar);
+
+        btn_home = new JButton();
+        btn_home.setBackground(colores.oscuro);
+        btn_home.setIcon(new ImageIcon("images/home_icon.png"));
+        btn_home.setBounds(10, 700, 150, 150);
+        Border bord = BorderFactory.createLineBorder(colores.amarillo);
+        btn_home.setBorder(bord);
+        frame.getContentPane().add(btn_home);
     }
 
 }
