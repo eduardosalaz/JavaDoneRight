@@ -61,17 +61,16 @@ public class ControladorLogin implements ActionListener {
 					String nombre = user.getNombre();
 					JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
 					if(user.isAdmin()) {
-						VistaPantallaUser vistaUser = new VistaPantallaUser();
-						ModeloPantallaUser modeloUser = new ModeloPantallaUser();
-						ControladorPantallaUser controladorUser = new ControladorPantallaUser(vistaUser, modeloUser);
-						controladorUser.ejecutar();
-					}else {
 						VistaPantallaAdmin vistaAdmin = new VistaPantallaAdmin();
 						ModeloPantallaAdmin modeloAdmin = new ModeloPantallaAdmin();
 						vista.frame.dispose();
 						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin, modeloAdmin);
 
-
+					}else {
+						VistaPantallaUser vistaUser = new VistaPantallaUser();
+						ModeloPantallaUser modeloUser = new ModeloPantallaUser();
+						vista.frame.dispose();
+						ControladorPantallaUser controladorUser = new ControladorPantallaUser(vistaUser, modeloUser);
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");

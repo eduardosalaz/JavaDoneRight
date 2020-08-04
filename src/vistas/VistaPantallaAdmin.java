@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class VistaPantallaAdmin {
 	public CustomColors colores = new CustomColors();
-	public JFrame frame;
+	private JFrame frame;
 	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep;
 	public boolean finished = false;
 
@@ -62,7 +62,7 @@ public class VistaPantallaAdmin {
 		JLabel lbl_admin = new JLabel("Menú de Administrador");
 		lbl_admin.setVerticalAlignment(SwingConstants.TOP);
 		lbl_admin.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_admin.setForeground(new Color(253, 163, 17));
+		lbl_admin.setForeground(colores.amarillo);
 		lbl_admin.setFont(new Font("Bahnschrift", Font.BOLD, 48));
 		lbl_admin.setBounds(519, 91, 545, 59);
 		frame.getContentPane().add(lbl_admin);

@@ -20,14 +20,12 @@ public class ControladorPantallaAdmin implements ActionListener {
 		System.out.println("vista admin finalizada");
 		agregarListeners();
 	}
-	public void agregarListeners(){
+	private void agregarListeners(){
 		if (vistaAdmin.finished) {
 			vistaAdmin.btn_prod.addActionListener(this);
 			vistaAdmin.btn_prov.addActionListener(this);
 			vistaAdmin.btn_rep.addActionListener(this);
 			vistaAdmin.btn_usuarios.addActionListener(this);
-		}else{
-
 		}
 	}
 
