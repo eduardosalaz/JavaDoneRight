@@ -1,26 +1,18 @@
 package vistas;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import java.awt.Color;
-import javax.swing.JButton;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class VistaPantallaAdmin {
 	public CustomColors colores = new CustomColors();
+	public JFrame frame;
+	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep;
+	public boolean finished = false;
 
-	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	public void lanzarVista(){
 		for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 			if ("Nimbus".equals(info.getName())) {
 				try{
@@ -31,29 +23,17 @@ public class VistaPantallaAdmin {
 				break;
 			}
 		}
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaPantallaAdmin window = new VistaPantallaAdmin();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+			try {
+				crearGUI();
+				frame.setVisible(true);
+				frame.setResizable(false);
+				finished = true;
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public VistaPantallaAdmin() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public void crearGUI(){
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
 		frame.setBounds(100, 100, 1600, 900);
@@ -73,6 +53,7 @@ public class VistaPantallaAdmin {
 		lbl_titulo.setBounds(560, 12, 463, 59);
 		frame.getContentPane().add(lbl_titulo);
 
+		//Placeholder para el reloj
 		JLabel lblNewLabel = new JLabel("Mon 3, Aug 2020 13:13:45 -0500");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(1288, 800, 286, 50);
@@ -86,28 +67,28 @@ public class VistaPantallaAdmin {
 		lbl_admin.setBounds(519, 91, 545, 59);
 		frame.getContentPane().add(lbl_admin);
 
-		JButton btn_usuarios = new JButton("Usuarios");
+		btn_usuarios = new JButton("Usuarios");
 		btn_usuarios.setVerticalAlignment(SwingConstants.TOP);
 		btn_usuarios.setForeground(colores.amarillo);
 		btn_usuarios.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_usuarios.setBounds(438, 170, 310, 55);
 		frame.getContentPane().add(btn_usuarios);
 
-		JButton btn_prod = new JButton("Productos");
+		btn_prod = new JButton("Productos");
 		btn_prod.setVerticalAlignment(SwingConstants.TOP);
 		btn_prod.setForeground(colores.amarillo);
 		btn_prod.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_prod.setBounds(838, 170, 310, 55);
 		frame.getContentPane().add(btn_prod);
 
-		JButton btn_prov = new JButton("Proveedores");
+		btn_prov = new JButton("Proveedores");
 		btn_prov.setVerticalAlignment(SwingConstants.TOP);
 		btn_prov.setForeground(colores.amarillo);
 		btn_prov.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_prov.setBounds(438, 331, 310, 55);
 		frame.getContentPane().add(btn_prov);
 
-		JButton btn_rep = new JButton("Reportes");
+		btn_rep = new JButton("Reportes");
 		btn_rep.setVerticalAlignment(SwingConstants.TOP);
 		btn_rep.setForeground(colores.amarillo);
 		btn_rep.setFont(new Font("Bahnschrift", Font.PLAIN, 48));

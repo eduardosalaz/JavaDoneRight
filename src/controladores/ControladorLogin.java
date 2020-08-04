@@ -68,8 +68,10 @@ public class ControladorLogin implements ActionListener {
 					}else {
 						VistaPantallaAdmin vistaAdmin = new VistaPantallaAdmin();
 						ModeloPantallaAdmin modeloAdmin = new ModeloPantallaAdmin();
+						vista.frame.dispose();
 						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin, modeloAdmin);
-						controladorAdmin.ejecutar();
+
+
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");
