@@ -9,10 +9,9 @@ public class VistaAdmAltaUser {
     public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
+    public JTextField txt_id, txt_contra, txt_nombre, txt_tel;
+    public JCheckBox chck_admin;
+    public JButton btn_crear;
 
 
     /**
@@ -78,78 +77,78 @@ public class VistaAdmAltaUser {
         lbl_productos.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_productos);
 
-        JLabel lblNewLabel_1 = new JLabel("ID del Usuario:");
-        lblNewLabel_1.setBackground(colores.oscuro);
-        lblNewLabel_1.setForeground(colores.amarillo);
-        lblNewLabel_1.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblNewLabel_1.setBounds(10, 200, 350, 60);
-        frame.getContentPane().add(lblNewLabel_1);
+        JLabel lbl_id = new JLabel("ID del Usuario:");
+        lbl_id.setBackground(colores.oscuro);
+        lbl_id.setForeground(colores.amarillo);
+        lbl_id.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_id.setBounds(10, 200, 350, 60);
+        frame.getContentPane().add(lbl_id);
 
-        JLabel lblNewLabel_1_1 = new JLabel("Contraseña:");
-        lblNewLabel_1_1.setForeground(colores.amarillo);
-        lblNewLabel_1_1.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblNewLabel_1_1.setBackground(colores.oscuro);
-        lblNewLabel_1_1.setBounds(10, 370, 350, 60);
-        frame.getContentPane().add(lblNewLabel_1_1);
+        JLabel lbl_contra = new JLabel("Contraseña:");
+        lbl_contra.setForeground(colores.amarillo);
+        lbl_contra.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_contra.setBackground(colores.oscuro);
+        lbl_contra.setBounds(10, 370, 350, 60);
+        frame.getContentPane().add(lbl_contra);
 
-        textField = new JTextField();
-        textField.setForeground(colores.azul);
-        textField.setBackground(colores.oscuro);
-        textField.setFont(new Font("Carlito", Font.PLAIN, 35));
-        textField.setBounds(370, 200, 350, 50);
-        frame.getContentPane().add(textField);
-        textField.setColumns(10);
+        txt_id = new JTextField();
+        txt_id.setForeground(colores.azul);
+        txt_id.setBackground(colores.oscuro);
+        txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_id.setBounds(370, 200, 350, 50);
+        frame.getContentPane().add(txt_id);
+        txt_id.setColumns(10);
 
-        textField_1 = new JTextField();
-        textField_1.setForeground(colores.azul);
-        textField_1.setBackground(colores.oscuro);
-        textField_1.setFont(new Font("Carlito", Font.PLAIN, 35));
-        textField_1.setColumns(10);
-        textField_1.setBounds(370, 370, 350, 50);
-        frame.getContentPane().add(textField_1);
+        txt_contra = new JTextField();
+        txt_contra.setForeground(colores.azul);
+        txt_contra.setBackground(colores.oscuro);
+        txt_contra.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_contra.setColumns(10);
+        txt_contra.setBounds(370, 370, 350, 50);
+        frame.getContentPane().add(txt_contra);
 
-        JLabel lblNewLabel_1_2 = new JLabel("Nombre Completo:");
-        lblNewLabel_1_2.setForeground(colores.amarillo);
-        lblNewLabel_1_2.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblNewLabel_1_2.setBackground(colores.oscuro);
-        lblNewLabel_1_2.setBounds(864, 200, 350, 60);
-        frame.getContentPane().add(lblNewLabel_1_2);
+        JLabel lbl_nombre = new JLabel("Nombre Completo:");
+        lbl_nombre.setForeground(colores.amarillo);
+        lbl_nombre.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_nombre.setBackground(colores.oscuro);
+        lbl_nombre.setBounds(864, 200, 350, 60);
+        frame.getContentPane().add(lbl_nombre);
 
-        textField_2 = new JTextField();
-        textField_2.setForeground(colores.azul);
-        textField_2.setBackground(colores.oscuro);
-        textField_2.setFont(new Font("Carlito", Font.PLAIN, 35));
-        textField_2.setColumns(10);
-        textField_2.setBounds(1224, 200, 350, 50);
-        frame.getContentPane().add(textField_2);
+        txt_nombre = new JTextField();
+        txt_nombre.setForeground(colores.azul);
+        txt_nombre.setBackground(colores.oscuro);
+        txt_nombre.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_nombre.setColumns(10);
+        txt_nombre.setBounds(1224, 200, 350, 50);
+        frame.getContentPane().add(txt_nombre);
 
-        JLabel lblNewLabel_1_2_1 = new JLabel("Teléfono Celular:");
-        lblNewLabel_1_2_1.setForeground(colores.amarillo);
-        lblNewLabel_1_2_1.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lblNewLabel_1_2_1.setBackground(colores.oscuro);
-        lblNewLabel_1_2_1.setBounds(864, 370, 350, 60);
-        frame.getContentPane().add(lblNewLabel_1_2_1);
+        JLabel lbl_tel = new JLabel("Teléfono Celular:");
+        lbl_tel.setForeground(colores.amarillo);
+        lbl_tel.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_tel.setBackground(colores.oscuro);
+        lbl_tel.setBounds(864, 370, 350, 60);
+        frame.getContentPane().add(lbl_tel);
 
-        textField_3 = new JTextField();
-        textField_3.setForeground(colores.azul);
-        textField_3.setBackground(colores.oscuro);
-        textField_3.setFont(new Font("Carlito", Font.PLAIN, 35));
-        textField_3.setColumns(10);
-        textField_3.setBounds(1224, 370, 350, 50);
-        frame.getContentPane().add(textField_3);
+        txt_tel = new JTextField();
+        txt_tel.setForeground(colores.azul);
+        txt_tel.setBackground(colores.oscuro);
+        txt_tel.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_tel.setColumns(10);
+        txt_tel.setBounds(1224, 370, 350, 50);
+        frame.getContentPane().add(txt_tel);
 
-        JCheckBox chckbxNewCheckBox = new JCheckBox("¿Administrador?");
-        chckbxNewCheckBox.setBackground(colores.oscuro);
-        chckbxNewCheckBox.setForeground(colores.amarillo);
-        chckbxNewCheckBox.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        chckbxNewCheckBox.setBounds(634, 513, 315, 60);
-        frame.getContentPane().add(chckbxNewCheckBox);
+        chck_admin = new JCheckBox("¿Administrador?");
+        chck_admin.setBackground(colores.oscuro);
+        chck_admin.setForeground(colores.amarillo);
+        chck_admin.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        chck_admin.setBounds(634, 513, 315, 60);
+        frame.getContentPane().add(chck_admin);
 
-        JButton btnNewButton = new JButton("Crear Usuario");
-        btnNewButton.setForeground(colores.amarillo);
-        btnNewButton.setBackground(colores.oscuro);
-        btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-        btnNewButton.setBounds(584, 635, 416, 74);
-        frame.getContentPane().add(btnNewButton);
+        btn_crear = new JButton("Crear Usuario");
+        btn_crear.setForeground(colores.amarillo);
+        btn_crear.setBackground(colores.oscuro);
+        btn_crear.setFont(new Font("Bahnschrift", Font.BOLD, 50));
+        btn_crear.setBounds(584, 635, 416, 74);
+        frame.getContentPane().add(btn_crear);
     }
 }
