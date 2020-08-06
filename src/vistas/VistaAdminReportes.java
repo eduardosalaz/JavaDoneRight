@@ -1,5 +1,6 @@
 package vistas;
 
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
 import java.awt.*;
@@ -9,37 +10,33 @@ import javax.swing.border.Border;
 
 public class VistaAdminReportes {
 
-    private JFrame frame;
+    public JFrame frame;
     public JButton btn_home;
     private final CustomColors colores = new CustomColors();
+    public boolean finished = false;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    VistaAdminReportes window = new VistaAdminReportes();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
+    public void lanzarVista(){
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
                     e.printStackTrace();
                 }
+                break;
             }
-        });
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Create the application.
-     */
-    public VistaAdminReportes() {
-        initialize();
-    }
-
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
+    private void crearGUI() {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift",  Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);

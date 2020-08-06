@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class VistaPantallaAdmin {
 	public CustomColors colores = new CustomColors();
-	private JFrame frame;
+	public JFrame frame;
 	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep;
 	public boolean finished = false;
 

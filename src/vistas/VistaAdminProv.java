@@ -10,7 +10,7 @@ import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 public class VistaAdminProv {
     private final CustomColors colores = new CustomColors();
-    public JButton btn_regsitrar, btn_borrar,btn_modificar, btn_listar, btn_home;
+    public JButton btn_registrar, btn_borrar,btn_modificar, btn_listar, btn_home;
     private JFrame frame;
     public boolean finished = false;
 
@@ -72,14 +72,14 @@ public class VistaAdminProv {
         lbl_prov.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_prov);
 
-        btn_regsitrar = new JButton("Registrar");
-        btn_regsitrar.setToolTipText("Registrar un nuevo proveedor");
-        btn_regsitrar.setVerticalAlignment(SwingConstants.TOP);
-        btn_regsitrar.setForeground(colores.amarillo);
-        btn_regsitrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_regsitrar.setBounds(438, 170, 310, 55);
-        btn_regsitrar.setBackground(colores.oscuro);
-        frame.getContentPane().add(btn_regsitrar);
+        btn_registrar = new JButton("Registrar");
+        btn_registrar.setToolTipText("Registrar un nuevo proveedor");
+        btn_registrar.setVerticalAlignment(SwingConstants.TOP);
+        btn_registrar.setForeground(colores.amarillo);
+        btn_registrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_registrar.setBounds(438, 170, 310, 55);
+        btn_registrar.setBackground(colores.oscuro);
+        frame.getContentPane().add(btn_registrar);
 
         btn_borrar = new JButton("Borrar");
         btn_borrar.setVerticalAlignment(SwingConstants.TOP);
