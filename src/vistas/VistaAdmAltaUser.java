@@ -1,8 +1,10 @@
 package vistas;
 
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class VistaAdmAltaUser {
@@ -11,36 +13,31 @@ public class VistaAdmAltaUser {
     public boolean finished = false;
     public JTextField txt_id, txt_contra, txt_nombre, txt_tel;
     public JCheckBox chck_admin;
-    public JButton btn_crear;
+    public JButton btn_crear, btn_home;
 
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    VistaAdmAltaUser window = new VistaAdmAltaUser();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
+    public void lanzarVista(){
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
                     e.printStackTrace();
                 }
+                break;
             }
-        });
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Create the application.
-     */
-    public VistaAdmAltaUser() {
-        initialize();
-    }
-
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
+    private void crearGUI() {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
@@ -141,7 +138,7 @@ public class VistaAdmAltaUser {
         chck_admin.setBackground(colores.oscuro);
         chck_admin.setForeground(colores.amarillo);
         chck_admin.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        chck_admin.setBounds(634, 513, 315, 60);
+        chck_admin.setBounds(627, 513, 330, 60);
         frame.getContentPane().add(chck_admin);
 
         btn_crear = new JButton("Crear Usuario");
@@ -150,5 +147,13 @@ public class VistaAdmAltaUser {
         btn_crear.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_crear.setBounds(584, 635, 416, 74);
         frame.getContentPane().add(btn_crear);
+
+        btn_home = new JButton();
+        btn_home.setBackground(colores.oscuro);
+        btn_home.setIcon(new ImageIcon("images/home_icon.png"));
+        btn_home.setBounds(10, 700, 150, 150);
+        Border bord = BorderFactory.createLineBorder(colores.amarillo);
+        btn_home.setBorder(bord);
+        frame.getContentPane().add(btn_home);
     }
 }
