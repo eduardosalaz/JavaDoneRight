@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 import javax.swing.JTable;
 
@@ -22,36 +23,31 @@ public class VistaAdmListUser {
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    public JTextField txt_id;
-    public JButton btn_crear, btn_home;
+    public JButton btn_home;
     private JTable table;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaAdmListUser window = new VistaAdmListUser();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public VistaAdmListUser() {
-		initialize();
-	}
+    public void lanzarVista(){
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	private void crearGUI() {
 		frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
@@ -79,14 +75,14 @@ public class VistaAdmListUser {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_productos = new JLabel("Lista de todos los usuarios:");
-        lbl_productos.setVerticalAlignment(SwingConstants.TOP);
-        lbl_productos.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_productos.setForeground(colores.amarillo);
-        lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_productos.setBounds(436, 91, 712, 59);
-        lbl_productos.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_productos);
+        JLabel lbl_lista = new JLabel("Lista de todos los usuarios:");
+        lbl_lista.setVerticalAlignment(SwingConstants.TOP);
+        lbl_lista.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_lista.setForeground(colores.amarillo);
+        lbl_lista.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_lista.setBounds(436, 91, 712, 59);
+        lbl_lista.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_lista);
         
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
