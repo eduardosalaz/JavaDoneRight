@@ -16,8 +16,6 @@ public class ModeloAdmAltaUser {
     ResultSet rs = null;
     Connection con;
 
-    public ModeloAdmAltaUser(){
-    }
     public void recibir(String nombre, String pass, String tel, int id, boolean admin){
         this.nombre = nombre;
         this.pass = pass;
@@ -43,4 +41,5 @@ public class ModeloAdmAltaUser {
             e.printStackTrace();
         }
     }
+    //todo cerrar la conexión
 }
