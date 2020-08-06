@@ -11,7 +11,7 @@ import crearColores.CustomColors;
 public class VistaAdminProv {
     private final CustomColors colores = new CustomColors();
     public JButton btn_registrar, btn_borrar,btn_modificar, btn_listar, btn_home;
-    private JFrame frame;
+    public JFrame frame;
     public boolean finished = false;
 
     public void lanzarVista(){

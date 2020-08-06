@@ -1,18 +1,15 @@
 package controladores;
-import modelos.ModeloPantallaUser;
 import vistas.VistaPantallaUser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControladorPantallaUser implements ActionListener {
-	
-	public ModeloPantallaUser modeloUser;
+
 	public VistaPantallaUser vistaUser;
 	
-	public ControladorPantallaUser(VistaPantallaUser vista, ModeloPantallaUser modelo) {
+	public ControladorPantallaUser(VistaPantallaUser vista) {
 		vistaUser = vista;
-		modeloUser = modelo;
 		ejecutar();
 	}
 

@@ -1,5 +1,6 @@
 package controladores;
 import vistas.VistaAdminProv;
+import vistas.VistaPantallaAdmin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,8 @@ public class ControladorAdminProv implements ActionListener {
         if(e.getSource() == vista.btn_borrar){
             System.out.println("borrar");
         }else if(e.getSource() == vista.btn_home){
-            System.out.println("home");
+            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
+            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
         }else if(e.getSource() == vista.btn_listar){
             System.out.println("listar");
         }else if(e.getSource() == vista.btn_modificar){
@@ -41,5 +43,6 @@ public class ControladorAdminProv implements ActionListener {
         }else if(e.getSource() == vista.btn_registrar){
             System.out.println("registrar");
         }
+        vista.frame.dispose();
     }
 }

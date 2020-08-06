@@ -7,8 +7,6 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 import modelos.ModeloLogin;
 import modelos.Usuario;
-import modelos.ModeloPantallaUser;
-import modelos.ModeloPantallaAdmin;
 
 public class ControladorLogin implements ActionListener {
 	VistaLogin vista;
@@ -62,16 +60,13 @@ public class ControladorLogin implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
 					if(user.isAdmin()) {
 						VistaPantallaAdmin vistaAdmin = new VistaPantallaAdmin();
-						ModeloPantallaAdmin modeloAdmin = new ModeloPantallaAdmin();
-						vista.frame.dispose();
-						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin, modeloAdmin);
+						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin);
 
 					}else {
 						VistaPantallaUser vistaUser = new VistaPantallaUser();
-						ModeloPantallaUser modeloUser = new ModeloPantallaUser();
-						vista.frame.dispose();
-						ControladorPantallaUser controladorUser = new ControladorPantallaUser(vistaUser, modeloUser);
+						ControladorPantallaUser controladorUser = new ControladorPantallaUser(vistaUser);
 					}
+					vista.frame.dispose();
 				}else {
 					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");
 					intentos--;
