@@ -77,6 +77,10 @@ public class ControladorAdmModUser implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
+        }else if(e.getSource() == vista.btn_home){
+            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
+            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+            vista.frame.dispose();
         }
     }
 }

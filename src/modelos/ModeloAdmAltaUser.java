@@ -5,7 +5,6 @@ import DBManager.Conexion;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModeloAdmAltaUser {
@@ -48,5 +47,4 @@ public class ModeloAdmAltaUser {
             }
         }
     }
-    //todo cerrar la conexión
 }

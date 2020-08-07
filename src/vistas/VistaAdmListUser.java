@@ -1,22 +1,12 @@
 package vistas;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import javax.swing.JTable;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class VistaAdmListUser {
 
@@ -24,7 +14,7 @@ public class VistaAdmListUser {
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JButton btn_home;
-    private JTable table;
+    public JTable table;
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -91,9 +81,25 @@ public class VistaAdmListUser {
         Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
-        
-        table = new JTable();
-        table.setBounds(254, 146, 1076, 664);
-        frame.getContentPane().add(table);
+        String[] nombreCol = {"ID", "Nombre", "Contraseña", "Admin", "Telefono", "Fecha de Alta", "Última sesión"};
+        DefaultTableModel dtm= new DefaultTableModel()
+        {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;
+            }
+        };
+        dtm.setColumnIdentifiers(nombreCol);
+        table = new JTable(dtm);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table.setFillsViewportHeight(true);
+        JScrollPane scroll = new JScrollPane(table);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBounds(254, 146, 1076, 664);
+        frame.getContentPane().add(scroll);
 	}
 }

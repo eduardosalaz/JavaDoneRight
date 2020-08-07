@@ -1,5 +1,6 @@
 package controladores;
 import modelos.ModeloAdmBajaUser;
+import modelos.ModeloAdmListUser;
 import modelos.ModeloAdmModUser;
 import vistas.*;
 import modelos.ModeloAdmAltaUser;
@@ -16,7 +17,6 @@ public class ControladorAdminUsers implements ActionListener {
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista admin users lista");
         agregarListeners();
     }
 
@@ -36,24 +36,22 @@ public class ControladorAdminUsers implements ActionListener {
             VistaAdmAltaUser vistaAdmAltaUser = new VistaAdmAltaUser();
             ModeloAdmAltaUser modeloAdmAltaUser = new ModeloAdmAltaUser();
             ControladorAdmAltaUser controladorAdmAltaUser = new ControladorAdmAltaUser(vistaAdmAltaUser, modeloAdmAltaUser);
-            System.out.println("alta");
         }else if(e.getSource() == vista.btn_baja){
             VistaAdmBajaUser vistaAdmBajaUser = new VistaAdmBajaUser();
             ModeloAdmBajaUser modeloAdmBajaUser = new ModeloAdmBajaUser();
             ControladorAdmBajaUser controladorAdmBajaUser = new ControladorAdmBajaUser(vistaAdmBajaUser, modeloAdmBajaUser);
-            System.out.println("baja");
         }else if(e.getSource() == vista.btn_modificar){
             VistaAdmModUser vistaAdmModUser = new VistaAdmModUser();
             ModeloAdmModUser modeloAdmModUser = new ModeloAdmModUser();
             ControladorAdmModUser controladorAdmModUser = new ControladorAdmModUser(vistaAdmModUser, modeloAdmModUser);
         }else if(e.getSource() == vista.btn_listar){
-            System.out.println("listar");
+            VistaAdmListUser vistaAdmListUser = new VistaAdmListUser();
+            ModeloAdmListUser modeloAdmListUser = new ModeloAdmListUser();
+            ControladorAdmListUser controladorAdmListUser = new ControladorAdmListUser(vistaAdmListUser, modeloAdmListUser);
         }else if(e.getSource() == vista.btn_home){
             VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
             ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
-            System.out.println("home");
         }
         vista.frame.dispose();
-
     }
 }
