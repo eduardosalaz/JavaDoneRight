@@ -64,6 +64,14 @@ public class ModeloLogin {
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return false;
+		}finally {
+			try{
+				con.close();
+				rs.close();
+				pstm.close();
+			}catch(SQLException e3){
+				e3.printStackTrace();
+			}
 		}
 	}
 	public Usuario devolverUsuario() {

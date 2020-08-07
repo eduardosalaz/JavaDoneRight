@@ -1,4 +1,6 @@
 package controladores;
+import modelos.ModeloAdmBajaUser;
+import vistas.VistaAdmBajaUser;
 import vistas.VistaAdminUsers;
 import vistas.VistaPantallaAdmin;
 import vistas.VistaAdmAltaUser;
@@ -38,6 +40,9 @@ public class ControladorAdminUsers implements ActionListener {
             ControladorAdmAltaUser controladorAdmAltaUser = new ControladorAdmAltaUser(vistaAdmAltaUser, modeloAdmAltaUser);
             System.out.println("alta");
         }else if(e.getSource() == vista.btn_baja){
+            VistaAdmBajaUser vistaAdmBajaUser = new VistaAdmBajaUser();
+            ModeloAdmBajaUser modeloAdmBajaUser = new ModeloAdmBajaUser();
+            ControladorAdmBajaUser controladorAdmBajaUser = new ControladorAdmBajaUser(vistaAdmBajaUser, modeloAdmBajaUser);
             System.out.println("baja");
         }else if(e.getSource() == vista.btn_modificar){
             System.out.println("modificar");

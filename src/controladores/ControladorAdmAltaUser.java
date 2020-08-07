@@ -26,10 +26,12 @@ public class ControladorAdmAltaUser implements ActionListener{
     }
 
     private void agregarListeners() {
-        vista.btn_crear.addActionListener(this);
-        vista.btn_home.addActionListener(this);
-    }
+        if(vista.finished){
+            vista.btn_crear.addActionListener(this);
+            vista.btn_home.addActionListener(this);
+        }
 
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -41,15 +43,19 @@ public class ControladorAdmAltaUser implements ActionListener{
                 String nombre = vista.txt_nombre.getText();
                 String pass = vista.txt_contra.getText();
                 String tel = vista.txt_tel.getText();
-                boolean admin = vista.chck_admin.isSelected();
-                int id;
-                try{
-                    id = Integer.parseInt(vista.txt_id.getText());
-                    System.out.println("Nombre: " + nombre + " pass: " + pass + " tel: " + tel + " id: " + id + " admin: " + admin);
-                    modelo.recibir(nombre, pass, tel, id, admin);
-                    modelo.ejecutar();
-                }catch (NumberFormatException e2){
-                    JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
+                if(tel.length() > 10){
+                    JOptionPane.showMessageDialog(null, "Número telefónico demasiado largo", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    boolean admin = vista.chck_admin.isSelected();
+                    int id;
+                    try{
+                        id = Integer.parseInt(vista.txt_id.getText());
+                        System.out.println("Nombre: " + nombre + " pass: " + pass + " tel: " + tel + " id: " + id + " admin: " + admin);
+                        modelo.recibir(nombre, pass, tel, id, admin);
+                        modelo.ejecutar();
+                    }catch (NumberFormatException e2){
+                        JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         }else if(e.getSource() == vista.btn_home){

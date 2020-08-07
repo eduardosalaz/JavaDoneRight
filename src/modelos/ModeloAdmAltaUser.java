@@ -13,7 +13,6 @@ public class ModeloAdmAltaUser {
     int id;
     boolean admin;
     public static PreparedStatement pstm = null;
-    ResultSet rs = null;
     Connection con;
 
     public void recibir(String nombre, String pass, String tel, int id, boolean admin){
@@ -37,8 +36,16 @@ public class ModeloAdmAltaUser {
             pstm.executeUpdate();
             String message = "Usuario " + nombre + " creado con éxito";
             JOptionPane.showMessageDialog(null, message);
-        }catch (SQLException e){
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese ID", "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
+        } finally {
+            try{
+                con.close();
+                pstm.close();
+            }catch(SQLException e3){
+                e3.printStackTrace();
+            }
         }
     }
     //todo cerrar la conexión
