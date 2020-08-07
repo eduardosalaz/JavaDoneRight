@@ -53,7 +53,6 @@ public class ModeloLogin {
 						return false;
 					}
 				}else {
-
 					JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
 					return false;
 				}
