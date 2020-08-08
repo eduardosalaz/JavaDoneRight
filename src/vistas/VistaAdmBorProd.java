@@ -1,20 +1,11 @@
 package vistas;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 
 public class VistaAdmBorProd {
 
@@ -22,34 +13,33 @@ public class VistaAdmBorProd {
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
-    public JButton btn_crear, btn_home;
+    public JButton btn_borrar, btn_home;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaAdmBorProd window = new VistaAdmBorProd();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public VistaAdmBorProd() {
-		initialize();
-	}
+    public void lanzarVista(){
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	private void crearGUI() {
 		frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
@@ -89,9 +79,9 @@ public class VistaAdmBorProd {
         JLabel lbl_productos_1 = new JLabel("Inserte la clave del producto a borrar");
         lbl_productos_1.setVerticalAlignment(SwingConstants.TOP);
         lbl_productos_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_productos_1.setForeground(new Color(253, 163, 17));
+        lbl_productos_1.setForeground(colores.amarillo);
         lbl_productos_1.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-        lbl_productos_1.setBackground(new Color(60, 63, 65));
+        lbl_productos_1.setBackground(colores.oscuro);
         lbl_productos_1.setBounds(436, 230, 712, 59);
         frame.getContentPane().add(lbl_productos_1);
         
@@ -104,12 +94,12 @@ public class VistaAdmBorProd {
         frame.getContentPane().add(txt_id);
         txt_id.setColumns(10);
         
-        btn_crear = new JButton("Borrar Producto");
-        btn_crear.setForeground(colores.amarillo);
-        btn_crear.setBackground(colores.oscuro);
-        btn_crear.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-        btn_crear.setBounds(558, 635, 468, 74);
-        frame.getContentPane().add(btn_crear);
+        btn_borrar = new JButton("Borrar Producto");
+        btn_borrar.setForeground(colores.amarillo);
+        btn_borrar.setBackground(colores.oscuro);
+        btn_borrar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
+        btn_borrar.setBounds(558, 635, 468, 74);
+        frame.getContentPane().add(btn_borrar);
         
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);

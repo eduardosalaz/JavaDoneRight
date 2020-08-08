@@ -1,60 +1,44 @@
 package vistas;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import java.awt.Color;
-import javax.swing.JSpinner;
-import javax.swing.JComboBox;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 
 public class VistaAdmRegProd {
 
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    public JTextField txt_id, txt_contra;
-    public JCheckBox chck_admin;
-    public JButton btn_crear, btn_home;
-    private JTextField textField;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaAdmRegProd window = new VistaAdmRegProd();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
+    public JTextField txt_cve, txt_nom, txt_prec;
+    public JButton btn_reg, btn_home;
+    public JSpinner spn_inv;
+    public JComboBox cmb_cat, cmb_prov;
+
+	public void lanzarVista(){
+		for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+			if ("Nimbus".equals(info.getName())) {
+				try{
+					javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+				}catch (Exception e){
 					e.printStackTrace();
 				}
+				break;
 			}
-		});
+		}
+		try {
+			crearGUI();
+			frame.setVisible(true);
+			frame.setResizable(false);
+			finished = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public VistaAdmRegProd() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	private void crearGUI() {
 		 frame = new JFrame();
 	        frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
 	        frame.setBounds(100, 100, 1600, 900);
@@ -91,56 +75,56 @@ public class VistaAdmRegProd {
 	        lbl_productos.setBackground(colores.oscuro);
 	        frame.getContentPane().add(lbl_productos);
 	        
-	        JLabel lbl_id = new JLabel("Clave del producto:");
-	        lbl_id.setBackground(colores.oscuro);
-	        lbl_id.setForeground(colores.amarillo);
-	        lbl_id.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_id.setBounds(10, 200, 350, 60);
-	        frame.getContentPane().add(lbl_id);
+	        JLabel lbl_cve = new JLabel("Clave del producto:");
+	        lbl_cve.setBackground(colores.oscuro);
+	        lbl_cve.setForeground(colores.amarillo);
+	        lbl_cve.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_cve.setBounds(10, 200, 350, 60);
+	        frame.getContentPane().add(lbl_cve);
 
-	        JLabel lbl_contra = new JLabel("Nombre:");
-	        lbl_contra.setForeground(colores.amarillo);
-	        lbl_contra.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_contra.setBackground(colores.oscuro);
-	        lbl_contra.setBounds(10, 370, 350, 60);
-	        frame.getContentPane().add(lbl_contra);
+	        JLabel lbl_nom = new JLabel("Nombre:");
+	        lbl_nom.setForeground(colores.amarillo);
+	        lbl_nom.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_nom.setBackground(colores.oscuro);
+	        lbl_nom.setBounds(10, 370, 350, 60);
+	        frame.getContentPane().add(lbl_nom);
 
-	        txt_id = new JTextField();
-	        txt_id.setForeground(colores.azul);
-	        txt_id.setBackground(colores.oscuro);
-	        txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        txt_id.setBounds(370, 200, 350, 50);
-	        frame.getContentPane().add(txt_id);
-	        txt_id.setColumns(10);
+	        txt_cve = new JTextField();
+	        txt_cve.setForeground(colores.azul);
+	        txt_cve.setBackground(colores.oscuro);
+	        txt_cve.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        txt_cve.setBounds(370, 200, 350, 50);
+	        frame.getContentPane().add(txt_cve);
+	        txt_cve.setColumns(10);
 
-	        txt_contra = new JTextField();
-	        txt_contra.setForeground(colores.azul);
-	        txt_contra.setBackground(colores.oscuro);
-	        txt_contra.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        txt_contra.setColumns(10);
-	        txt_contra.setBounds(370, 370, 350, 50);
-	        frame.getContentPane().add(txt_contra);
+	        txt_nom = new JTextField();
+	        txt_nom.setForeground(colores.azul);
+	        txt_nom.setBackground(colores.oscuro);
+	        txt_nom.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        txt_nom.setColumns(10);
+	        txt_nom.setBounds(370, 370, 350, 50);
+	        frame.getContentPane().add(txt_nom);
 
-	        JLabel lbl_nombre = new JLabel("Existencias:");
-	        lbl_nombre.setForeground(colores.amarillo);
-	        lbl_nombre.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_nombre.setBackground(colores.oscuro);
-	        lbl_nombre.setBounds(864, 200, 350, 60);
-	        frame.getContentPane().add(lbl_nombre);
+	        JLabel lbl_inv = new JLabel("Existencias:");
+	        lbl_inv.setForeground(colores.amarillo);
+	        lbl_inv.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_inv.setBackground(colores.oscuro);
+	        lbl_inv.setBounds(864, 200, 350, 60);
+	        frame.getContentPane().add(lbl_inv);
 
-	        JLabel lbl_tel = new JLabel("Categoría");
-	        lbl_tel.setForeground(colores.amarillo);
-	        lbl_tel.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_tel.setBackground(colores.oscuro);
-	        lbl_tel.setBounds(864, 370, 350, 60);
-	        frame.getContentPane().add(lbl_tel);
+	        JLabel lbl_cat = new JLabel("Categoría");
+	        lbl_cat.setForeground(colores.amarillo);
+	        lbl_cat.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_cat.setBackground(colores.oscuro);
+	        lbl_cat.setBounds(864, 370, 350, 60);
+	        frame.getContentPane().add(lbl_cat);
 	        
-	        btn_crear = new JButton("Registrar Producto");
-	        btn_crear.setForeground(colores.amarillo);
-	        btn_crear.setBackground(colores.oscuro);
-	        btn_crear.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-	        btn_crear.setBounds(532, 635, 519, 74);
-	        frame.getContentPane().add(btn_crear);
+	        btn_reg = new JButton("Registrar Producto");
+	        btn_reg.setForeground(colores.amarillo);
+	        btn_reg.setBackground(colores.oscuro);
+	        btn_reg.setFont(new Font("Bahnschrift", Font.BOLD, 50));
+	        btn_reg.setBounds(532, 635, 519, 74);
+	        frame.getContentPane().add(btn_reg);
 
 	        btn_home = new JButton();
 	        btn_home.setBackground(colores.oscuro);
@@ -150,41 +134,41 @@ public class VistaAdmRegProd {
 	        btn_home.setBorder(bord);
 	        frame.getContentPane().add(btn_home);
 	        
-	        JLabel lbl_tel_1 = new JLabel("ID del proveedor:");
-	        lbl_tel_1.setForeground(new Color(253, 163, 17));
-	        lbl_tel_1.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_tel_1.setBackground(new Color(60, 63, 65));
-	        lbl_tel_1.setBounds(864, 540, 350, 60);
-	        frame.getContentPane().add(lbl_tel_1);
+	        JLabel lbl_prov = new JLabel("Proveedor:");
+	        lbl_prov.setForeground(new Color(253, 163, 17));
+	        lbl_prov.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_prov.setBackground(new Color(60, 63, 65));
+	        lbl_prov.setBounds(864, 540, 350, 60);
+	        frame.getContentPane().add(lbl_prov);
 	        
-	        JLabel lbl_tel_1_1 = new JLabel("Precio: ");
-	        lbl_tel_1_1.setForeground(new Color(253, 163, 17));
-	        lbl_tel_1_1.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_tel_1_1.setBackground(new Color(60, 63, 65));
-	        lbl_tel_1_1.setBounds(10, 540, 350, 60);
-	        frame.getContentPane().add(lbl_tel_1_1);
+	        JLabel lbl_prec = new JLabel("Precio: ");
+	        lbl_prec.setForeground(new Color(253, 163, 17));
+	        lbl_prec.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+	        lbl_prec.setBackground(new Color(60, 63, 65));
+	        lbl_prec.setBounds(10, 540, 350, 60);
+	        frame.getContentPane().add(lbl_prec);
 	        
-	        JSpinner spinner = new JSpinner();
-	        spinner.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        spinner.setBounds(1224, 200, 350, 50);
-	        frame.getContentPane().add(spinner);
+	        spn_inv = new JSpinner();
+	        spn_inv.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        spn_inv.setBounds(1224, 200, 350, 50);
+	        frame.getContentPane().add(spn_inv);
 	        
-	        JComboBox comboBox = new JComboBox();
-	        comboBox.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        comboBox.setBounds(1224, 370, 350, 50);
-	        frame.getContentPane().add(comboBox);
+	        cmb_cat = new JComboBox();
+	        cmb_cat.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        cmb_cat.setBounds(1224, 370, 350, 50);
+	        frame.getContentPane().add(cmb_cat);
 	        
-	        textField = new JTextField();
-	        textField.setForeground(new Color(20, 33, 61));
-	        textField.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        textField.setColumns(10);
-	        textField.setBackground(new Color(60, 63, 65));
-	        textField.setBounds(370, 540, 350, 50);
-	        frame.getContentPane().add(textField);
+	        txt_prec = new JTextField();
+	        txt_prec.setForeground(new Color(20, 33, 61));
+	        txt_prec.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        txt_prec.setColumns(10);
+	        txt_prec.setBackground(new Color(60, 63, 65));
+	        txt_prec.setBounds(370, 540, 350, 50);
+	        frame.getContentPane().add(txt_prec);
 	        
-	        JComboBox comboBox_1 = new JComboBox();
-	        comboBox_1.setFont(new Font("Carlito", Font.PLAIN, 35));
-	        comboBox_1.setBounds(1224, 540, 350, 50);
-	        frame.getContentPane().add(comboBox_1);
+	        cmb_prov = new JComboBox();
+	        cmb_prov.setFont(new Font("Carlito", Font.PLAIN, 35));
+	        cmb_prov.setBounds(1224, 540, 350, 50);
+	        frame.getContentPane().add(cmb_prov);
 	}
 }
