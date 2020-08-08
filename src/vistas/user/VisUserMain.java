@@ -52,9 +52,9 @@ public class VisUserMain {
 
 		Image ico = new ImageIcon("images/carro.png").getImage();
 		frame.setIconImage(ico);
-		frame.setTitle("Smart Tienda 1.0");
+		frame.setTitle("TITULO ACÁ");
 
-		JLabel lbl_titulo = new JLabel("Smart Tienda 1.0");
+		JLabel lbl_titulo = new JLabel("TITULO ACÁ");
 		lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_titulo.setVerticalAlignment(SwingConstants.TOP);
 		lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
