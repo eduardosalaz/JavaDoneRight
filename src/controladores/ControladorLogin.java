@@ -1,12 +1,14 @@
 package controladores;
 
+import controladores.admin.ControladorPantallaAdmin;
+import controladores.user.ControladorPantallaUser;
 import vistas.VistaLogin;
-import vistas.VistaPantallaUser;
-import vistas.VistaPantallaAdmin;
+import vistas.user.VistaPantallaUser;
+import vistas.admin.VistaPantallaAdmin;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
 import modelos.ModeloLogin;
-import modelos.Usuario;
+import modelos.admin.users.Usuario;
 
 public class ControladorLogin implements ActionListener {
 	VistaLogin vista;
