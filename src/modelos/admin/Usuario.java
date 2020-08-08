@@ -1,4 +1,4 @@
-package modelos.admin.users;
+package modelos.admin;
 
 import java.io.Serializable;
 import java.sql.Date;

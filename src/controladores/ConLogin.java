@@ -8,7 +8,7 @@ import vistas.admin.VisAdmMain;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
 import modelos.ModLogin;
-import modelos.admin.users.Usuario;
+import modelos.admin.Usuario;
 
 public class ConLogin implements ActionListener {
 	VisLogin vista;

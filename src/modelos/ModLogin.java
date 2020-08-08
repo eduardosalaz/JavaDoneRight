@@ -1,6 +1,6 @@
 package modelos;
 import DBManager.Conexion;
-import modelos.admin.users.Usuario;
+import modelos.admin.Usuario;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModLogin {
-	public static PreparedStatement pstm = null;
+	public PreparedStatement pstm = null;
 	public PreparedStatement pstm2 = null;
 	ResultSet rs = null;
 	ResultSet rs2 = null;

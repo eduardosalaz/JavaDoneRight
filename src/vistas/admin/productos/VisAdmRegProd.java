@@ -135,38 +135,39 @@ public class VisAdmRegProd {
 	        frame.getContentPane().add(btn_home);
 	        
 	        JLabel lbl_prov = new JLabel("Proveedor:");
-	        lbl_prov.setForeground(new Color(253, 163, 17));
+	        lbl_prov.setForeground(colores.amarillo);
 	        lbl_prov.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_prov.setBackground(new Color(60, 63, 65));
+	        lbl_prov.setBackground(colores.oscuro);
 	        lbl_prov.setBounds(864, 540, 350, 60);
 	        frame.getContentPane().add(lbl_prov);
 	        
 	        JLabel lbl_prec = new JLabel("Precio: ");
-	        lbl_prec.setForeground(new Color(253, 163, 17));
+	        lbl_prec.setForeground(colores.amarillo);
 	        lbl_prec.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-	        lbl_prec.setBackground(new Color(60, 63, 65));
+	        lbl_prec.setBackground(colores.oscuro);
 	        lbl_prec.setBounds(10, 540, 350, 60);
 	        frame.getContentPane().add(lbl_prec);
 	        
 	        spn_inv = new JSpinner();
 	        spn_inv.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        spn_inv.setBounds(1224, 200, 350, 50);
+			spn_inv.setModel(new SpinnerNumberModel(0, 0, 1000, 1));
 	        frame.getContentPane().add(spn_inv);
 	        
-	        cmb_cat = new JComboBox();
+	        cmb_cat = new JComboBox<Object>();
 	        cmb_cat.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        cmb_cat.setBounds(1224, 370, 350, 50);
 	        frame.getContentPane().add(cmb_cat);
 	        
 	        txt_prec = new JTextField();
-	        txt_prec.setForeground(new Color(20, 33, 61));
+	        txt_prec.setForeground(colores.azul);
 	        txt_prec.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        txt_prec.setColumns(10);
 	        txt_prec.setBackground(new Color(60, 63, 65));
 	        txt_prec.setBounds(370, 540, 350, 50);
 	        frame.getContentPane().add(txt_prec);
 	        
-	        cmb_prov = new JComboBox();
+	        cmb_prov = new JComboBox<Object>();
 	        cmb_prov.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        cmb_prov.setBounds(1224, 540, 350, 50);
 	        frame.getContentPane().add(cmb_prov);

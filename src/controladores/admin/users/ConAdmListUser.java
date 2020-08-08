@@ -2,7 +2,7 @@ package controladores.admin.users;
 
 import controladores.admin.ConAdmMain;
 import modelos.admin.users.ModAdmListUser;
-import modelos.admin.users.Usuario;
+import modelos.admin.Usuario;
 import vistas.admin.users.VisAdmListUser;
 import vistas.admin.VisAdmMain;
 
