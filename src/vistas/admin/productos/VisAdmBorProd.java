@@ -1,28 +1,22 @@
-package vistas.admin.users;
-
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
+package vistas.admin.productos;
 
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import java.awt.Color;
-import javax.swing.JButton;
 
-public class VistaAdmBajaUser {
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+
+public class VisAdmBorProd {
 
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
     public JButton btn_borrar, btn_home;
+	/**
+	 * Launch the application.
+	 */
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -73,23 +67,23 @@ public class VistaAdmBajaUser {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_baja = new JLabel("Dar de baja a un usuario");
-        lbl_baja.setVerticalAlignment(SwingConstants.TOP);
-        lbl_baja.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_baja.setForeground(colores.amarillo);
-        lbl_baja.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_baja.setBounds(436, 91, 712, 59);
-        lbl_baja.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_baja);
+        JLabel lbl_productos = new JLabel("Borrar un producto");
+        lbl_productos.setVerticalAlignment(SwingConstants.TOP);
+        lbl_productos.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_productos.setForeground(colores.amarillo);
+        lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_productos.setBounds(436, 91, 712, 59);
+        lbl_productos.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_productos);
         
-        JLabel lbl_id = new JLabel("Inserte el ID del usuario a eliminar");
-        lbl_id.setVerticalAlignment(SwingConstants.TOP);
-        lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_id.setForeground(new Color(253, 163, 17));
-        lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-        lbl_id.setBackground(new Color(60, 63, 65));
-        lbl_id.setBounds(436, 230, 712, 59);
-        frame.getContentPane().add(lbl_id);
+        JLabel lbl_productos_1 = new JLabel("Inserte la clave del producto a borrar");
+        lbl_productos_1.setVerticalAlignment(SwingConstants.TOP);
+        lbl_productos_1.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_productos_1.setForeground(colores.amarillo);
+        lbl_productos_1.setFont(new Font("Bahnschrift", Font.BOLD, 40));
+        lbl_productos_1.setBackground(colores.oscuro);
+        lbl_productos_1.setBounds(436, 230, 712, 59);
+        frame.getContentPane().add(lbl_productos_1);
         
         txt_id = new JTextField();
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
@@ -100,11 +94,11 @@ public class VistaAdmBajaUser {
         frame.getContentPane().add(txt_id);
         txt_id.setColumns(10);
         
-        btn_borrar = new JButton("Borrar Usuario");
+        btn_borrar = new JButton("Borrar Producto");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setBackground(colores.oscuro);
         btn_borrar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-        btn_borrar.setBounds(584, 635, 416, 74);
+        btn_borrar.setBounds(558, 635, 468, 74);
         frame.getContentPane().add(btn_borrar);
         
         btn_home = new JButton();
@@ -115,4 +109,5 @@ public class VistaAdmBajaUser {
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
 	}
+
 }

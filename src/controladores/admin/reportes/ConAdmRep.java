@@ -1,16 +1,16 @@
 package controladores.admin.reportes;
-import controladores.admin.ControladorPantallaAdmin;
-import vistas.admin.reportes.VistaAdminReportes;
-import vistas.admin.VistaPantallaAdmin;
+import controladores.admin.ConAdmMain;
+import vistas.admin.reportes.VisAdmRep;
+import vistas.admin.VisAdmMain;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorAdminRep implements ActionListener {
-    VistaAdminReportes vista;
+public class ConAdmRep implements ActionListener {
+    VisAdmRep vista;
 
-    public ControladorAdminRep(VistaAdminReportes vistaAdminReportes){
-        vista = vistaAdminReportes;
+    public ConAdmRep(VisAdmRep visAdmRep){
+        vista = visAdmRep;
         ejecutar();
     }
 
@@ -30,8 +30,8 @@ public class ControladorAdminRep implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
             System.out.println("home");
-            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
-            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+            VisAdmMain visAdmMain = new VisAdmMain();
+            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         }
         vista.frame.dispose();
     }

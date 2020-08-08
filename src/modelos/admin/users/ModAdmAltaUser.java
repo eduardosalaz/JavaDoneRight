@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ModeloAdmAltaUser {
+public class ModAdmAltaUser {
     String nombre, pass, tel;
     int id;
     boolean admin;

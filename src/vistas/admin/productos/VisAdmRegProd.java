@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class VistaAdmRegProd {
+public class VisAdmRegProd {
 
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();

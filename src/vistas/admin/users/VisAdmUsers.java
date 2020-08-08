@@ -1,17 +1,18 @@
-package vistas.admin.prov;
+package vistas.admin.users;
 
-import java.awt.Font;
-import java.awt.Image;
+import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-public class VistaAdminProv {
-    private final CustomColors colores = new CustomColors();
-    public JButton btn_registrar, btn_borrar,btn_modificar, btn_listar, btn_home;
+
+public class VisAdmUsers {
+
     public JFrame frame;
+    private final CustomColors colores = new CustomColors();
+    public JButton btn_alta, btn_baja,btn_modificar, btn_listar, btn_home;
     public boolean finished = false;
 
     public void lanzarVista(){
@@ -34,6 +35,7 @@ public class VistaAdminProv {
             e.printStackTrace();
         }
     }
+
 
     private void crearGUI() {
         frame = new JFrame();
@@ -63,36 +65,36 @@ public class VistaAdminProv {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_prov = new JLabel("Proveedores");
-        lbl_prov.setVerticalAlignment(SwingConstants.TOP);
-        lbl_prov.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_prov.setForeground(colores.amarillo);
-        lbl_prov.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_prov.setBounds(626, 91, 331, 59);
-        lbl_prov.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_prov);
+        JLabel lbl_usuarios = new JLabel("Usuarios");
+        lbl_usuarios.setVerticalAlignment(SwingConstants.TOP);
+        lbl_usuarios.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_usuarios.setForeground(colores.amarillo);
+        lbl_usuarios.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_usuarios.setBounds(676, 91, 231, 59);
+        lbl_usuarios.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_usuarios);
 
-        btn_registrar = new JButton("Registrar");
-        btn_registrar.setToolTipText("Registrar un nuevo proveedor");
-        btn_registrar.setVerticalAlignment(SwingConstants.TOP);
-        btn_registrar.setForeground(colores.amarillo);
-        btn_registrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_registrar.setBounds(438, 170, 310, 55);
-        btn_registrar.setBackground(colores.oscuro);
-        frame.getContentPane().add(btn_registrar);
+        btn_alta = new JButton("Alta");
+        btn_alta.setToolTipText("Registrar un nuevo usuario");
+        btn_alta.setVerticalAlignment(SwingConstants.TOP);
+        btn_alta.setForeground(colores.amarillo);
+        btn_alta.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_alta.setBounds(438, 170, 310, 55);
+        btn_alta.setBackground(colores.oscuro);
+        frame.getContentPane().add(btn_alta);
 
-        btn_borrar = new JButton("Borrar");
-        btn_borrar.setVerticalAlignment(SwingConstants.TOP);
-        btn_borrar.setToolTipText("Eliminar un proveedor");
-        btn_borrar.setForeground(colores.amarillo);
-        btn_borrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_borrar.setBackground(colores.oscuro);
-        btn_borrar.setBounds(876, 170, 310, 55);
-        frame.getContentPane().add(btn_borrar);
+        btn_baja = new JButton("Baja");
+        btn_baja.setVerticalAlignment(SwingConstants.TOP);
+        btn_baja.setToolTipText("Eliminar un usuario");
+        btn_baja.setForeground(colores.amarillo);
+        btn_baja.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+        btn_baja.setBackground(colores.oscuro);
+        btn_baja.setBounds(876, 170, 310, 55);
+        frame.getContentPane().add(btn_baja);
 
         btn_modificar = new JButton("Modificar");
         btn_modificar.setVerticalAlignment(SwingConstants.TOP);
-        btn_modificar.setToolTipText("Modificar un proveedor existente");
+        btn_modificar.setToolTipText("Modificar un usuario existente");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_modificar.setBackground(colores.oscuro);
@@ -101,7 +103,7 @@ public class VistaAdminProv {
 
         btn_listar = new JButton("Listar");
         btn_listar.setVerticalAlignment(SwingConstants.TOP);
-        btn_listar.setToolTipText("Mostrar todos los proveedores");
+        btn_listar.setToolTipText("Mostrar a todos los usuarios");
         btn_listar.setForeground(colores.amarillo);
         btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_listar.setBackground(colores.oscuro);
@@ -116,5 +118,4 @@ public class VistaAdminProv {
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
     }
-
 }

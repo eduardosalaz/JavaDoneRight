@@ -1,24 +1,24 @@
 package controladores;
 
-import controladores.admin.ControladorPantallaAdmin;
-import controladores.user.ControladorPantallaUser;
-import vistas.VistaLogin;
-import vistas.user.VistaPantallaUser;
-import vistas.admin.VistaPantallaAdmin;
+import controladores.admin.ConAdmMain;
+import controladores.user.ConUsrMain;
+import vistas.VisLogin;
+import vistas.user.VisUserMain;
+import vistas.admin.VisAdmMain;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
-import modelos.ModeloLogin;
+import modelos.ModLogin;
 import modelos.admin.users.Usuario;
 
-public class ControladorLogin implements ActionListener {
-	VistaLogin vista;
-	ModeloLogin modelo;
+public class ConLogin implements ActionListener {
+	VisLogin vista;
+	ModLogin modelo;
 	private int intentos = 5;
 	private boolean check, valido;
 	private int usuario;
 	private String password;
 
-	public ControladorLogin(VistaLogin vista, ModeloLogin modelo) {
+	public ConLogin(VisLogin vista, ModLogin modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
 		ejecutar();
@@ -61,12 +61,12 @@ public class ControladorLogin implements ActionListener {
 					String nombre = user.getNombre();
 					JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
 					if(user.isAdmin()) {
-						VistaPantallaAdmin vistaAdmin = new VistaPantallaAdmin();
-						ControladorPantallaAdmin controladorAdmin = new ControladorPantallaAdmin(vistaAdmin);
+						VisAdmMain vistaAdmin = new VisAdmMain();
+						ConAdmMain controladorAdmin = new ConAdmMain(vistaAdmin);
 
 					}else {
-						VistaPantallaUser vistaUser = new VistaPantallaUser();
-						ControladorPantallaUser controladorUser = new ControladorPantallaUser(vistaUser);
+						VisUserMain vistaUser = new VisUserMain();
+						ConUsrMain controladorUser = new ConUsrMain(vistaUser);
 					}
 					vista.frame.dispose();
 				}else {

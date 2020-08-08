@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class VistaAdmAltaUser {
+public class VisAdmAltaUser {
     public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;

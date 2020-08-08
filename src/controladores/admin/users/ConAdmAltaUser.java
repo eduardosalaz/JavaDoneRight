@@ -1,22 +1,22 @@
 package controladores.admin.users;
 
-import controladores.admin.ControladorPantallaAdmin;
-import modelos.admin.users.ModeloAdmAltaUser;
-import vistas.admin.users.VistaAdmAltaUser;
-import vistas.admin.VistaPantallaAdmin;
+import controladores.admin.ConAdmMain;
+import modelos.admin.users.ModAdmAltaUser;
+import vistas.admin.users.VisAdmAltaUser;
+import vistas.admin.VisAdmMain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class ControladorAdmAltaUser implements ActionListener{
-    VistaAdmAltaUser vista;
-    ModeloAdmAltaUser modelo;
+public class ConAdmAltaUser implements ActionListener{
+    VisAdmAltaUser vista;
+    ModAdmAltaUser modelo;
 
-    public ControladorAdmAltaUser(VistaAdmAltaUser vistaAdmAltaUser, ModeloAdmAltaUser modeloAdmAltaUser){
-        vista = vistaAdmAltaUser;
-        modelo = modeloAdmAltaUser;
+    public ConAdmAltaUser(VisAdmAltaUser visAdmAltaUser, ModAdmAltaUser modAdmAltaUser){
+        vista = visAdmAltaUser;
+        modelo = modAdmAltaUser;
         ejecutar();
     }
 
@@ -60,9 +60,9 @@ public class ControladorAdmAltaUser implements ActionListener{
                 }
             }
         }else if(e.getSource() == vista.btn_home){
-            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
+            VisAdmMain visAdmMain = new VisAdmMain();
             vista.frame.dispose();
-            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         }
     }
 

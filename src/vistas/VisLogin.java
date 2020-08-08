@@ -7,7 +7,7 @@ import crearColores.CustomColors;
 import java.awt.Font;
 import java.awt.Image;
 
-public class VistaLogin {
+public class VisLogin {
     public JFrame frame;
     public CustomColors colores = new CustomColors();
     public JTextField txt_usuario;

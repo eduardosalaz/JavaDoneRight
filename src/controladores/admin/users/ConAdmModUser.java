@@ -1,19 +1,19 @@
 package controladores.admin.users;
 
-import controladores.admin.ControladorPantallaAdmin;
-import modelos.admin.users.ModeloAdmModUser;
-import vistas.admin.users.VistaAdmModUser;
-import vistas.admin.VistaPantallaAdmin;
+import controladores.admin.ConAdmMain;
+import modelos.admin.users.ModAdmModUser;
+import vistas.admin.users.VisAdmModUser;
+import vistas.admin.VisAdmMain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorAdmModUser implements ActionListener {
-    VistaAdmModUser vista;
-    ModeloAdmModUser modelo;
+public class ConAdmModUser implements ActionListener {
+    VisAdmModUser vista;
+    ModAdmModUser modelo;
 
-    public ControladorAdmModUser(VistaAdmModUser vista, ModeloAdmModUser modelo) {
+    public ConAdmModUser(VisAdmModUser vista, ModAdmModUser modelo) {
         this.vista = vista;
         this.modelo = modelo;
         ejecutar();
@@ -70,17 +70,17 @@ public class ControladorAdmModUser implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Usuario no modificado");
                     }
                 } else if (e.getSource() == vista.btn_home) {
-                    VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
+                    VisAdmMain visAdmMain = new VisAdmMain();
                     vista.frame.dispose();
-                    ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+                    ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
                 }
             } catch (Exception e2) {
                 JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
         }else if(e.getSource() == vista.btn_home){
-            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
-            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+            VisAdmMain visAdmMain = new VisAdmMain();
+            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
             vista.frame.dispose();
         }
     }

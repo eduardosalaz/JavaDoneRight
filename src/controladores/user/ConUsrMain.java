@@ -1,14 +1,14 @@
 package controladores.user;
-import vistas.user.VistaPantallaUser;
+import vistas.user.VisUserMain;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorPantallaUser implements ActionListener {
+public class ConUsrMain implements ActionListener {
 
-	public VistaPantallaUser vistaUser;
+	public VisUserMain vistaUser;
 	
-	public ControladorPantallaUser(VistaPantallaUser vista) {
+	public ConUsrMain(VisUserMain vista) {
 		vistaUser = vista;
 		ejecutar();
 	}

@@ -5,8 +5,8 @@ import vistas.*;
 
 public class Launcher {
     public static void main(String[] args) {
-        VistaLogin vistaLogin = new VistaLogin();
-        ModeloLogin modeloLogin = new ModeloLogin();
-        ControladorLogin controladorLogin = new ControladorLogin(vistaLogin, modeloLogin);
+        VisLogin visLogin = new VisLogin();
+        ModLogin modLogin = new ModLogin();
+        ConLogin conLogin = new ConLogin(visLogin, modLogin);
     }
 }

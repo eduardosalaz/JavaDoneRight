@@ -6,7 +6,7 @@ import crearColores.CustomColors;
 import javax.swing.*;
 import java.awt.*;
 
-public class VistaPantallaAdmin {
+public class VisAdmMain {
 	public CustomColors colores = new CustomColors();
 	public JFrame frame;
 	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep;

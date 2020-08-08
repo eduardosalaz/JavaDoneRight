@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ModeloAdmListUser {
+public class ModAdmListUser {
     public static PreparedStatement pstm = null;
     Connection con;
     ResultSet rs;

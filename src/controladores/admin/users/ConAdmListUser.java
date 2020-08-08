@@ -1,20 +1,20 @@
 package controladores.admin.users;
 
-import controladores.admin.ControladorPantallaAdmin;
-import modelos.admin.users.ModeloAdmListUser;
+import controladores.admin.ConAdmMain;
+import modelos.admin.users.ModAdmListUser;
 import modelos.admin.users.Usuario;
-import vistas.admin.users.VistaAdmListUser;
-import vistas.admin.VistaPantallaAdmin;
+import vistas.admin.users.VisAdmListUser;
+import vistas.admin.VisAdmMain;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorAdmListUser implements ActionListener {
-    VistaAdmListUser vista;
-    ModeloAdmListUser modelo;
+public class ConAdmListUser implements ActionListener {
+    VisAdmListUser vista;
+    ModAdmListUser modelo;
 
-    public ControladorAdmListUser(VistaAdmListUser vista, ModeloAdmListUser modelo) {
+    public ConAdmListUser(VisAdmListUser vista, ModAdmListUser modelo) {
         this.vista = vista;
         this.modelo = modelo;
         ejecutar();
@@ -39,8 +39,8 @@ public class ControladorAdmListUser implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
-            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
-            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
+            VisAdmMain visAdmMain = new VisAdmMain();
+            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
             System.out.println("home");
             vista.frame.dispose();
         }

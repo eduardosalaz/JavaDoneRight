@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ModeloAdmModUser {
+public class ModAdmModUser {
     int id;
     public static PreparedStatement pstm = null;
     public boolean checked;

@@ -1,22 +1,22 @@
-package controladores.admin.productos;
-import controladores.admin.ControladorPantallaAdmin;
-import vistas.admin.productos.VistaAdminProductos;
-import vistas.admin.VistaPantallaAdmin;
+package controladores.admin.prov;
+import controladores.admin.ConAdmMain;
+import vistas.admin.prov.VisAdmProv;
+import vistas.admin.VisAdmMain;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorAdminProd implements ActionListener {
-    VistaAdminProductos vista;
+public class ConAdmProv implements ActionListener {
+    VisAdmProv vista;
 
-    public ControladorAdminProd(VistaAdminProductos vistaAdminProductos){
-        vista = vistaAdminProductos;
+    public ConAdmProv(VisAdmProv visAdmProv){
+        vista = visAdmProv;
         ejecutar();
     }
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista admin prod lista");
+        System.out.println("vista admin prov lista");
         agregarListeners();
     }
 
@@ -35,10 +35,8 @@ public class ControladorAdminProd implements ActionListener {
         if(e.getSource() == vista.btn_borrar){
             System.out.println("borrar");
         }else if(e.getSource() == vista.btn_home){
-            VistaPantallaAdmin vistaPantallaAdmin = new VistaPantallaAdmin();
-            vista.frame.dispose();
-            ControladorPantallaAdmin controladorPantallaAdmin = new ControladorPantallaAdmin(vistaPantallaAdmin);
-            System.out.println("home");
+            VisAdmMain visAdmMain = new VisAdmMain();
+            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         }else if(e.getSource() == vista.btn_listar){
             System.out.println("listar");
         }else if(e.getSource() == vista.btn_modificar){
@@ -46,5 +44,6 @@ public class ControladorAdminProd implements ActionListener {
         }else if(e.getSource() == vista.btn_registrar){
             System.out.println("registrar");
         }
+        vista.frame.dispose();
     }
 }

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ModeloLogin {
+public class ModLogin {
 	public static PreparedStatement pstm = null;
 	public PreparedStatement pstm2 = null;
 	ResultSet rs = null;

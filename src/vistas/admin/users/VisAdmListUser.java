@@ -1,19 +1,20 @@
-package vistas.admin.productos;
+package vistas.admin.users;
 
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class VistaAdmModProd {
+public class VisAdmListUser {
 
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    public JTextField txt_id;
-    public JButton btn_modificar, btn_home;
+    public JButton btn_home;
+    public JTable table;
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -64,40 +65,15 @@ public class VistaAdmModProd {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_modificar = new JLabel("Modificar a un producto");
-        lbl_modificar.setVerticalAlignment(SwingConstants.TOP);
-        lbl_modificar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_modificar.setForeground(colores.amarillo);
-        lbl_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_modificar.setBounds(436, 91, 712, 59);
-        lbl_modificar.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_modificar);
-        
-        JLabel lbl_id = new JLabel("Inserte la clave del producto a modificar");
-        lbl_id.setVerticalAlignment(SwingConstants.TOP);
-        lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_id.setForeground(colores.amarillo);
-        lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-        lbl_id.setBackground(colores.oscuro);
-        lbl_id.setBounds(399, 230, 785, 59);
-        frame.getContentPane().add(lbl_id);
-        
-        txt_id = new JTextField();
-        txt_id.setHorizontalAlignment(SwingConstants.CENTER);
-        txt_id.setForeground(colores.azul);
-        txt_id.setBackground(colores.oscuro);
-        txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
-        txt_id.setBounds(617, 300, 350, 50);
-        frame.getContentPane().add(txt_id);
-        txt_id.setColumns(10);
-        
-        btn_modificar = new JButton("Modificar Producto");
-        btn_modificar.setForeground(colores.amarillo);
-        btn_modificar.setBackground(colores.oscuro);
-        btn_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-        btn_modificar.setBounds(550, 635, 483, 74);
-        frame.getContentPane().add(btn_modificar);
-        
+        JLabel lbl_lista = new JLabel("Lista de todos los usuarios:");
+        lbl_lista.setVerticalAlignment(SwingConstants.TOP);
+        lbl_lista.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_lista.setForeground(colores.amarillo);
+        lbl_lista.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_lista.setBounds(436, 91, 712, 59);
+        lbl_lista.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_lista);
+
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
@@ -105,6 +81,25 @@ public class VistaAdmModProd {
         Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
-	}
+        String[] nombreCol = {"ID", "Nombre", "Contraseña", "Admin", "Telefono", "Fecha de Alta", "Última sesión"};
+        DefaultTableModel dtm= new DefaultTableModel()
+        {
+            private static final long serialVersionUID = 1L;
 
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;
+            }
+        };
+        dtm.setColumnIdentifiers(nombreCol);
+        table = new JTable(dtm);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table.setFillsViewportHeight(true);
+        JScrollPane scroll = new JScrollPane(table);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBounds(254, 146, 1076, 664);
+        frame.getContentPane().add(scroll);
+	}
 }

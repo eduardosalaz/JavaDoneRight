@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
-public class VistaAdmListProd {
+public class VisAdmListProd {
 
 	public JFrame frame;
     private final CustomColors colores = new CustomColors();

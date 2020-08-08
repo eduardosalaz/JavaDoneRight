@@ -1,19 +1,19 @@
-package vistas.admin.users;
-
-import java.awt.*;
-
-import javax.swing.*;
-import javax.swing.border.Border;
+package vistas.admin.productos;
 
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
-public class VistaAdminUsers {
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 
-    public JFrame frame;
+public class VisAdmModProd {
+
+	public JFrame frame;
     private final CustomColors colores = new CustomColors();
-    public JButton btn_alta, btn_baja,btn_modificar, btn_listar, btn_home;
     public boolean finished = false;
+    public JTextField txt_id;
+    public JButton btn_modificar, btn_home;
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -36,9 +36,8 @@ public class VistaAdminUsers {
         }
     }
 
-
-    private void crearGUI() {
-        frame = new JFrame();
+	private void crearGUI() {
+		frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,51 +64,40 @@ public class VistaAdminUsers {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_usuarios = new JLabel("Usuarios");
-        lbl_usuarios.setVerticalAlignment(SwingConstants.TOP);
-        lbl_usuarios.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_usuarios.setForeground(colores.amarillo);
-        lbl_usuarios.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_usuarios.setBounds(676, 91, 231, 59);
-        lbl_usuarios.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_usuarios);
-
-        btn_alta = new JButton("Alta");
-        btn_alta.setToolTipText("Registrar un nuevo usuario");
-        btn_alta.setVerticalAlignment(SwingConstants.TOP);
-        btn_alta.setForeground(colores.amarillo);
-        btn_alta.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_alta.setBounds(438, 170, 310, 55);
-        btn_alta.setBackground(colores.oscuro);
-        frame.getContentPane().add(btn_alta);
-
-        btn_baja = new JButton("Baja");
-        btn_baja.setVerticalAlignment(SwingConstants.TOP);
-        btn_baja.setToolTipText("Eliminar un usuario");
-        btn_baja.setForeground(colores.amarillo);
-        btn_baja.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_baja.setBackground(colores.oscuro);
-        btn_baja.setBounds(876, 170, 310, 55);
-        frame.getContentPane().add(btn_baja);
-
-        btn_modificar = new JButton("Modificar");
-        btn_modificar.setVerticalAlignment(SwingConstants.TOP);
-        btn_modificar.setToolTipText("Modificar un usuario existente");
+        JLabel lbl_modificar = new JLabel("Modificar a un producto");
+        lbl_modificar.setVerticalAlignment(SwingConstants.TOP);
+        lbl_modificar.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_modificar.setForeground(colores.amarillo);
+        lbl_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_modificar.setBounds(436, 91, 712, 59);
+        lbl_modificar.setBackground(colores.oscuro);
+        frame.getContentPane().add(lbl_modificar);
+        
+        JLabel lbl_id = new JLabel("Inserte la clave del producto a modificar");
+        lbl_id.setVerticalAlignment(SwingConstants.TOP);
+        lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_id.setForeground(colores.amarillo);
+        lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
+        lbl_id.setBackground(colores.oscuro);
+        lbl_id.setBounds(399, 230, 785, 59);
+        frame.getContentPane().add(lbl_id);
+        
+        txt_id = new JTextField();
+        txt_id.setHorizontalAlignment(SwingConstants.CENTER);
+        txt_id.setForeground(colores.azul);
+        txt_id.setBackground(colores.oscuro);
+        txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_id.setBounds(617, 300, 350, 50);
+        frame.getContentPane().add(txt_id);
+        txt_id.setColumns(10);
+        
+        btn_modificar = new JButton("Modificar Producto");
         btn_modificar.setForeground(colores.amarillo);
-        btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_modificar.setBackground(colores.oscuro);
-        btn_modificar.setBounds(438, 269, 310, 55);
+        btn_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
+        btn_modificar.setBounds(550, 635, 483, 74);
         frame.getContentPane().add(btn_modificar);
-
-        btn_listar = new JButton("Listar");
-        btn_listar.setVerticalAlignment(SwingConstants.TOP);
-        btn_listar.setToolTipText("Mostrar a todos los usuarios");
-        btn_listar.setForeground(colores.amarillo);
-        btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_listar.setBackground(colores.oscuro);
-        btn_listar.setBounds(876, 269, 310, 55);
-        frame.getContentPane().add(btn_listar);
-
+        
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
@@ -117,5 +105,6 @@ public class VistaAdminUsers {
         Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
-    }
+	}
+
 }

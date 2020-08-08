@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ModeloAdmBajaUser {
+public class ModAdmBajaUser {
     String nombre;
     int id;
     public static PreparedStatement pstm = null;

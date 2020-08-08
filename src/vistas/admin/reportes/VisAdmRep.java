@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class VistaAdminReportes {
+public class VisAdmRep {
 
     public JFrame frame;
     public JButton btn_home;

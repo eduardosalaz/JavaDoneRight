@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class VistaPantallaUser {
+public class VisUserMain {
 
 	private JFrame frame;
 	public CustomColors colores = new CustomColors();
