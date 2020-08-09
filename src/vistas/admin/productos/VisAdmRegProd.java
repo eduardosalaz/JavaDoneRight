@@ -151,7 +151,6 @@ public class VisAdmRegProd {
 	        spn_inv = new JSpinner();
 	        spn_inv.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        spn_inv.setBounds(1224, 200, 350, 50);
-			spn_inv.setModel(new SpinnerNumberModel(0, 0, 1000, 1));
 	        frame.getContentPane().add(spn_inv);
 	        
 	        cmb_cat = new JComboBox<Object>();

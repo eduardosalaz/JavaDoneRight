@@ -9,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModAdmBajaUser {
-    String nombre;
     int id;
-    public static PreparedStatement pstm = null;
+    public PreparedStatement pstm = null;
     ResultSet rs = null;
     Connection con;
 
@@ -27,7 +26,7 @@ public class ModAdmBajaUser {
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
             if(rs.next()){
-                nombre = rs.getString("nom_usr");
+                String nombre = rs.getString("nom_usr");
                 String message = "¿Está seguro de querer eliminar a:\n" +
                         "Nombre: " + nombre + "\n" +
                         "ID: " + id;
@@ -44,15 +43,17 @@ public class ModAdmBajaUser {
             }
         }catch (SQLException e){
             e.printStackTrace();
-        }finally {
-            try{
-                con.close();
-                rs.close();
-                pstm.close();
-            }catch(SQLException e3){
-                e3.printStackTrace();
-            }
+        }
 
+    }
+
+    public void cerrar() {
+        try{
+            con.close();
+            rs.close();
+            pstm.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

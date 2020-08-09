@@ -1,6 +1,8 @@
 package controladores.admin.productos;
 import controladores.admin.ConAdmMain;
+import modelos.admin.productos.ModAdmBorProd;
 import modelos.admin.productos.ModAdmRegProd;
+import vistas.admin.productos.VisAdmBorProd;
 import vistas.admin.productos.VisAdmProd;
 import vistas.admin.VisAdmMain;
 import vistas.admin.productos.VisAdmRegProd;
@@ -38,9 +40,10 @@ public class ConAdmProd implements ActionListener {
             VisAdmRegProd visAdmRegProd = new VisAdmRegProd();
             ModAdmRegProd modAdmRegProd = new ModAdmRegProd();
             ConAdmRegProd conAdmRegProd = new ConAdmRegProd(visAdmRegProd, modAdmRegProd);
-            System.out.println("registrar");
         }else if(e.getSource() == vista.btn_borrar){
-            System.out.println("borrar");
+            VisAdmBorProd visAdmBorProd = new VisAdmBorProd();
+            ModAdmBorProd modAdmBorProd = new ModAdmBorProd();
+            ConAdmBorProd conAdmBorProd = new ConAdmBorProd(visAdmBorProd, modAdmBorProd);
         }else if(e.getSource() == vista.btn_listar){
             System.out.println("listar");
         }else if(e.getSource() == vista.btn_modificar){
