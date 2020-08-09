@@ -14,7 +14,7 @@ public class ConLogin implements ActionListener {
 	VisLogin vista;
 	ModLogin modelo;
 	private int intentos = 5;
-	private boolean check, valido;
+	private boolean check;
 	private int usuario;
 	private String password;
 
@@ -44,6 +44,7 @@ public class ConLogin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == vista.btn_login) {
+			boolean valido;
 			try{
 				usuario = Integer.parseInt(vista.txt_usuario.getText());
 				password = new String(vista.pwd_password.getPassword());

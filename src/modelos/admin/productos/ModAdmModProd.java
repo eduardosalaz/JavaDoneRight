@@ -46,11 +46,7 @@ public class ModAdmModProd {
             rs = pstm.executeQuery();
             if(rs.next()){
                 nombre = rs.getString("nom_art");
-                if(nombre!=null){
-                    checked = true;
-                }else{
-                    checked = false;
-                }
+                checked = nombre != null;
             }
         }catch (SQLException e){
             e.printStackTrace();

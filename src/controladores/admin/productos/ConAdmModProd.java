@@ -1,6 +1,5 @@
 package controladores.admin.productos;
 
-import com.mysql.cj.jdbc.exceptions.NotUpdatable;
 import controladores.admin.ConAdmMain;
 import modelos.admin.Categoria;
 import modelos.admin.Proveedor;
@@ -11,13 +10,12 @@ import vistas.admin.productos.VisAdmModProd;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class ConAdmModProd implements ActionListener {
     public VisAdmModProd vista;
     public ModAdmModProd modelo;
-    public JComboBox<Object> cmb_cat;
-    public JComboBox<Object> cmb_prov;
+    public JComboBox<String> cmb_cat;
+    public JComboBox<String> cmb_prov;
 
     public ConAdmModProd(VisAdmModProd vista, ModAdmModProd modelo) {
         this.vista = vista;
@@ -52,8 +50,8 @@ public class ConAdmModProd implements ActionListener {
                     JTextField cve = new JTextField();
                     JTextField prec = new JTextField();
                     JSpinner inv = new JSpinner();
-                    cmb_cat  = new JComboBox<Object>();
-                    cmb_prov = new JComboBox<Object>();
+                    cmb_cat  = new JComboBox<String>();
+                    cmb_prov = new JComboBox<String>();
                     comboCat();
                     comboProv();
                     Object[] message ={
@@ -101,7 +99,6 @@ public class ConAdmModProd implements ActionListener {
         }
     }
     private void comboProv(){
-        ArrayList<String> names = new ArrayList<>();
         cmb_prov.removeAllItems();
         for(Proveedor prov:modelo.Proveedores){
             cmb_prov.addItem(prov.getNom_prov());
@@ -109,7 +106,6 @@ public class ConAdmModProd implements ActionListener {
     }
 
     private void comboCat(){
-        ArrayList<String> names = new ArrayList<>();
         cmb_cat.removeAllItems();
         for(Categoria cat: modelo.Categorias){
             cmb_cat.addItem(cat.getNom_cat());

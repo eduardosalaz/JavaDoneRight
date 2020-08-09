@@ -10,7 +10,6 @@ import vistas.admin.productos.VisAdmRegProd;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class ConAdmRegProd implements ActionListener {
     VisAdmRegProd vista;
@@ -31,7 +30,6 @@ public class ConAdmRegProd implements ActionListener {
     }
 
     private void comboProv() {
-        ArrayList<String> names = new ArrayList<String>();
         vista.cmb_prov.removeAllItems();
         for(Proveedor prov: modelo.Proveedores){
             vista.cmb_prov.addItem(prov.getNom_prov());
@@ -39,7 +37,6 @@ public class ConAdmRegProd implements ActionListener {
     }
 
     private void comboCategoria() {
-        ArrayList<String> names = new ArrayList<String>();
         vista.cmb_cat.removeAllItems();
         for(Categoria categoria: modelo.Categorias){
             vista.cmb_cat.addItem(categoria.getNom_cat());

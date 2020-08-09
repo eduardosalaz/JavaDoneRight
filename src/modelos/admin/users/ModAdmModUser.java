@@ -28,11 +28,7 @@ public class ModAdmModUser {
             rs = pstm.executeQuery();
             if(rs.next()){
                 nombre = rs.getString("nom_usr");
-                if(nombre!=null){
-                    checked = true;
-                }else{
-                    checked = false;
-                }
+                checked = nombre != null;
             }
         }catch (SQLException e){
             e.printStackTrace();

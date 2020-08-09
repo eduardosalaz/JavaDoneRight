@@ -14,9 +14,6 @@ public class VisAdmBorProd {
     public boolean finished = false;
     public JTextField txt_id;
     public JButton btn_borrar, btn_home;
-	/**
-	 * Launch the application.
-	 */
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
