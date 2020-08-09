@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModAdmListUser {
-    public static PreparedStatement pstm = null;
+    public PreparedStatement pstm = null;
     Connection con;
     ResultSet rs;
     public ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();

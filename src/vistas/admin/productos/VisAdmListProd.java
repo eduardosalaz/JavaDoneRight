@@ -91,7 +91,7 @@ public class VisAdmListProd {
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
 
-        String[] nombreCol = {"Clave", "Nombre", "Contraseña", "Precio", "Existencias", "Categoría", "ID Proveedor"};
+        String[] nombreCol = {"Clave", "Nombre", "Precio", "Existencias", "Categoría", "Proveedor"};
         DefaultTableModel dtm= new DefaultTableModel()
         {
             private static final long serialVersionUID = 1L;

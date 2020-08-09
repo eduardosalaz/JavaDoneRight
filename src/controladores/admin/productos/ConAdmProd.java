@@ -1,13 +1,11 @@
 package controladores.admin.productos;
 import controladores.admin.ConAdmMain;
 import modelos.admin.productos.ModAdmBorProd;
+import modelos.admin.productos.ModAdmListProd;
 import modelos.admin.productos.ModAdmModProd;
 import modelos.admin.productos.ModAdmRegProd;
-import vistas.admin.productos.VisAdmBorProd;
-import vistas.admin.productos.VisAdmModProd;
-import vistas.admin.productos.VisAdmProd;
+import vistas.admin.productos.*;
 import vistas.admin.VisAdmMain;
-import vistas.admin.productos.VisAdmRegProd;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,6 +45,9 @@ public class ConAdmProd implements ActionListener {
             ModAdmBorProd modAdmBorProd = new ModAdmBorProd();
             ConAdmBorProd conAdmBorProd = new ConAdmBorProd(visAdmBorProd, modAdmBorProd);
         }else if(e.getSource() == vista.btn_listar){
+            VisAdmListProd visAdmListProd = new VisAdmListProd();
+            ModAdmListProd modAdmListProd = new ModAdmListProd();
+            ConAdmListProd conAdmListProd = new ConAdmListProd(visAdmListProd,modAdmListProd);
             System.out.println("listar");
         }else if(e.getSource() == vista.btn_modificar){
             VisAdmModProd visAdmModProd = new VisAdmModProd();
