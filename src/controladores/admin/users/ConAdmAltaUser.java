@@ -61,6 +61,7 @@ public class ConAdmAltaUser implements ActionListener{
             }
         }else if(e.getSource() == vista.btn_home){
             VisAdmMain visAdmMain = new VisAdmMain();
+            modelo.cerrar();
             vista.frame.dispose();
             ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         }

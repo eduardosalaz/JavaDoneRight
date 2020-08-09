@@ -38,13 +38,14 @@ public class ModAdmAltaUser {
         }catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese ID", "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
-        } finally {
-            try{
-                con.close();
-                pstm.close();
-            }catch(SQLException e3){
-                e3.printStackTrace();
-            }
+        }
+    }
+    public void cerrar() {
+        try{
+            con.close();
+            pstm.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

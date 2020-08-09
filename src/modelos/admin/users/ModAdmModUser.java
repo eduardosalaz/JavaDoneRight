@@ -62,12 +62,16 @@ public class ModAdmModUser {
             JOptionPane.showMessageDialog(null, message);
         }catch(SQLException e){
             e.printStackTrace();
-            try{
-                pstm.close();
-                con.close();
-            }catch (SQLException e2){
-                e2.printStackTrace();
-            }
+
+        }
+    }
+    public void cerrar() {
+        try{
+            con.close();
+            rs.close();
+            pstm.close();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

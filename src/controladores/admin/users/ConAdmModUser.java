@@ -69,10 +69,6 @@ public class ConAdmModUser implements ActionListener {
                     } else {
                         JOptionPane.showMessageDialog(null, "Usuario no modificado");
                     }
-                } else if (e.getSource() == vista.btn_home) {
-                    VisAdmMain visAdmMain = new VisAdmMain();
-                    vista.frame.dispose();
-                    ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
                 }
             } catch (Exception e2) {
                 JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
@@ -80,6 +76,7 @@ public class ConAdmModUser implements ActionListener {
 
         }else if(e.getSource() == vista.btn_home){
             VisAdmMain visAdmMain = new VisAdmMain();
+            modelo.cerrar();
             ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
             vista.frame.dispose();
         }
