@@ -29,7 +29,6 @@ public class ModAdmModUser {
             if(rs.next()){
                 nombre = rs.getString("nom_usr");
                 if(nombre!=null){
-                    System.out.println(nombre);
                     checked = true;
                 }else{
                     checked = false;

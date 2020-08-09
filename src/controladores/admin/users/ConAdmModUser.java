@@ -50,7 +50,7 @@ public class ConAdmModUser implements ActionListener {
                             "Contraseña:", password,
                             "¿Administrador?", admin
                     };
-                    int option = JOptionPane.showConfirmDialog(null, message, "Login", JOptionPane.OK_CANCEL_OPTION);
+                    int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);
                     if (option == JOptionPane.OK_OPTION) {
                         if (nombre.getText().isEmpty() || password.getText().isEmpty() || telefono.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Rellenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);

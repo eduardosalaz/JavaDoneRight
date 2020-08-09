@@ -95,7 +95,7 @@ public class VisAdmModProd {
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setBackground(colores.oscuro);
         btn_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
-        btn_modificar.setBounds(550, 635, 483, 74);
+        btn_modificar.setBounds(550, 635, 500, 74);
         frame.getContentPane().add(btn_modificar);
         
         btn_home = new JButton();
