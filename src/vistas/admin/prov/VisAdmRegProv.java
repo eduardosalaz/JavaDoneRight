@@ -1,5 +1,4 @@
 package vistas.admin.prov;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -12,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
 
 public class VisAdmRegProv {
@@ -19,36 +19,32 @@ public class VisAdmRegProv {
     public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    public JTextField txt_cve,txt_nom;
+    public JTextField txt_id,txt_nom;
     public JButton btn_reg,btn_home;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    VisAdmRegProv window = new VisAdmRegProv();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
+    public void lanzarVista() {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                try{
+                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                }catch (Exception e){
                     e.printStackTrace();
                 }
+                break;
             }
-        });
+        }
+        try {
+            crearGUI();
+            frame.setVisible(true);
+            frame.setResizable(false);
+            finished = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Create the application.
-     */
-    public VisAdmRegProv() {
-        initialize();
-    }
 
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
+    private void crearGUI() {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
@@ -99,13 +95,13 @@ public class VisAdmRegProv {
         lbl_nom.setBounds(580, 410, 424, 60);
         frame.getContentPane().add(lbl_nom);
 
-        txt_cve = new JTextField();
-        txt_cve.setForeground(colores.azul);
-        txt_cve.setBackground(colores.oscuro);
-        txt_cve.setFont(new Font("Carlito", Font.PLAIN, 35));
-        txt_cve.setBounds(617, 310, 350, 50);
-        frame.getContentPane().add(txt_cve);
-        txt_cve.setColumns(10);
+        txt_id = new JTextField();
+        txt_id.setForeground(colores.azul);
+        txt_id.setBackground(colores.oscuro);
+        txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
+        txt_id.setBounds(617, 310, 350, 50);
+        frame.getContentPane().add(txt_id);
+        txt_id.setColumns(10);
 
         txt_nom = new JTextField();
         txt_nom.setForeground(colores.azul);

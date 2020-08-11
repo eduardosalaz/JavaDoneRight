@@ -28,7 +28,6 @@ public class ConAdmListUser implements ActionListener {
         for(Usuario user:modelo.Usuarios){
             model.addRow(new Object[]{""+user.getID_Usuario(), ""+user.getNombre(), ""+user.getPass(), ""+user.isAdmin(), ""+user.getTelefono(), ""+user.getFecha_Alta(), ""+user.getUltima_Sesion()});
         }
-        System.out.println("vista admin lista de users");
         agregarListeners();
     }
     private void agregarListeners() {

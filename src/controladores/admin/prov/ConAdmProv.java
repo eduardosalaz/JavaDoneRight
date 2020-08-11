@@ -1,6 +1,12 @@
 package controladores.admin.prov;
 import controladores.admin.ConAdmMain;
-import vistas.admin.prov.VisAdmProv;
+import modelos.admin.productos.ModAdmBorProd;
+import modelos.admin.prov.ModAdmBorProv;
+import modelos.admin.prov.ModAdmListProv;
+import modelos.admin.prov.ModAdmModProv;
+import modelos.admin.prov.ModAdmRegProv;
+import vistas.admin.productos.VisAdmBorProd;
+import vistas.admin.prov.*;
 import vistas.admin.VisAdmMain;
 
 import java.awt.event.ActionEvent;
@@ -16,7 +22,6 @@ public class ConAdmProv implements ActionListener {
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista admin prov lista");
         agregarListeners();
     }
 
@@ -33,17 +38,25 @@ public class ConAdmProv implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_borrar){
-
-            System.out.println("borrar");
+            VisAdmBorProv visAdmBorProv = new VisAdmBorProv();
+            ModAdmBorProv modAdmBorProv = new ModAdmBorProv();
+            ConAdmBorProv conAdmBorProv = new ConAdmBorProv(visAdmBorProv, modAdmBorProv);
         }else if(e.getSource() == vista.btn_home){
             VisAdmMain visAdmMain = new VisAdmMain();
             ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         }else if(e.getSource() == vista.btn_listar){
-            System.out.println("listar");
+            VisAdmListProv visAdmListProv = new VisAdmListProv();
+            ModAdmListProv modAdmListProv = new ModAdmListProv();
+            ConAdmListProv conAdmListProv = new ConAdmListProv(visAdmListProv, modAdmListProv);
         }else if(e.getSource() == vista.btn_modificar){
+            VisAdmModProv visAdmModProv = new VisAdmModProv();
+            ModAdmModProv modAdmModProv = new ModAdmModProv();
+            ConAdmModProv conAdmModProv = new ConAdmModProv(visAdmModProv, modAdmModProv);
             System.out.println("modificar");
         }else if(e.getSource() == vista.btn_registrar){
-            System.out.println("registrar");
+            VisAdmRegProv visAdmRegProv = new VisAdmRegProv();
+            ModAdmRegProv modAdmRegProv = new ModAdmRegProv();
+            ConAdmRegProv conAdmRegProv = new ConAdmRegProv(visAdmRegProv, modAdmRegProv);
         }
         vista.frame.dispose();
     }

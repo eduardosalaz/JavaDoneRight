@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModAdmBorProd {
-    int id;
-    public PreparedStatement pstm = null;
-    ResultSet rs = null;
-    Connection con ;
+    private int id;
+    private PreparedStatement pstm = null;
+    private ResultSet rs = null;
+    private Connection con;
     public void recibir(int id) {
         this.id = id;
     }

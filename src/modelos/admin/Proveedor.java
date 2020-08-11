@@ -15,6 +15,12 @@ public class Proveedor {
 
     }
 
+    public Proveedor(int id_prov, String nom_prov, Date ultima_prov) {
+        this.id_prov = id_prov;
+        this.nom_prov = nom_prov;
+        this.ultima_prov = ultima_prov;
+    }
+
     public int getId_prov() {
         return id_prov;
     }

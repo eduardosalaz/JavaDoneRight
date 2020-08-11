@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModAdmListProd {
-    public PreparedStatement pstm = null;
-    Connection con;
-    ResultSet rs;
+    private PreparedStatement pstm = null;
+    private Connection con;
+    private ResultSet rs;
     public ArrayList<Articulo> Articulos = new ArrayList<>();
     public void buscar() {
         con = Conexion.Conectar();

@@ -22,7 +22,6 @@ public class ConAdmAltaUser implements ActionListener{
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista adm alta user");
         agregarListeners();
     }
 
@@ -38,7 +37,6 @@ public class ConAdmAltaUser implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_crear){
             if(vista.txt_contra.getText().isEmpty() || vista.txt_id.getText().isEmpty() || vista.txt_tel.getText().isEmpty() || vista.txt_nombre.getText().isEmpty()){
-                System.out.println("vacio");
                 JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
                 String nombre = vista.txt_nombre.getText();
@@ -51,7 +49,6 @@ public class ConAdmAltaUser implements ActionListener{
                     int id;
                     try{
                         id = Integer.parseInt(vista.txt_id.getText());
-                        System.out.println("Nombre: " + nombre + " pass: " + pass + " tel: " + tel + " id: " + id + " admin: " + admin);
                         modelo.recibir(nombre, pass, tel, id, admin);
                         modelo.ejecutar();
                     }catch (NumberFormatException e2){

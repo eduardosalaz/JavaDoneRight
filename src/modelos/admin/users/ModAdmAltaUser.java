@@ -8,11 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ModAdmAltaUser {
-    String nombre, pass, tel;
-    int id;
-    boolean admin;
-    public static PreparedStatement pstm = null;
-    Connection con;
+    private String nombre, pass, tel;
+    private int id;
+    private boolean admin;
+    private PreparedStatement pstm = null;
+    private Connection con;
 
     public void recibir(String nombre, String pass, String tel, int id, boolean admin){
         this.nombre = nombre;

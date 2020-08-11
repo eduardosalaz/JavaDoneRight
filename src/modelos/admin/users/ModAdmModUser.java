@@ -9,11 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModAdmModUser {
-    int id;
-    public static PreparedStatement pstm = null;
+    private int id;
+    public PreparedStatement pstm = null;
     public boolean checked;
-    Connection con;
-    ResultSet rs = null;
+    private Connection con;
+    private ResultSet rs = null;
 
     public void recibir(int id) {
         this.id = id;
