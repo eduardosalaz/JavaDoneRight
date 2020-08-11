@@ -1,7 +1,7 @@
 package modelos.admin.productos;
 
 import DBManager.Conexion;
-import modelos.Articulo;
+import modelos.admin.Articulo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

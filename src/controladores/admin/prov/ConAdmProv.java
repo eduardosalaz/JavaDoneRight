@@ -33,6 +33,7 @@ public class ConAdmProv implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_borrar){
+
             System.out.println("borrar");
         }else if(e.getSource() == vista.btn_home){
             VisAdmMain visAdmMain = new VisAdmMain();

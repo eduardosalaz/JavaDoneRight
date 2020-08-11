@@ -1,7 +1,7 @@
 package controladores.admin.productos;
 
 import controladores.admin.ConAdmMain;
-import modelos.Articulo;
+import modelos.admin.Articulo;
 import modelos.admin.productos.ModAdmListProd;
 import vistas.admin.VisAdmMain;
 import vistas.admin.productos.VisAdmListProd;

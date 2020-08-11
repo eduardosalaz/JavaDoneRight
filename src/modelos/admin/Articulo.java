@@ -1,4 +1,4 @@
-package modelos;
+package modelos.admin;
 
 public class Articulo {
     private int cve_art, inv_art,cat_art,IDprov_art;

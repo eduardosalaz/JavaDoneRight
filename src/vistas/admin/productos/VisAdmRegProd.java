@@ -39,7 +39,7 @@ public class VisAdmRegProd {
 	}
 
 	private void crearGUI() {
-		 frame = new JFrame();
+		 	frame = new JFrame();
 	        frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
 	        frame.setBounds(100, 100, 1600, 900);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
