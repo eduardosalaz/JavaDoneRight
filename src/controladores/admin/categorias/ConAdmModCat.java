@@ -4,7 +4,6 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.categorias.ModAdmModCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmModCat;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +11,7 @@ import java.awt.event.ActionListener;
 public class ConAdmModCat implements ActionListener {
     public VisAdmModCat vista;
     public ModAdmModCat modelo;
+
     public ConAdmModCat(VisAdmModCat vista, ModAdmModCat modelo) {
         this.vista = vista;
         this.modelo = modelo;

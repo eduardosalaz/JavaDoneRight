@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmProd implements ActionListener {
-    VisAdmProd vista;
+    public VisAdmProd vista;
 
     public ConAdmProd(VisAdmProd visAdmProd){
         vista = visAdmProd;

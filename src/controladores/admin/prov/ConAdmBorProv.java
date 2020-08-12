@@ -4,14 +4,14 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.prov.ModAdmBorProv;
 import vistas.admin.VisAdmMain;
 import vistas.admin.prov.VisAdmBorProv;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmBorProv implements ActionListener {
-    VisAdmBorProv vista;
-    ModAdmBorProv modelo;
+    public VisAdmBorProv vista;
+    public ModAdmBorProv modelo;
+
     public ConAdmBorProv(VisAdmBorProv vista, ModAdmBorProv modelo) {
         this.vista = vista;
         this.modelo = modelo;

@@ -1,6 +1,5 @@
 package controladores.user;
 import vistas.user.VisUserMain;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

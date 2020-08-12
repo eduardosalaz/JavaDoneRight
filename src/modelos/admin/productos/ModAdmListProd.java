@@ -2,7 +2,6 @@ package modelos.admin.productos;
 
 import DBManager.Conexion;
 import modelos.admin.Articulo;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,11 +10,11 @@ import java.util.ArrayList;
 
 public class ModAdmListProd {
     private PreparedStatement pstm = null;
-    private Connection con;
     private ResultSet rs;
     public ArrayList<Articulo> Articulos = new ArrayList<>();
+
     public void buscar() {
-        con = Conexion.Conectar();
+        Connection con = Conexion.Conectar();
         try{
             String query = "SELECT art.cve_art,art.nom_art,art.pre_art,art.inv_art,cat.nom_cat,prov.nom_prov FROM articulo as art,categoria as cat,proveedor as prov WHERE " +
                     "art.cat_art=cat.id_cat AND art.IDprov_art=prov.id_prov";
@@ -32,7 +31,7 @@ public class ModAdmListProd {
             {
                 if(rs!=null) rs.close();
                 if(pstm!=null) pstm.close();
-                if(con!=null){
+                if(con !=null){
                     con.close();
                 }
             } catch (SQLException e)

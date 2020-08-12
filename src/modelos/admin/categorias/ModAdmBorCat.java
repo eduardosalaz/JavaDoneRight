@@ -1,7 +1,6 @@
 package modelos.admin.categorias;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

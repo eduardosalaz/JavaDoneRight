@@ -2,8 +2,6 @@ package modelos.admin.categorias;
 
 import DBManager.Conexion;
 import modelos.admin.Categoria;
-import modelos.admin.Proveedor;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +13,7 @@ public class ModAdmListCat {
     private PreparedStatement pstm = null;
     private ResultSet rs;
     public ArrayList<Categoria> Categorias = new ArrayList<Categoria>();
+
     public void buscar() {
         Connection con = Conexion.Conectar();
         try{

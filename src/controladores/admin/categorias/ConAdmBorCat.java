@@ -4,14 +4,14 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.categorias.ModAdmBorCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmBorCat;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmBorCat implements ActionListener {
-    VisAdmBorCat vista;
-    ModAdmBorCat modelo;
+    public VisAdmBorCat vista;
+    public ModAdmBorCat modelo;
+
     public ConAdmBorCat(VisAdmBorCat vista, ModAdmBorCat modelo) {
         this.vista = vista;
         this.modelo = modelo;

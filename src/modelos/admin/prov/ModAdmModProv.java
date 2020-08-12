@@ -1,7 +1,6 @@
 package modelos.admin.prov;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +9,7 @@ import java.sql.SQLException;
 
 public class ModAdmModProv {
     private int id;
-    public PreparedStatement pstm = null;
+    private PreparedStatement pstm = null;
     public boolean checked;
     private Connection con;
     private ResultSet rs = null;
@@ -58,6 +57,7 @@ public class ModAdmModProv {
             e.printStackTrace();
         }
     }
+
     public void cerrar() {
         try{
             con.close();

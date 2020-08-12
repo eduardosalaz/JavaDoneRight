@@ -7,12 +7,11 @@ import modelos.admin.users.ModAdmListUser;
 import modelos.admin.users.ModAdmModUser;
 import vistas.admin.VisAdmMain;
 import vistas.admin.users.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmUsers implements ActionListener {
-    VisAdmUsers vista;
+    public VisAdmUsers vista;
 
     public ConAdmUsers(VisAdmUsers visAdmUsers){
         vista = visAdmUsers;

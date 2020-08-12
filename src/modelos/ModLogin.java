@@ -1,7 +1,6 @@
 package modelos;
 import DBManager.Conexion;
 import modelos.admin.Usuario;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,11 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModLogin {
-	public PreparedStatement pstm = null;
-	public PreparedStatement pstm2 = null;
-	ResultSet rs = null;
-	ResultSet rs2 = null;
-	String passW;
+	private PreparedStatement pstm = null;
+	private ResultSet rs = null;
 	public Connection con;
 	public ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -36,12 +32,12 @@ public class ModLogin {
 				if(rs.next()) {
 					//Query de la contraseña desencriptada
 					String query2 = "SELECT AES_DECRYPT(?, 'secret') as `contra` FROM usuario WHERE id_usr =?";
-					pstm2 = con.prepareStatement(query2);
+					PreparedStatement pstm2 = con.prepareStatement(query2);
 					pstm2.setString(1, pass);
 					pstm2.setInt(2, user);
-					rs2 = pstm2.executeQuery();
+					ResultSet rs2 = pstm2.executeQuery();
 					if(rs2.next()){
-						passW = rs2.getString("contra");
+						String passW = rs2.getString("contra");
 						usuarios.add(new Usuario(rs.getInt("id_usr"), rs.getBoolean("admin"), passW, rs.getString("nom_usr"), rs.getString("tel_usr"),
 								rs.getDate("alta_usr"), rs.getDate("ultima_usr")));
 						//Query de actualizar el campo de Ultima Sesion
@@ -51,7 +47,6 @@ public class ModLogin {
 						pstm.executeUpdate();
 						return true;
 					}else{
-						System.out.println("no lo encontre");
 						return false;
 					}
 				}else {
@@ -75,6 +70,7 @@ public class ModLogin {
 			}
 		}
 	}
+
 	public Usuario devolverUsuario() {
 		return usuarios.get(0);
 	}

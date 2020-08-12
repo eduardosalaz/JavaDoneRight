@@ -5,14 +5,14 @@ import modelos.admin.Articulo;
 import modelos.admin.productos.ModAdmListProd;
 import vistas.admin.VisAdmMain;
 import vistas.admin.productos.VisAdmListProd;
-
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmListProd implements ActionListener {
-    VisAdmListProd vista;
-    ModAdmListProd modelo;
+    public VisAdmListProd vista;
+    public ModAdmListProd modelo;
+
     public ConAdmListProd(VisAdmListProd vista, ModAdmListProd modelo) {
         this.vista = vista;
         this.modelo = modelo;

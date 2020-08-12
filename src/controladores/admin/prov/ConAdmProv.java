@@ -1,19 +1,18 @@
 package controladores.admin.prov;
+
 import controladores.admin.ConAdmMain;
-import modelos.admin.productos.ModAdmBorProd;
 import modelos.admin.prov.ModAdmBorProv;
 import modelos.admin.prov.ModAdmListProv;
 import modelos.admin.prov.ModAdmModProv;
 import modelos.admin.prov.ModAdmRegProv;
-import vistas.admin.productos.VisAdmBorProd;
-import vistas.admin.prov.*;
 import vistas.admin.VisAdmMain;
+import vistas.admin.prov.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmProv implements ActionListener {
-    VisAdmProv vista;
+    public VisAdmProv vista;
 
     public ConAdmProv(VisAdmProv visAdmProv){
         vista = visAdmProv;

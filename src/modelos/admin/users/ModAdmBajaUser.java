@@ -1,7 +1,6 @@
 package modelos.admin.users;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,10 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ModAdmBajaUser {
-    int id;
-    public PreparedStatement pstm = null;
-    ResultSet rs = null;
-    Connection con;
+    private int id;
+    private PreparedStatement pstm = null;
+    private ResultSet rs = null;
+    private Connection con;
 
     public void recibir(int id) {
         this.id = id;
@@ -44,7 +43,6 @@ public class ModAdmBajaUser {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 
     public void cerrar() {

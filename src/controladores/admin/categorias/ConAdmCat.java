@@ -11,12 +11,11 @@ import vistas.admin.categorias.VisAdmCat;
 import vistas.admin.categorias.VisAdmListCat;
 import vistas.admin.categorias.VisAdmModCat;
 import vistas.admin.categorias.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmCat implements ActionListener {
-    VisAdmCat vista;
+    public VisAdmCat vista;
 
     public ConAdmCat(VisAdmCat visAdmCat){
         System.out.println("estoy en el constructor");

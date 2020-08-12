@@ -5,14 +5,13 @@ import modelos.admin.users.ModAdmListUser;
 import modelos.admin.Usuario;
 import vistas.admin.users.VisAdmListUser;
 import vistas.admin.VisAdmMain;
-
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmListUser implements ActionListener {
-    VisAdmListUser vista;
-    ModAdmListUser modelo;
+    public VisAdmListUser vista;
+    public ModAdmListUser modelo;
 
     public ConAdmListUser(VisAdmListUser vista, ModAdmListUser modelo) {
         this.vista = vista;

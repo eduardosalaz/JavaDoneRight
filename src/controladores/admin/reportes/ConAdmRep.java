@@ -2,12 +2,11 @@ package controladores.admin.reportes;
 import controladores.admin.ConAdmMain;
 import vistas.admin.reportes.VisAdmRep;
 import vistas.admin.VisAdmMain;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmRep implements ActionListener {
-    VisAdmRep vista;
+    public VisAdmRep vista;
 
     public ConAdmRep(VisAdmRep visAdmRep){
         vista = visAdmRep;

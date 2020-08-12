@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class ModAdmModCat {
     private int id;
-    public PreparedStatement pstm = null;
+    private PreparedStatement pstm = null;
     public boolean checked;
     private Connection con;
     private ResultSet rs = null;

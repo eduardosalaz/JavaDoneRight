@@ -5,7 +5,6 @@ import modelos.admin.Categoria;
 import modelos.admin.categorias.ModAdmListCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmListCat;
-
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +12,7 @@ import java.awt.event.ActionListener;
 public class ConAdmListCat implements ActionListener {
     public VisAdmListCat vista;
     public ModAdmListCat modelo;
+
     public ConAdmListCat(VisAdmListCat vista, ModAdmListCat modelo) {
         this.vista = vista;
         this.modelo = modelo;

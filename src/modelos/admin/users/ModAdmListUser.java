@@ -2,7 +2,6 @@ package modelos.admin.users;
 
 import DBManager.Conexion;
 import modelos.admin.Usuario;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModAdmListUser {
-    public PreparedStatement pstm = null;
-    Connection con;
-    ResultSet rs;
+    private PreparedStatement pstm = null;
+    private Connection con;
+    private ResultSet rs;
     public ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
 
     public void buscar() {

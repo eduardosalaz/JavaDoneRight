@@ -1,7 +1,6 @@
 package modelos.admin.productos;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +12,7 @@ public class ModAdmBorProd {
     private PreparedStatement pstm = null;
     private ResultSet rs = null;
     private Connection con;
+
     public void recibir(int id) {
         this.id = id;
     }

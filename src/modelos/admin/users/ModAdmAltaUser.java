@@ -1,7 +1,6 @@
 package modelos.admin.users;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,6 +39,7 @@ public class ModAdmAltaUser {
             e.printStackTrace();
         }
     }
+
     public void cerrar() {
         try{
             con.close();

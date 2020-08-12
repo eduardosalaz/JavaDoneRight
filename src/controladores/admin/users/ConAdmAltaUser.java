@@ -4,15 +4,14 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.users.ModAdmAltaUser;
 import vistas.admin.users.VisAdmAltaUser;
 import vistas.admin.VisAdmMain;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 public class ConAdmAltaUser implements ActionListener{
-    VisAdmAltaUser vista;
-    ModAdmAltaUser modelo;
+    public VisAdmAltaUser vista;
+    public ModAdmAltaUser modelo;
 
     public ConAdmAltaUser(VisAdmAltaUser visAdmAltaUser, ModAdmAltaUser modAdmAltaUser){
         vista = visAdmAltaUser;

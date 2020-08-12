@@ -12,8 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmRegProd implements ActionListener {
-    VisAdmRegProd vista;
-    ModAdmRegProd modelo;
+    public VisAdmRegProd vista;
+    public ModAdmRegProd modelo;
+
     public ConAdmRegProd(VisAdmRegProd vista, ModAdmRegProd modelo) {
         this.vista = vista;
         this.modelo = modelo;

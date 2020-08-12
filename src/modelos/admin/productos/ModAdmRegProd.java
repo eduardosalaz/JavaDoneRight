@@ -3,7 +3,6 @@ package modelos.admin.productos;
 import DBManager.Conexion;
 import modelos.admin.Categoria;
 import modelos.admin.Proveedor;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModAdmRegProd {
-    public PreparedStatement pstm = null;
-    ResultSet rs = null;
+    private PreparedStatement pstm = null;
+    private ResultSet rs = null;
     public Connection con;
     public ArrayList<Categoria> Categorias = new ArrayList<Categoria>();
     public ArrayList<Proveedor> Proveedores = new ArrayList<Proveedor>();

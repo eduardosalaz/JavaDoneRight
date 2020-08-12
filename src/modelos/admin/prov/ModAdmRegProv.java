@@ -1,7 +1,6 @@
 package modelos.admin.prov;
 
 import DBManager.Conexion;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.sql.SQLException;
 public class ModAdmRegProv {
     private PreparedStatement pstm = null;
     private Connection con;
+
     public void ejecutar(int id, String nombre) {
         con = Conexion.Conectar();
         String query = "INSERT INTO proveedor (id_prov,nom_prov,ultima_prov) VALUES (?,?,NOW())";
@@ -24,8 +24,8 @@ public class ModAdmRegProv {
             JOptionPane.showMessageDialog(null, "Ya existe un proveedor con ese ID", "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
-
     }
+
     public void cerrar() {
         try{
             con.close();

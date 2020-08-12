@@ -3,7 +3,6 @@ package modelos.admin.productos;
 import DBManager.Conexion;
 import modelos.admin.Categoria;
 import modelos.admin.Proveedor;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,16 +11,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModAdmModProd {
-    int id;
-    public static PreparedStatement pstm = null;
+    public int id;
+    private PreparedStatement pstm = null;
     public boolean checked;
-    Connection con;
-    ResultSet rs = null;
+    private Connection con;
+    private ResultSet rs = null;
     public ArrayList<Categoria> Categorias = new ArrayList<Categoria>();
     public ArrayList<Proveedor> Proveedores = new ArrayList<Proveedor>();
-    int n_cve, inventario;
-    float precio;
-    String n_nombre, cat, prov;
+    private int n_cve, inventario;
+    private float precio;
+    private String n_nombre, cat, prov;
+
     public void recibir(int id) {
         this.id = id;
     }

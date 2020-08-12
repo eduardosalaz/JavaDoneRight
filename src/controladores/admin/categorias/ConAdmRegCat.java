@@ -4,14 +4,14 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.categorias.ModAdmRegCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmRegCat;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConAdmRegCat implements ActionListener {
-    VisAdmRegCat vista;
-    ModAdmRegCat modelo;
+    public VisAdmRegCat vista;
+    public ModAdmRegCat modelo;
+
     public ConAdmRegCat(VisAdmRegCat vista, ModAdmRegCat modelo) {
         this.vista = vista;
         this.modelo = modelo;
