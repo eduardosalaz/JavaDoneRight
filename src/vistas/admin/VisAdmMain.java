@@ -9,7 +9,7 @@ import java.awt.*;
 public class VisAdmMain {
 	public CustomColors colores = new CustomColors();
 	public JFrame frame;
-	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep;
+	public JButton btn_usuarios, btn_prod, btn_prov, btn_rep, btn_cat;
 	public boolean finished = false;
 
 	public void lanzarVista(){
@@ -94,5 +94,13 @@ public class VisAdmMain {
 		btn_rep.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_rep.setBounds(838, 331, 310, 55);
 		frame.getContentPane().add(btn_rep);
+
+		btn_cat = new JButton("Categorías");
+		btn_cat.setVerticalAlignment(SwingConstants.TOP);
+		btn_cat.setForeground(colores.amarillo);
+		btn_cat.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
+		btn_cat.setBackground(colores.oscuro);
+		btn_cat.setBounds(637, 492, 310, 55);
+		frame.getContentPane().add(btn_cat);
 	}
 }
