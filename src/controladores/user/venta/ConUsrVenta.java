@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 public class ConUsrVenta implements ActionListener {
     public ModUsrVenta modelo;
     public VisUsrVenta vista;
+    public float dineroTotal = 0;
 
     public ConUsrVenta(VisUsrVenta vista, ModUsrVenta modelo) {
         this.vista = vista;
@@ -64,7 +65,10 @@ public class ConUsrVenta implements ActionListener {
                     if(modelo.prec_total>0){
                         DefaultTableModel model = (DefaultTableModel) vista.table.getModel();
                         model.addRow(new Object[]{""+id,""+vista.lbl_producto.getText(),""+prec_ind,""+cantidad,""+prec_total});
+                        dineroTotal += prec_total;
                     }
+
+                    vista.lbl_dinero.setText(""+dineroTotal);
                 }catch (NumberFormatException ex){
                     JOptionPane.showMessageDialog(null, "Use sólo numeros enteros", "Error", JOptionPane.ERROR_MESSAGE);
                 }

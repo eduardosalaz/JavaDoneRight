@@ -25,7 +25,7 @@ public class VisUsrVenta {
     public JTable table;
     public JComboBox<Object> cmb_id;
     public JTextField txt_cantidad;
-    public JLabel lbl_producto;
+    public JLabel lbl_producto, lbl_dinero;
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -181,5 +181,23 @@ public class VisUsrVenta {
         lbl_producto.setForeground(colores.amarillo);
         lbl_producto.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_producto);
+
+        JLabel lbl_total = new JLabel("Total:");
+        lbl_total.setVerticalAlignment(SwingConstants.TOP);
+        lbl_total.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_total.setForeground(colores.amarillo);
+        lbl_total.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_total.setBackground(colores.oscuro);
+        lbl_total.setBounds(1202, 212, 286, 59);
+        frame.getContentPane().add(lbl_total);
+
+        lbl_dinero = new JLabel("$$$");
+        lbl_dinero.setVerticalAlignment(SwingConstants.TOP);
+        lbl_dinero.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_dinero.setForeground(colores.amarillo);
+        lbl_dinero.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_dinero.setBackground(colores.oscuro);
+        lbl_dinero.setBounds(1202, 282, 286, 59);
+        frame.getContentPane().add(lbl_dinero);
     }
 }
