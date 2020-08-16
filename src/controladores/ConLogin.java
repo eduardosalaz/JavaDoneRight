@@ -60,6 +60,7 @@ public class ConLogin implements ActionListener {
 				if(check) {
 					Usuario user = modelo.devolverUsuario();
 					String nombre = user.getNombre();
+					int id = user.getID_Usuario();
 					JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
 					if(user.isAdmin()) {
 						VisAdmMain vistaAdmin = new VisAdmMain();
@@ -67,7 +68,7 @@ public class ConLogin implements ActionListener {
 
 					}else {
 						VisUsrMain vistaUser = new VisUsrMain();
-						ConUsrMain controladorUser = new ConUsrMain(vistaUser);
+						ConUsrMain controladorUser = new ConUsrMain(vistaUser, id);
 					}
 					vista.frame.dispose();
 				}else {

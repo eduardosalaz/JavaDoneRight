@@ -14,11 +14,13 @@ import java.awt.event.ActionListener;
 public class ConUsrVenta implements ActionListener {
     public ModUsrVenta modelo;
     public VisUsrVenta vista;
+    public int idUser;
     public float dineroTotal = 0;
 
-    public ConUsrVenta(VisUsrVenta vista, ModUsrVenta modelo) {
+    public ConUsrVenta(VisUsrVenta vista, ModUsrVenta modelo, int idUser) {
         this.vista = vista;
         this.modelo = modelo;
+        this.idUser = idUser;
         ejecutar();
     }
 
@@ -28,6 +30,7 @@ public class ConUsrVenta implements ActionListener {
         comboID();
         agregarListeners();
         ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
+        System.out.println(idUser);
     }
 
     private void agregarListeners() {
@@ -60,7 +63,7 @@ public class ConUsrVenta implements ActionListener {
 
         }else if (e.getSource() == vista.btn_home){
             VisUsrMain visUsrMain = new VisUsrMain();
-            ConUsrMain conUsrMain = new ConUsrMain(visUsrMain);
+            ConUsrMain conUsrMain = new ConUsrMain(visUsrMain, idUser);
             modelo.cerrarConexion();
             vista.frame.dispose();
         }else if(e.getSource() == vista.btn_agregar){

@@ -10,9 +10,10 @@ import java.awt.event.ActionListener;
 public class ConUsrMain implements ActionListener {
 
 	public VisUsrMain vistaUser;
-	
-	public ConUsrMain(VisUsrMain vista) {
+	public int idUser;
+	public ConUsrMain(VisUsrMain vista, int idUser) {
 		vistaUser = vista;
+		this.idUser = idUser;
 		ejecutar();
 	}
 
@@ -40,8 +41,7 @@ public class ConUsrMain implements ActionListener {
 		}else if(e.getSource() == vistaUser.btn_venta){
 			VisUsrVenta visUsrVenta = new VisUsrVenta();
 			ModUsrVenta modUsrVenta = new ModUsrVenta();
-			ConUsrVenta conUsrVenta = new ConUsrVenta(visUsrVenta, modUsrVenta);
-
+			ConUsrVenta conUsrVenta = new ConUsrVenta(visUsrVenta, modUsrVenta, idUser);
 		}
 		vistaUser.frame.dispose();
 	}
