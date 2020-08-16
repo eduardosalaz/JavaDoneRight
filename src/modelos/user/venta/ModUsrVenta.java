@@ -65,8 +65,27 @@ public class ModUsrVenta {
 
     public void pagar(){
         int totalArticulos = Claves.size();
+        try{
+            String query = "INSERT INTO venta (iduser_venta,fecha_venta,total_venta) VALUES (?, NOW(), ?)";
+            pstm = con.prepareStatement(query);
+            pstm.setInt(1, idUser);
+            pstm.setFloat(2, total_venta);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
         for (int i=0;i<totalArticulos;i++){
-            System.out.println("Clave: " + Claves.get(i) + " Cantidad: " + Cantidades.get(i) + " Monto: " + Montos.get(i));
+            try{
+                int clave_actual = Claves.get(i);
+                int cant_actual = Cantidades.get(i);
+                float monto_actual = Montos.get(i);
+                String query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
+                pstm = con.prepareStatement(query);
+                pstm.setInt(1, clave_actual);
+                pstm.setInt(2, cant_actual);
+                pstm.setFloat(3, monto_actual);
+            }catch (SQLException ex){
+                ex.printStackTrace();
+            }
         }
 
     }
