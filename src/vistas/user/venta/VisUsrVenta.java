@@ -146,15 +146,15 @@ public class VisUsrVenta {
         frame.getContentPane().add(btn_agregar);
 
         cmb_id = new JComboBox<Object>();
-        cmb_id.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-        cmb_id.setBounds(571, 641, 88, 42);
+        cmb_id.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+        cmb_id.setBounds(294, 200, 88, 42);
         cmb_id.setForeground(colores.amarillo);
         cmb_id.setBackground(colores.oscuro);
         frame.getContentPane().add(cmb_id);
 
         JLabel lbl_id = new JLabel("ID de Producto:");
         lbl_id.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-        lbl_id.setBounds(392, 641, 228, 42);
+        lbl_id.setBounds(96, 202, 228, 42);
         lbl_id.setForeground(colores.amarillo);
         lbl_id.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_id);
