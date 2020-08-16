@@ -1,20 +1,14 @@
 package vistas.user;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-
 import com.bulenkov.darcula.DarculaLaf;
 import crearColores.CustomColors;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
-public class VisUserMain {
+import javax.swing.*;
+import java.awt.*;
 
-	private JFrame frame;
+public class VisUsrMain {
+
+	public JFrame frame;
 	public CustomColors colores = new CustomColors();
 	public JButton btn_venta, btn_compra, btn_corte;
 	public boolean finished = false;

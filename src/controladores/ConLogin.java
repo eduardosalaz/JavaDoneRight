@@ -3,7 +3,7 @@ package controladores;
 import controladores.admin.ConAdmMain;
 import controladores.user.ConUsrMain;
 import vistas.VisLogin;
-import vistas.user.VisUserMain;
+import vistas.user.VisUsrMain;
 import vistas.admin.VisAdmMain;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
@@ -66,7 +66,7 @@ public class ConLogin implements ActionListener {
 						ConAdmMain controladorAdmin = new ConAdmMain(vistaAdmin);
 
 					}else {
-						VisUserMain vistaUser = new VisUserMain();
+						VisUsrMain vistaUser = new VisUsrMain();
 						ConUsrMain controladorUser = new ConUsrMain(vistaUser);
 					}
 					vista.frame.dispose();

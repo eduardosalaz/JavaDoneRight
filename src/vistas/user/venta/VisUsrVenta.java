@@ -23,6 +23,7 @@ public class VisUsrVenta {
     public boolean finished = false;
     public JButton btn_home, btn_cancelar, btn_eliminar, btn_pagar, btn_agregar;
     public JTable table;
+    public JComboBox<Object> cmb_id;
     public JTextField txt_cantidad;
 
     public void lanzarVista(){
@@ -143,7 +144,7 @@ public class VisUsrVenta {
         btn_agregar.setForeground(colores.amarillo);
         frame.getContentPane().add(btn_agregar);
 
-        JComboBox cmb_id = new JComboBox();
+        cmb_id = new JComboBox<Object>();
         cmb_id.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
         cmb_id.setBounds(571, 641, 88, 42);
         cmb_id.setForeground(colores.amarillo);
@@ -164,7 +165,7 @@ public class VisUsrVenta {
         lbl_cantidad.setForeground(colores.amarillo);
         frame.getContentPane().add(lbl_cantidad);
 
-        txt_cantidad = new JTextField();
+        txt_cantidad = new JTextField(4);
         txt_cantidad.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
         txt_cantidad.setBounds(1093, 641, 99, 42);
         frame.getContentPane().add(txt_cantidad);
