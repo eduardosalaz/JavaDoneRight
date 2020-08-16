@@ -46,6 +46,11 @@ public class ConUsrVenta implements ActionListener {
         if(e.getSource() == vista.btn_pagar){
 
         }else if(e.getSource() == vista.btn_cancelar){
+            ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
+            vista.lbl_dinero.setText("$$$");
+            vista.txt_cantidad.setText("");
+            vista.cmb_id.setSelectedItem("1");
+            dineroTotal = 0;
 
         }else if(e.getSource() == vista.btn_eliminar){
 
@@ -75,12 +80,10 @@ public class ConUsrVenta implements ActionListener {
             }else{
                 JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
         }else if(e.getSource() == vista.cmb_id){
             int clave =(Integer) vista.cmb_id.getSelectedItem();
             cambiarArt(clave);
         }
-
     }
 
     private void comboID(){
