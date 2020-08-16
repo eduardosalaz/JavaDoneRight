@@ -79,12 +79,22 @@ public class ModUsrVenta {
                 int clave_actual = Claves.get(i);
                 int cant_actual = Cantidades.get(i);
                 float monto_actual = Montos.get(i);
-                String query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
+
+                String query = "UPDATE articulo SET inv_art = (inv_art - ?) WHERE cve_art = ?";
+                pstm = con.prepareStatement(query);
+                pstm.setInt(1, cant_actual);
+                pstm.setInt(2, clave_actual);
+                pstm.executeUpdate();
+
+
+
+                query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
                 pstm = con.prepareStatement(query);
                 pstm.setInt(1, clave_actual);
                 pstm.setInt(2, cant_actual);
                 pstm.setFloat(3, monto_actual);
                 pstm.executeUpdate();
+
             }catch (SQLException ex){
                 ex.printStackTrace();
             }
