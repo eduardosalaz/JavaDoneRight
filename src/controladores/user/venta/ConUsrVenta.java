@@ -51,8 +51,12 @@ public class ConUsrVenta implements ActionListener {
             vista.txt_cantidad.setText("");
             vista.cmb_id.setSelectedItem("1");
             dineroTotal = 0;
-
         }else if(e.getSource() == vista.btn_eliminar){
+            if(vista.table.getSelectedRow() != -1){
+               DefaultTableModel dtm = (DefaultTableModel) vista.table.getModel();
+               dtm.removeRow(vista.table.getSelectedRow());
+               JOptionPane.showMessageDialog(null, "Se ha eliminado el producto exitosamente", "Producto Eliminado", JOptionPane.ERROR_MESSAGE);
+            }
 
         }else if (e.getSource() == vista.btn_home){
             VisUsrMain visUsrMain = new VisUsrMain();
@@ -72,7 +76,6 @@ public class ConUsrVenta implements ActionListener {
                         model.addRow(new Object[]{""+id,""+vista.lbl_producto.getText(),""+prec_ind,""+cantidad,""+prec_total});
                         dineroTotal += prec_total;
                     }
-
                     vista.lbl_dinero.setText(""+dineroTotal);
                 }catch (NumberFormatException ex){
                     JOptionPane.showMessageDialog(null, "Use sólo numeros enteros", "Error", JOptionPane.ERROR_MESSAGE);

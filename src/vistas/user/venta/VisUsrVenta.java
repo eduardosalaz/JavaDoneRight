@@ -115,7 +115,7 @@ public class VisUsrVenta {
         scroll.setBounds(392, 130, 800, 500);
         scroll.setBackground(colores.oscuro);
         scroll.setForeground(colores.amarillo);
-                frame.getContentPane().add(scroll);
+        frame.getContentPane().add(scroll);
 
         btn_cancelar = new JButton("Cancelar Venta");
         btn_cancelar.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
