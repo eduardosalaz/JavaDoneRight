@@ -70,6 +70,7 @@ public class ModUsrVenta {
             pstm = con.prepareStatement(query);
             pstm.setInt(1, idUser);
             pstm.setFloat(2, total_venta);
+            pstm.executeUpdate();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -83,6 +84,7 @@ public class ModUsrVenta {
                 pstm.setInt(1, clave_actual);
                 pstm.setInt(2, cant_actual);
                 pstm.setFloat(3, monto_actual);
+                pstm.executeUpdate();
             }catch (SQLException ex){
                 ex.printStackTrace();
             }
