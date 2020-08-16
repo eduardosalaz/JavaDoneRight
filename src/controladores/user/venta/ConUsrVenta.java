@@ -30,7 +30,6 @@ public class ConUsrVenta implements ActionListener {
         comboID();
         agregarListeners();
         ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
-        System.out.println(idUser);
     }
 
     private void agregarListeners() {
@@ -47,6 +46,18 @@ public class ConUsrVenta implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_pagar){
+            modelo.idUser = idUser;
+            modelo.total_venta = dineroTotal;
+            for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                modelo.Claves.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 0)));
+            }
+            for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                modelo.Cantidades.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 3)));
+            }
+            for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                modelo.Montos.add(Float.parseFloat((String) vista.table.getModel().getValueAt(i, 4)));
+            }
+            modelo.pagar();
 
         }else if(e.getSource() == vista.btn_cancelar){
             ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
@@ -60,7 +71,6 @@ public class ConUsrVenta implements ActionListener {
                dtm.removeRow(vista.table.getSelectedRow());
                JOptionPane.showMessageDialog(null, "Se ha eliminado el producto exitosamente", "Producto Eliminado", JOptionPane.ERROR_MESSAGE);
             }
-
         }else if (e.getSource() == vista.btn_home){
             VisUsrMain visUsrMain = new VisUsrMain();
             ConUsrMain conUsrMain = new ConUsrMain(visUsrMain, idUser);
@@ -97,6 +107,7 @@ public class ConUsrVenta implements ActionListener {
             vista.cmb_id.addItem(art.getCve_art());
         }
     }
+
     private float obtenerPrecio(int cve){
         for (Articulo art: modelo.Articulos){
             if(art.getCve_art() == cve){

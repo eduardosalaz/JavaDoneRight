@@ -15,6 +15,12 @@ public class ModUsrVenta {
     public Connection con;
     public float prec_total;
     public ArrayList<Articulo> Articulos = new ArrayList<Articulo>();
+    public ArrayList<Integer> Claves = new ArrayList<>();
+    public ArrayList<Integer> Cantidades = new ArrayList<>();
+    public ArrayList<Float> Montos = new ArrayList<>();
+    public int idUser;
+    public float total_venta;
+
 
     public void queryProductos(){
         con = Conexion.Conectar();
@@ -55,6 +61,20 @@ public class ModUsrVenta {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
 
+    public void pagar(){
+        System.out.println("claves: ");
+        for (Integer clave:Claves) {
+            System.out.println(clave);
+        }
+        System.out.println("cantidades: ");
+        for (Integer cantidad:Cantidades) {
+            System.out.println(cantidad);
+        }
+        System.out.println("montos: ");
+        for (Float monto: Montos) {
+            System.out.println(monto);
+        }
     }
 }
