@@ -64,17 +64,10 @@ public class ModUsrVenta {
     }
 
     public void pagar(){
-        System.out.println("claves: ");
-        for (Integer clave:Claves) {
-            System.out.println(clave);
+        int totalArticulos = Claves.size();
+        for (int i=0;i<totalArticulos;i++){
+            System.out.println("Clave: " + Claves.get(i) + " Cantidad: " + Cantidades.get(i) + " Monto: " + Montos.get(i));
         }
-        System.out.println("cantidades: ");
-        for (Integer cantidad:Cantidades) {
-            System.out.println(cantidad);
-        }
-        System.out.println("montos: ");
-        for (Float monto: Montos) {
-            System.out.println(monto);
-        }
+
     }
 }

@@ -64,6 +64,9 @@ public class ConUsrVenta implements ActionListener {
             vista.lbl_dinero.setText("$$$");
             vista.txt_cantidad.setText("");
             vista.cmb_id.setSelectedItem("1");
+            modelo.Cantidades.clear();
+            modelo.Claves.clear();
+            modelo.Montos.clear();
             dineroTotal = 0;
         }else if(e.getSource() == vista.btn_eliminar){
             if(vista.table.getSelectedRow() != -1){
