@@ -3,10 +3,8 @@ package modelos.user.venta;
 import DBManager.Conexion;
 import modelos.admin.Articulo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.swing.*;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ModUsrVenta {
@@ -86,15 +84,33 @@ public class ModUsrVenta {
                 pstm.setInt(2, clave_actual);
                 pstm.executeUpdate();
 
-
-
-                query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
+                query = "SELECT inv_art FROM articulo WHERE cve_art = ?";
                 pstm = con.prepareStatement(query);
                 pstm.setInt(1, clave_actual);
-                pstm.setInt(2, cant_actual);
-                pstm.setFloat(3, monto_actual);
-                pstm.executeUpdate();
+                rs = pstm.executeQuery();
 
+                while (rs.next()){
+                    int cantidad = rs.getInt(1);
+                    if(cantidad<0){
+                        JOptionPane.showMessageDialog(null, "Has intentado vender más artículos de los que hay en existencias", "Error", JOptionPane.ERROR_MESSAGE);
+                        query = "UPDATE articulo SET inv_art = (inv_art + ?) WHERE cve_art = ?";
+                        pstm = con.prepareStatement(query);
+                        pstm.setInt(1, cant_actual);
+                        pstm.setInt(2, clave_actual);
+                        pstm.executeUpdate();
+
+                        query = "DELETE FROM venta WHERE id_venta = LAST_INSERT_ID()";
+                        pstm = con.prepareStatement(query);
+                        pstm.executeUpdate();
+                    }else{
+                        query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
+                        pstm = con.prepareStatement(query);
+                        pstm.setInt(1, clave_actual);
+                        pstm.setInt(2, cant_actual);
+                        pstm.setFloat(3, monto_actual);
+                        pstm.executeUpdate();
+                        }
+                    }
             }catch (SQLException ex){
                 ex.printStackTrace();
             }

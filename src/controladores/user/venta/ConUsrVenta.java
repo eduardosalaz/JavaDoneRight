@@ -5,7 +5,6 @@ import modelos.admin.Articulo;
 import modelos.user.venta.ModUsrVenta;
 import vistas.user.VisUsrMain;
 import vistas.user.venta.VisUsrVenta;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -48,16 +47,29 @@ public class ConUsrVenta implements ActionListener {
         if(e.getSource() == vista.btn_pagar){
             modelo.idUser = idUser;
             modelo.total_venta = dineroTotal;
-            for (int i=0; i<vista.table.getModel().getRowCount();i++){
-                modelo.Claves.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 0)));
+
+            if(dineroTotal > 0){
+                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                    modelo.Claves.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 0)));
+                }
+                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                    modelo.Cantidades.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 3)));
+                }
+                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                    modelo.Montos.add(Float.parseFloat((String) vista.table.getModel().getValueAt(i, 4)));
+                }
+                modelo.pagar();
+                ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
+                vista.lbl_dinero.setText("$$$");
+                vista.txt_cantidad.setText("");
+                vista.cmb_id.setSelectedItem("1");
+                modelo.Cantidades.clear();
+                modelo.Claves.clear();
+                modelo.Montos.clear();
+                dineroTotal = 0;
+            }else{
+                JOptionPane.showMessageDialog(null, "Agregue productos para realizar la venta", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            for (int i=0; i<vista.table.getModel().getRowCount();i++){
-                modelo.Cantidades.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 3)));
-            }
-            for (int i=0; i<vista.table.getModel().getRowCount();i++){
-                modelo.Montos.add(Float.parseFloat((String) vista.table.getModel().getValueAt(i, 4)));
-            }
-            modelo.pagar();
 
         }else if(e.getSource() == vista.btn_cancelar){
             ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
