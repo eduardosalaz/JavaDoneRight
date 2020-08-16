@@ -13,6 +13,7 @@ public class ModUsrVenta {
     private PreparedStatement pstm = null;
     private ResultSet rs = null;
     public Connection con;
+    public float prec_total;
     public ArrayList<Articulo> Articulos = new ArrayList<Articulo>();
 
     public void queryProductos(){
@@ -30,4 +31,30 @@ public class ModUsrVenta {
         }
     }
 
+    public void calcularPrecio(int id, int cantidad) {
+        prec_total = 0;
+        try{
+            String query = "SELECT pre_art FROM articulo WHERE cve_art=?";
+            pstm = con.prepareStatement(query);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                float prec_ind = rs.getFloat(1);
+                prec_total = prec_ind * cantidad;
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+    }
+    public void cerrarConexion() {
+        try{
+            rs.close();
+            pstm.close();
+            con.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 }

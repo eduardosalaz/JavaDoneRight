@@ -174,7 +174,7 @@ public class VisUsrVenta {
         txt_cantidad.setForeground(colores.amarillo);
         txt_cantidad.setColumns(10);
 
-        lbl_producto = new JLabel("Bimbuñuelos 125g");
+        lbl_producto = new JLabel("Mantecadas Bimbo 125g");
         lbl_producto.setHorizontalAlignment(SwingConstants.CENTER);
         lbl_producto.setFont(new Font("Bahnschrift", Font.BOLD, 25));
         lbl_producto.setBounds(674, 640, 307, 42);
