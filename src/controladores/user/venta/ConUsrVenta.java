@@ -1,8 +1,8 @@
 package controladores.user.venta;
 
+import modelos.admin.Articulo;
 import modelos.user.venta.ModUsrVenta;
 import vistas.user.venta.VisUsrVenta;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +17,9 @@ public class ConUsrVenta implements ActionListener {
     }
 
     private void ejecutar() {
+        modelo.queryProductos();
         vista.lanzarVista();
+        comboID();
         agregarListeners();
     }
 
@@ -45,8 +47,23 @@ public class ConUsrVenta implements ActionListener {
         }else if(e.getSource() == vista.btn_agregar){
 
         }else if(e.getSource() == vista.cmb_id){
-
+            int clave =(Integer) vista.cmb_id.getSelectedItem();
+            cambiarArt(clave);
         }
 
+    }
+
+    private void comboID(){
+        for (Articulo art:modelo.Articulos){
+            vista.cmb_id.addItem(art.getCve_art());
+        }
+    }
+
+    private void cambiarArt(int cve){
+        for (Articulo art:modelo.Articulos){
+            if(art.getCve_art() == cve){
+                vista.lbl_producto.setText(art.getNom_art());
+            }
+        }
     }
 }

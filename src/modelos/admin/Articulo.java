@@ -34,6 +34,13 @@ public class Articulo {
 
     }
 
+    public Articulo(int cve_art, String nom_art, float pre_art, int inv_art){
+        this.cve_art = cve_art;
+        this.nom_art = nom_art;
+        this.pre_art = pre_art;
+        this.inv_art = inv_art;
+    }
+
     public int getCve_art() {
         return cve_art;
     }

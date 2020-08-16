@@ -25,6 +25,7 @@ public class VisUsrVenta {
     public JTable table;
     public JComboBox<Object> cmb_id;
     public JTextField txt_cantidad;
+    public JLabel lbl_producto;
 
     public void lanzarVista(){
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -173,7 +174,7 @@ public class VisUsrVenta {
         txt_cantidad.setForeground(colores.amarillo);
         txt_cantidad.setColumns(10);
 
-        JLabel lbl_producto = new JLabel("Bimbuñuelos 125g");
+        lbl_producto = new JLabel("Bimbuñuelos 125g");
         lbl_producto.setHorizontalAlignment(SwingConstants.CENTER);
         lbl_producto.setFont(new Font("Bahnschrift", Font.BOLD, 25));
         lbl_producto.setBounds(674, 640, 307, 42);
