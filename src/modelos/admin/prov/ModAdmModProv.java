@@ -61,9 +61,9 @@ public class ModAdmModProv {
 
     public void cerrar() {
         try {
-            con.close();
-            rs.close();
-            pstm.close();
+            if (con != null) con.close();
+            if (rs != null) rs.close();
+            if (pstm != null) pstm.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

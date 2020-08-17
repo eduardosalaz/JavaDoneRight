@@ -81,9 +81,9 @@ public class ModAdmRegProd {
 
     public void cerrarConexion() {
         try {
-            rs.close();
-            pstm.close();
-            con.close();
+            if (rs != null) rs.close();
+            if (pstm != null) pstm.close();
+            if (con != null) con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

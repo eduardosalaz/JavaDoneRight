@@ -30,9 +30,7 @@ public class ModAdmListProv {
             try {
                 if (rs != null) rs.close();
                 if (pstm != null) pstm.close();
-                if (con != null) {
-                    con.close();
-                }
+                if (con != null) con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
