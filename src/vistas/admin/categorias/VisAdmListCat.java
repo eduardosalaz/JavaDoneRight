@@ -1,6 +1,6 @@
 package vistas.admin.categorias;
 
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
@@ -19,7 +19,7 @@ public class VisAdmListCat {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -95,6 +95,7 @@ public class VisAdmListCat {
         table = new JTable(dtm);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
+        table.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
         JScrollPane scroll = new JScrollPane(table);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);

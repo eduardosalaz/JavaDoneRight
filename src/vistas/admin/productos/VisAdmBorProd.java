@@ -1,6 +1,6 @@
 package vistas.admin.productos;
 
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
@@ -19,7 +19,7 @@ public class VisAdmBorProd {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }

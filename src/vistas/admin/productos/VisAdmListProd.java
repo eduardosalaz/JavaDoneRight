@@ -1,22 +1,12 @@
 package vistas.admin.productos;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Image;
+import com.formdev.flatlaf.FlatDarkLaf;
+import crearColores.CustomColors;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-
-import com.bulenkov.darcula.DarculaLaf;
-import crearColores.CustomColors;
+import java.awt.*;
 
 public class VisAdmListProd {
 
@@ -30,7 +20,7 @@ public class VisAdmListProd {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -106,6 +96,7 @@ public class VisAdmListProd {
         table = new JTable(dtm);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
+        table.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
         JScrollPane scroll = new JScrollPane(table);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);

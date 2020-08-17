@@ -1,6 +1,6 @@
 package vistas.admin.productos;
 
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class VisAdmRegProd {
 		for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 			if ("Nimbus".equals(info.getName())) {
 				try{
-					javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+					UIManager.setLookAndFeel(new FlatDarkLaf());
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -162,7 +162,7 @@ public class VisAdmRegProd {
 	        txt_prec.setForeground(colores.azul);
 	        txt_prec.setFont(new Font("Carlito", Font.PLAIN, 35));
 	        txt_prec.setColumns(10);
-	        txt_prec.setBackground(new Color(60, 63, 65));
+	        txt_prec.setBackground(colores.oscuro);
 	        txt_prec.setBounds(370, 540, 350, 50);
 	        frame.getContentPane().add(txt_prec);
 	        

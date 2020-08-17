@@ -6,7 +6,7 @@ import java.awt.Image;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 public class VisAdmProd {
@@ -20,7 +20,7 @@ public class VisAdmProd {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }

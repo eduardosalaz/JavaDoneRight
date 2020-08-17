@@ -1,6 +1,6 @@
 package vistas.admin.categorias;
 
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class VisAdmCat {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }

@@ -1,20 +1,11 @@
 package vistas.admin.users;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-
-import com.bulenkov.darcula.DarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 
 public class VisAdmModUser {
 
@@ -28,7 +19,7 @@ public class VisAdmModUser {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 try{
-                    javax.swing.UIManager.setLookAndFeel(new DarculaLaf());
+                    UIManager.setLookAndFeel(new FlatDarkLaf());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -86,9 +77,9 @@ public class VisAdmModUser {
         JLabel lbl_id = new JLabel("Inserte el ID del usuario a modificar");
         lbl_id.setVerticalAlignment(SwingConstants.TOP);
         lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_id.setForeground(new Color(253, 163, 17));
+        lbl_id.setForeground(colores.amarillo);
         lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-        lbl_id.setBackground(new Color(60, 63, 65));
+        lbl_id.setBackground(colores.oscuro);
         lbl_id.setBounds(436, 230, 712, 59);
         frame.getContentPane().add(lbl_id);
         

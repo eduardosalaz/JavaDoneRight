@@ -42,8 +42,8 @@ public class ModAdmAltaUser {
 
     public void cerrar() {
         try{
-            con.close();
-            pstm.close();
+            if (con!=null)  con.close();
+            if (pstm!=null) pstm.close();
         }catch (SQLException e){
             e.printStackTrace();
         }
