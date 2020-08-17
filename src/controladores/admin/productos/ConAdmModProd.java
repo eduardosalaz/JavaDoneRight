@@ -40,62 +40,9 @@ public class ConAdmModProd implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_modificar){
-            try{
-                int id = Integer.parseInt(vista.txt_id.getText());
-                modelo.recibir(id);
-                modelo.ejecutar();
-                if(modelo.checked){
-                    System.out.println("existe el producto");
-                    JTextField nombre = new JTextField();
-                    JTextField cve = new JTextField();
-                    JTextField prec = new JTextField();
-                    JSpinner inv = new JSpinner();
-                    cmb_cat  = new JComboBox<String>();
-                    cmb_prov = new JComboBox<String>();
-                    comboCat();
-                    comboProv();
-                    Object[] message ={
-                            "Ingresar datos nuevos\n",
-                            "Clave:",cve,
-                            "Nombre:",nombre,
-                            "Precio:",prec,
-                            "Existencias:",inv,
-                            "Categoría:",cmb_cat,
-                            "Proveedor:",cmb_prov
-                    };
-                    int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);
-                    if (option == JOptionPane.OK_OPTION){
-                        if(nombre.getText().isEmpty()||cve.getText().isEmpty()||prec.getText().isEmpty()){
-                            JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-                        }else{
-                            int inventario = (Integer) inv.getValue();
-                            if(inventario<0){
-                                JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
-                            }else{
-                                try{
-                                    String n_nombre = nombre.getText();
-                                    int n_cve = Integer.parseInt(cve.getText());
-                                    float n_prec = Float.parseFloat(prec.getText());
-                                    String cat = (String) cmb_cat.getSelectedItem();
-                                    String prov = (String) cmb_prov.getSelectedItem();
-                                    modelo.recibirDatos(n_cve,n_nombre,n_prec,inventario,cat,prov);
-                                    modelo.modProducto();
-                                }catch (NumberFormatException e2){
-                                    JOptionPane.showMessageDialog(null, "Número no válido", "Error", JOptionPane.ERROR_MESSAGE);
-                                }
-                            }
-                        }
-                    }
-                }
-            }catch (NumberFormatException e2){
-                e2.printStackTrace();
-            }
-
+            modificar();
         }else if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            modelo.cerrar();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
-            vista.frame.dispose();
+            home();
         }
     }
     private void comboProv(){
@@ -110,6 +57,65 @@ public class ConAdmModProd implements ActionListener {
         for(Categoria cat: modelo.Categorias){
             cmb_cat.addItem(cat.getNom_cat());
         }
+    }
 
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+        modelo.cerrar();
+        vista.frame.dispose();
+    }
+
+    private void modificar(){
+        try{
+            int id = Integer.parseInt(vista.txt_id.getText());
+            modelo.recibir(id);
+            modelo.ejecutar();
+            if(modelo.checked){
+                System.out.println("existe el producto");
+                JTextField nombre = new JTextField();
+                JTextField cve = new JTextField();
+                JTextField prec = new JTextField();
+                JSpinner inv = new JSpinner();
+                cmb_cat  = new JComboBox<String>();
+                cmb_prov = new JComboBox<String>();
+                comboCat();
+                comboProv();
+                Object[] message ={
+                        "Ingresar datos nuevos\n",
+                        "Clave:",cve,
+                        "Nombre:",nombre,
+                        "Precio:",prec,
+                        "Existencias:",inv,
+                        "Categoría:",cmb_cat,
+                        "Proveedor:",cmb_prov
+                };
+                int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);
+                if (option == JOptionPane.OK_OPTION){
+                    if(nombre.getText().isEmpty()||cve.getText().isEmpty()||prec.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        int inventario = (Integer) inv.getValue();
+                        if(inventario<0){
+                            JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
+                        }else{
+                            try{
+                                String n_nombre = nombre.getText();
+                                int n_cve = Integer.parseInt(cve.getText());
+                                float n_prec = Float.parseFloat(prec.getText());
+                                String cat = (String) cmb_cat.getSelectedItem();
+                                String prov = (String) cmb_prov.getSelectedItem();
+                                modelo.recibirDatos(n_cve,n_nombre,n_prec,inventario,cat,prov);
+                                modelo.modProducto();
+                            }catch (NumberFormatException e2){
+                                JOptionPane.showMessageDialog(null, "Número no válido", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    }
+                }
+            }
+        }catch (NumberFormatException e2){
+            e2.printStackTrace();
+        }
     }
 }

@@ -37,10 +37,13 @@ public class ConAdmListProd implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
-            System.out.println("home");
-            vista.frame.dispose();
+            home();
         }
+    }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+        vista.frame.dispose();
     }
 }

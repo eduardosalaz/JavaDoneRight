@@ -37,27 +37,45 @@ public class ConAdmProd implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_registrar){
-            VisAdmRegProd visAdmRegProd = new VisAdmRegProd();
-            ModAdmRegProd modAdmRegProd = new ModAdmRegProd();
-            ConAdmRegProd conAdmRegProd = new ConAdmRegProd(visAdmRegProd, modAdmRegProd);
+            registrar();
         }else if(e.getSource() == vista.btn_borrar){
-            VisAdmBorProd visAdmBorProd = new VisAdmBorProd();
-            ModAdmBorProd modAdmBorProd = new ModAdmBorProd();
-            ConAdmBorProd conAdmBorProd = new ConAdmBorProd(visAdmBorProd, modAdmBorProd);
+            borrar();
         }else if(e.getSource() == vista.btn_listar){
-            VisAdmListProd visAdmListProd = new VisAdmListProd();
-            ModAdmListProd modAdmListProd = new ModAdmListProd();
-            ConAdmListProd conAdmListProd = new ConAdmListProd(visAdmListProd,modAdmListProd);
-            System.out.println("listar");
+            listar();
         }else if(e.getSource() == vista.btn_modificar){
-            VisAdmModProd visAdmModProd = new VisAdmModProd();
-            ModAdmModProd mod = new ModAdmModProd();
-            ConAdmModProd conAdmModProd = new ConAdmModProd(visAdmModProd,mod);
-            System.out.println("modificar");
+            modificar();
         }else if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+            home();
         }
         vista.frame.dispose();
+    }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+    }
+
+    private void registrar(){
+        VisAdmRegProd visAdmRegProd = new VisAdmRegProd();
+        ModAdmRegProd modAdmRegProd = new ModAdmRegProd();
+        ConAdmRegProd conAdmRegProd = new ConAdmRegProd(visAdmRegProd, modAdmRegProd);
+    }
+
+    private void borrar(){
+        VisAdmBorProd visAdmBorProd = new VisAdmBorProd();
+        ModAdmBorProd modAdmBorProd = new ModAdmBorProd();
+        ConAdmBorProd conAdmBorProd = new ConAdmBorProd(visAdmBorProd, modAdmBorProd);
+    }
+
+    private void listar(){
+        VisAdmListProd visAdmListProd = new VisAdmListProd();
+        ModAdmListProd modAdmListProd = new ModAdmListProd();
+        ConAdmListProd conAdmListProd = new ConAdmListProd(visAdmListProd,modAdmListProd);
+    }
+
+    private void modificar(){
+        VisAdmModProd visAdmModProd = new VisAdmModProd();
+        ModAdmModProd mod = new ModAdmModProd();
+        ConAdmModProd conAdmModProd = new ConAdmModProd(visAdmModProd,mod);
     }
 }

@@ -54,32 +54,40 @@ public class ConAdmRegProd implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
-            modelo.cerrarConexion();
-            vista.frame.dispose();
+            home();
         }else if(e.getSource() == vista.btn_reg){
-            try{
-                if(vista.txt_cve.getText().isEmpty()||vista.txt_nom.getText().isEmpty()||vista.txt_prec.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    int cve = Integer.parseInt(vista.txt_cve.getText());
-                    String nom = vista.txt_nom.getText();
-                    float precio = Float.parseFloat(vista.txt_prec.getText());
-                    int inv = (Integer) vista.spn_inv.getValue();
-                    String cat = (String) vista.cmb_cat.getSelectedItem();
-                    String prov = (String) vista.cmb_prov.getSelectedItem();
-                    if(inv<0){
-                        JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
-                    }else{
-                        modelo.recibirDatos(cve,nom,precio,inv,cat,prov);
-                        modelo.registrarProducto();
-                    }
-                }
-            }catch (NumberFormatException e2){
-                JOptionPane.showMessageDialog(null, "Usa sólo numeros para la clave y el precio", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            registrar();
         }
-
     }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+        modelo.cerrarConexion();
+        vista.frame.dispose();
+    }
+
+    private void registrar(){
+        try{
+            if(vista.txt_cve.getText().isEmpty()||vista.txt_nom.getText().isEmpty()||vista.txt_prec.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+                int cve = Integer.parseInt(vista.txt_cve.getText());
+                String nom = vista.txt_nom.getText();
+                float precio = Float.parseFloat(vista.txt_prec.getText());
+                int inv = (Integer) vista.spn_inv.getValue();
+                String cat = (String) vista.cmb_cat.getSelectedItem();
+                String prov = (String) vista.cmb_prov.getSelectedItem();
+                if(inv<0){
+                    JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    modelo.recibirDatos(cve,nom,precio,inv,cat,prov);
+                    modelo.registrarProducto();
+                }
+            }
+        }catch (NumberFormatException e2){
+            JOptionPane.showMessageDialog(null, "Usa sólo numeros para la clave y el precio", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }

@@ -36,33 +36,51 @@ public class ConAdmCat implements ActionListener {
             vista.btn_listar.addActionListener(this);
             vista.btn_modificar.addActionListener(this);
             vista.btn_registrar.addActionListener(this);
-
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_borrar){
-            VisAdmBorCat visAdmBorCat = new VisAdmBorCat();
-            ModAdmBorCat modAdmBorCat = new ModAdmBorCat();
-            ConAdmBorCat conAdmBorCat = new ConAdmBorCat(visAdmBorCat, modAdmBorCat);
+            borrar();
         }else if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+            home();
         }else if(e.getSource() == vista.btn_listar){
-            VisAdmListCat visAdmListCat = new VisAdmListCat();
-            ModAdmListCat modAdmListCat = new ModAdmListCat();
-            ConAdmListCat conAdmListCat = new ConAdmListCat(visAdmListCat, modAdmListCat);
+            listar();
         }else if(e.getSource() == vista.btn_modificar){
-            VisAdmModCat visAdmModCat = new VisAdmModCat();
-            ModAdmModCat modAdmModCat = new ModAdmModCat();
-            ConAdmModCat conAdmModCat = new ConAdmModCat(visAdmModCat, modAdmModCat);
-            System.out.println("modificar");
+            modificar();
         }else if(e.getSource() == vista.btn_registrar){
-            VisAdmRegCat visAdmRegCat = new VisAdmRegCat();
-            ModAdmRegCat modAdmRegCat = new ModAdmRegCat();
-            ConAdmRegCat conAdmRegCat = new ConAdmRegCat(visAdmRegCat, modAdmRegCat);
+            registrar();
         }
         vista.frame.dispose();
+    }
+
+    private void borrar(){
+        VisAdmBorCat visAdmBorCat = new VisAdmBorCat();
+        ModAdmBorCat modAdmBorCat = new ModAdmBorCat();
+        ConAdmBorCat conAdmBorCat = new ConAdmBorCat(visAdmBorCat, modAdmBorCat);
+    }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+    }
+
+    private void listar(){
+        VisAdmListCat visAdmListCat = new VisAdmListCat();
+        ModAdmListCat modAdmListCat = new ModAdmListCat();
+        ConAdmListCat conAdmListCat = new ConAdmListCat(visAdmListCat, modAdmListCat);
+    }
+
+    private void modificar(){
+        VisAdmModCat visAdmModCat = new VisAdmModCat();
+        ModAdmModCat modAdmModCat = new ModAdmModCat();
+        ConAdmModCat conAdmModCat = new ConAdmModCat(visAdmModCat, modAdmModCat);
+    }
+
+    private void registrar(){
+        VisAdmRegCat visAdmRegCat = new VisAdmRegCat();
+        ModAdmRegCat modAdmRegCat = new ModAdmRegCat();
+        ConAdmRegCat conAdmRegCat = new ConAdmRegCat(visAdmRegCat, modAdmRegCat);
     }
 }
