@@ -43,11 +43,12 @@ public class VisAdmRep {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -65,21 +66,18 @@ public class VisAdmRep {
         frame.getContentPane().add(lblNewLabel);
 
 
-        JLabel lbl_prov = new JLabel("Reportes");
-        lbl_prov.setVerticalAlignment(SwingConstants.TOP);
-        lbl_prov.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_prov.setForeground(colores.amarillo);
-        lbl_prov.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_prov.setBounds(626, 91, 331, 59);
-        lbl_prov.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_prov);
+        JLabel lbl_rep = new JLabel("Reportes");
+        lbl_rep.setVerticalAlignment(SwingConstants.TOP);
+        lbl_rep.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_rep.setForeground(colores.amarillo);
+        lbl_rep.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_rep.setBounds(626, 91, 331, 59);
+        frame.getContentPane().add(lbl_rep);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
     }
 

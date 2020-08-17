@@ -42,11 +42,12 @@ public class VisAdmBorProv {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -54,7 +55,6 @@ public class VisAdmBorProv {
         lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
         lbl_titulo.setForeground(colores.amarillo);
         lbl_titulo.setBounds(560, 12, 463, 59);
-
         frame.getContentPane().add(lbl_titulo);
 
         //Placeholder para el reloj
@@ -63,25 +63,22 @@ public class VisAdmBorProv {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_productos = new JLabel("Borrar a un proveedor");
-        lbl_productos.setVerticalAlignment(SwingConstants.TOP);
-        lbl_productos.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_productos.setForeground(colores.amarillo);
-        lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_productos.setBounds(436, 91, 712, 59);
-        lbl_productos.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_productos);
+        JLabel lbl_borProv = new JLabel("Borrar a un proveedor");
+        lbl_borProv.setVerticalAlignment(SwingConstants.TOP);
+        lbl_borProv.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_borProv.setForeground(colores.amarillo);
+        lbl_borProv.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_borProv.setBounds(436, 91, 712, 59);
+        frame.getContentPane().add(lbl_borProv);
 
-        JLabel lbl_cve = new JLabel("ID del Proveedor:");
-        lbl_cve.setBackground(colores.oscuro);
-        lbl_cve.setForeground(colores.amarillo);
-        lbl_cve.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lbl_cve.setBounds(632, 200, 319, 60);
-        frame.getContentPane().add(lbl_cve);
+        JLabel lbl_idProv = new JLabel("ID del Proveedor:");
+        lbl_idProv.setForeground(colores.amarillo);
+        lbl_idProv.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_idProv.setBounds(632, 200, 319, 60);
+        frame.getContentPane().add(lbl_idProv);
 
         txt_id = new JTextField();
         txt_id.setForeground(colores.azul);
-        txt_id.setBackground(colores.oscuro);
         txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
         txt_id.setBounds(617, 310, 350, 50);
         frame.getContentPane().add(txt_id);
@@ -90,17 +87,15 @@ public class VisAdmBorProv {
 
         btn_bor = new JButton("Borrar Proveedor");
         btn_bor.setForeground(colores.amarillo);
-        btn_bor.setBackground(colores.oscuro);
         btn_bor.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_bor.setBounds(522, 410, 540, 74);
+        btn_bor.setBorder(border);
         frame.getContentPane().add(btn_bor);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
     }
 

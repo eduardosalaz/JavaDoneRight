@@ -104,6 +104,7 @@ public class VisLogin {
         btn_login.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         btn_login.setForeground(colores.amarillo);
         btn_login.setBounds(667, 494, 250, 50);
+        btn_login.setBorder(BorderFactory.createEmptyBorder());
         frame.getContentPane().add(btn_login);
     }
 }

@@ -42,11 +42,12 @@ public class VisAdmProv {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,7 +70,6 @@ public class VisAdmProv {
         lbl_prov.setForeground(colores.amarillo);
         lbl_prov.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_prov.setBounds(626, 91, 331, 59);
-        lbl_prov.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_prov);
 
         btn_registrar = new JButton("Registrar");
@@ -78,7 +78,7 @@ public class VisAdmProv {
         btn_registrar.setForeground(colores.amarillo);
         btn_registrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_registrar.setBounds(438, 170, 310, 55);
-        btn_registrar.setBackground(colores.oscuro);
+        btn_registrar.setBorder(border);
         frame.getContentPane().add(btn_registrar);
 
         btn_borrar = new JButton("Borrar");
@@ -86,7 +86,7 @@ public class VisAdmProv {
         btn_borrar.setToolTipText("Eliminar un proveedor");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_borrar.setBackground(colores.oscuro);
+        btn_borrar.setBorder(border);
         btn_borrar.setBounds(876, 170, 310, 55);
         frame.getContentPane().add(btn_borrar);
 
@@ -95,7 +95,7 @@ public class VisAdmProv {
         btn_modificar.setToolTipText("Modificar un proveedor existente");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_modificar.setBackground(colores.oscuro);
+        btn_modificar.setBorder(border);
         btn_modificar.setBounds(438, 269, 310, 55);
         frame.getContentPane().add(btn_modificar);
 
@@ -104,16 +104,14 @@ public class VisAdmProv {
         btn_listar.setToolTipText("Mostrar todos los proveedores");
         btn_listar.setForeground(colores.amarillo);
         btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_listar.setBackground(colores.oscuro);
+        btn_listar.setBorder(border);
         btn_listar.setBounds(876, 269, 310, 55);
         frame.getContentPane().add(btn_listar);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
     }
 

@@ -42,11 +42,12 @@ public class VisAdmModCat {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border bord = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -63,25 +64,22 @@ public class VisAdmModCat {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_productos = new JLabel("Modificar a una categoría");
-        lbl_productos.setVerticalAlignment(SwingConstants.TOP);
-        lbl_productos.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_productos.setForeground(colores.amarillo);
-        lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_productos.setBounds(436, 91, 712, 59);
-        lbl_productos.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_productos);
+        JLabel lbl_modCat = new JLabel("Modificar a una categoría");
+        lbl_modCat.setVerticalAlignment(SwingConstants.TOP);
+        lbl_modCat.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_modCat.setForeground(colores.amarillo);
+        lbl_modCat.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_modCat.setBounds(436, 91, 712, 59);
+        frame.getContentPane().add(lbl_modCat);
 
-        JLabel lbl_cve = new JLabel("ID de Categoría:");
-        lbl_cve.setBackground(colores.oscuro);
-        lbl_cve.setForeground(colores.amarillo);
-        lbl_cve.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lbl_cve.setBounds(632, 200, 319, 60);
-        frame.getContentPane().add(lbl_cve);
+        JLabel lbl_idCat = new JLabel("ID de Categoría:");
+        lbl_idCat.setForeground(colores.amarillo);
+        lbl_idCat.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_idCat.setBounds(632, 200, 319, 60);
+        frame.getContentPane().add(lbl_idCat);
 
         txt_id = new JTextField();
         txt_id.setForeground(colores.azul);
-        txt_id.setBackground(colores.oscuro);
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
         txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
         txt_id.setBounds(617, 310, 350, 50);
@@ -90,16 +88,14 @@ public class VisAdmModCat {
 
         btn_mod = new JButton("Modificar Categoría");
         btn_mod.setForeground(colores.amarillo);
-        btn_mod.setBackground(colores.oscuro);
+        btn_mod.setBorder(bord);
         btn_mod.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_mod.setBounds(522, 410, 540, 74);
         frame.getContentPane().add(btn_mod);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
     }

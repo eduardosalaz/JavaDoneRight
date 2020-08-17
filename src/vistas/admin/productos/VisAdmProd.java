@@ -43,11 +43,12 @@ public class VisAdmProd {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -55,7 +56,6 @@ public class VisAdmProd {
         lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
         lbl_titulo.setForeground(colores.amarillo);
         lbl_titulo.setBounds(560, 12, 463, 59);
-
         frame.getContentPane().add(lbl_titulo);
 
         //Placeholder para el reloj
@@ -70,16 +70,15 @@ public class VisAdmProd {
         lbl_productos.setForeground(colores.amarillo);
         lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_productos.setBounds(673, 91, 238, 59);
-        lbl_productos.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_productos);
 
         btn_registrar = new JButton("Registrar");
         btn_registrar.setToolTipText("Registrar un nuevo producto");
         btn_registrar.setVerticalAlignment(SwingConstants.TOP);
         btn_registrar.setForeground(colores.amarillo);
+        btn_registrar.setBorder(border);
         btn_registrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_registrar.setBounds(438, 170, 310, 55);
-        btn_registrar.setBackground(colores.oscuro);
         frame.getContentPane().add(btn_registrar);
 
         btn_borrar = new JButton("Borrar");
@@ -87,7 +86,7 @@ public class VisAdmProd {
         btn_borrar.setToolTipText("Eliminar un producto");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_borrar.setBackground(colores.oscuro);
+        btn_borrar.setBorder(border);
         btn_borrar.setBounds(876, 170, 310, 55);
         frame.getContentPane().add(btn_borrar);
 
@@ -96,7 +95,7 @@ public class VisAdmProd {
         btn_modificar.setToolTipText("Modificar un producto existente");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_modificar.setBackground(colores.oscuro);
+        btn_modificar.setBorder(border);
         btn_modificar.setBounds(438, 269, 310, 55);
         frame.getContentPane().add(btn_modificar);
 
@@ -105,16 +104,14 @@ public class VisAdmProd {
         btn_listar.setToolTipText("Mostrar todos los productos");
         btn_listar.setForeground(colores.amarillo);
         btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_listar.setBackground(colores.oscuro);
+        btn_listar.setBorder(border);
         btn_listar.setBounds(876, 269, 310, 55);
         frame.getContentPane().add(btn_listar);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
     }
 

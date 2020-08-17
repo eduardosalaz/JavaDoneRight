@@ -42,7 +42,8 @@ public class VisAdmBorCat {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
+
+        Border bord = BorderFactory.createEmptyBorder();
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
@@ -63,25 +64,22 @@ public class VisAdmBorCat {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_productos = new JLabel("Borrar a una categoría");
-        lbl_productos.setVerticalAlignment(SwingConstants.TOP);
-        lbl_productos.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_productos.setForeground(colores.amarillo);
-        lbl_productos.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_productos.setBounds(436, 91, 712, 59);
-        lbl_productos.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_productos);
+        JLabel lbl_borCat = new JLabel("Borrar a una categoría");
+        lbl_borCat.setVerticalAlignment(SwingConstants.TOP);
+        lbl_borCat.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_borCat.setForeground(colores.amarillo);
+        lbl_borCat.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_borCat.setBounds(436, 91, 712, 59);
+        frame.getContentPane().add(lbl_borCat);
 
-        JLabel lbl_cve = new JLabel("ID de Categoría:");
-        lbl_cve.setBackground(colores.oscuro);
-        lbl_cve.setForeground(colores.amarillo);
-        lbl_cve.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
-        lbl_cve.setBounds(632, 200, 319, 60);
-        frame.getContentPane().add(lbl_cve);
+        JLabel lbl_idCat = new JLabel("ID de Categoría:");
+        lbl_idCat.setForeground(colores.amarillo);
+        lbl_idCat.setFont(new Font("Bahnschrift", Font.PLAIN, 40));
+        lbl_idCat.setBounds(632, 200, 319, 60);
+        frame.getContentPane().add(lbl_idCat);
 
         txt_id = new JTextField();
         txt_id.setForeground(colores.azul);
-        txt_id.setBackground(colores.oscuro);
         txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
         txt_id.setBounds(617, 310, 350, 50);
         frame.getContentPane().add(txt_id);
@@ -90,16 +88,14 @@ public class VisAdmBorCat {
 
         btn_bor = new JButton("Borrar Categoría");
         btn_bor.setForeground(colores.amarillo);
-        btn_bor.setBackground(colores.oscuro);
         btn_bor.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_bor.setBounds(522, 410, 540, 74);
+        btn_bor.setBorder(bord);
         frame.getContentPane().add(btn_bor);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
     }

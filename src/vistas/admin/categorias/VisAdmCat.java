@@ -41,11 +41,12 @@ public class VisAdmCat {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border bord = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -62,14 +63,13 @@ public class VisAdmCat {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_prov = new JLabel("Categorías");
-        lbl_prov.setVerticalAlignment(SwingConstants.TOP);
-        lbl_prov.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_prov.setForeground(colores.amarillo);
-        lbl_prov.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_prov.setBounds(626, 91, 331, 59);
-        lbl_prov.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_prov);
+        JLabel lbl_cat = new JLabel("Categorías");
+        lbl_cat.setVerticalAlignment(SwingConstants.TOP);
+        lbl_cat.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_cat.setForeground(colores.amarillo);
+        lbl_cat.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_cat.setBounds(626, 91, 331, 59);
+        frame.getContentPane().add(lbl_cat);
 
         btn_registrar = new JButton("Registrar");
         btn_registrar.setToolTipText("Registrar una nueva categoría");
@@ -77,7 +77,7 @@ public class VisAdmCat {
         btn_registrar.setForeground(colores.amarillo);
         btn_registrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_registrar.setBounds(438, 170, 310, 55);
-        btn_registrar.setBackground(colores.oscuro);
+        btn_registrar.setBorder(bord);
         frame.getContentPane().add(btn_registrar);
 
         btn_borrar = new JButton("Borrar");
@@ -85,7 +85,7 @@ public class VisAdmCat {
         btn_borrar.setToolTipText("Eliminar una categoría");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_borrar.setBackground(colores.oscuro);
+        btn_borrar.setBorder(bord);
         btn_borrar.setBounds(876, 170, 310, 55);
         frame.getContentPane().add(btn_borrar);
 
@@ -94,7 +94,7 @@ public class VisAdmCat {
         btn_modificar.setToolTipText("Modificar una categoría existente");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_modificar.setBackground(colores.oscuro);
+        btn_modificar.setBorder(bord);
         btn_modificar.setBounds(438, 269, 310, 55);
         frame.getContentPane().add(btn_modificar);
 
@@ -103,15 +103,13 @@ public class VisAdmCat {
         btn_listar.setToolTipText("Mostrar todas las categorías");
         btn_listar.setForeground(colores.amarillo);
         btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_listar.setBackground(colores.oscuro);
+        btn_listar.setBorder(bord);
         btn_listar.setBounds(876, 269, 310, 55);
         frame.getContentPane().add(btn_listar);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
     }

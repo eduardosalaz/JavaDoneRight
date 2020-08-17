@@ -5,7 +5,9 @@ import crearColores.CustomColors;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 
 public class VisAdmListProd {
@@ -49,6 +51,8 @@ public class VisAdmListProd {
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
 
+        Border bord = BorderFactory.createEmptyBorder();
+
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
         lbl_titulo.setVerticalAlignment(SwingConstants.TOP);
@@ -64,20 +68,18 @@ public class VisAdmListProd {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_lista = new JLabel("Lista de todos los productos:");
-        lbl_lista.setVerticalAlignment(SwingConstants.TOP);
-        lbl_lista.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_lista.setForeground(colores.amarillo);
-        lbl_lista.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_lista.setBounds(436, 91, 712, 59);
-        lbl_lista.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_lista);
+        JLabel lbl_listProd = new JLabel("Lista de todos los productos:");
+        lbl_listProd.setVerticalAlignment(SwingConstants.TOP);
+        lbl_listProd.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_listProd.setForeground(colores.amarillo);
+        lbl_listProd.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_listProd.setBounds(436, 91, 712, 59);
+        frame.getContentPane().add(lbl_listProd);
         
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
 
@@ -96,11 +98,26 @@ public class VisAdmListProd {
         table = new JTable(dtm);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
-        table.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+        table.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        TableModel tableModel = table.getModel();
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(centerRenderer);
+        }
+        table.getColumnModel().getColumn(0).setPreferredWidth(50);
+        table.getColumnModel().getColumn(1).setPreferredWidth(300);
+        table.getColumnModel().getColumn(2).setPreferredWidth(150);
+        table.getColumnModel().getColumn(3).setPreferredWidth(200);
+        table.getColumnModel().getColumn(4).setPreferredWidth(200);
+        table.getColumnModel().getColumn(5).setPreferredWidth(200);
+
         JScrollPane scroll = new JScrollPane(table);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scroll.setBounds(254, 146, 1076, 664);
+        scroll.setBounds(230, 146, 1100, 664);
         frame.getContentPane().add(scroll);
 	}
 

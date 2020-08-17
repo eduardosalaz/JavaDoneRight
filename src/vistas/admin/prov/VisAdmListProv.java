@@ -5,7 +5,9 @@ import crearColores.CustomColors;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 
 public class VisAdmListProv {
@@ -43,11 +45,12 @@ public class VisAdmListProv {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("Smart Tienda 1.0");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("Smart Tienda 1.0");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -55,7 +58,6 @@ public class VisAdmListProv {
         lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
         lbl_titulo.setForeground(colores.amarillo);
         lbl_titulo.setBounds(560, 12, 463, 59);
-
         frame.getContentPane().add(lbl_titulo);
 
         //Placeholder para el reloj
@@ -70,16 +72,14 @@ public class VisAdmListProv {
         lbl_lista.setForeground(colores.amarillo);
         lbl_lista.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_lista.setBounds(436, 91, 712, 59);
-        lbl_lista.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_lista);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
+
         String[] nombreCol = {"ID", "Nombre", "Última vez presente"};
         DefaultTableModel dtm= new DefaultTableModel()
         {
@@ -95,11 +95,24 @@ public class VisAdmListProv {
         table = new JTable(dtm);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
-        table.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+        table.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        TableModel tableModel = table.getModel();
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(centerRenderer);
+        }
+
+        table.getColumnModel().getColumn(0).setPreferredWidth(50);
+        table.getColumnModel().getColumn(1).setPreferredWidth(750);
+        table.getColumnModel().getColumn(2).setPreferredWidth(300);
+
         JScrollPane scroll = new JScrollPane(table);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scroll.setBounds(254, 146, 1076, 664);
+        scroll.setBounds(230, 146, 1100, 664);
         frame.getContentPane().add(scroll);
     }
 }

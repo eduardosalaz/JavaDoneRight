@@ -43,11 +43,12 @@ public class VisAdmModProd {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border border = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -55,7 +56,6 @@ public class VisAdmModProd {
         lbl_titulo.setFont(new Font("Bahnschrift", Font.BOLD, 58));
         lbl_titulo.setForeground(colores.amarillo);
         lbl_titulo.setBounds(560, 12, 463, 59);
-
         frame.getContentPane().add(lbl_titulo);
 
         //Placeholder para el reloj
@@ -64,28 +64,25 @@ public class VisAdmModProd {
         lblNewLabel.setBounds(1288, 800, 286, 50);
         frame.getContentPane().add(lblNewLabel);
 
-        JLabel lbl_modificar = new JLabel("Modificar a un producto");
-        lbl_modificar.setVerticalAlignment(SwingConstants.TOP);
-        lbl_modificar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_modificar.setForeground(colores.amarillo);
-        lbl_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 48));
-        lbl_modificar.setBounds(436, 91, 712, 59);
-        lbl_modificar.setBackground(colores.oscuro);
-        frame.getContentPane().add(lbl_modificar);
+        JLabel lbl_modProd = new JLabel("Modificar a un producto");
+        lbl_modProd.setVerticalAlignment(SwingConstants.TOP);
+        lbl_modProd.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_modProd.setForeground(colores.amarillo);
+        lbl_modProd.setFont(new Font("Bahnschrift", Font.BOLD, 48));
+        lbl_modProd.setBounds(436, 91, 712, 59);
+        frame.getContentPane().add(lbl_modProd);
         
-        JLabel lbl_id = new JLabel("Inserte la clave del producto a modificar");
-        lbl_id.setVerticalAlignment(SwingConstants.TOP);
-        lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_id.setForeground(colores.amarillo);
-        lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-        lbl_id.setBackground(colores.oscuro);
-        lbl_id.setBounds(399, 230, 785, 59);
-        frame.getContentPane().add(lbl_id);
+        JLabel lbl_cve = new JLabel("Inserte la clave del producto a modificar");
+        lbl_cve.setVerticalAlignment(SwingConstants.TOP);
+        lbl_cve.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_cve.setForeground(colores.amarillo);
+        lbl_cve.setFont(new Font("Bahnschrift", Font.BOLD, 40));
+        lbl_cve.setBounds(399, 230, 785, 59);
+        frame.getContentPane().add(lbl_cve);
         
         txt_id = new JTextField();
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
         txt_id.setForeground(colores.azul);
-        txt_id.setBackground(colores.oscuro);
         txt_id.setFont(new Font("Carlito", Font.PLAIN, 35));
         txt_id.setBounds(617, 300, 350, 50);
         frame.getContentPane().add(txt_id);
@@ -93,17 +90,15 @@ public class VisAdmModProd {
         
         btn_modificar = new JButton("Modificar Producto");
         btn_modificar.setForeground(colores.amarillo);
-        btn_modificar.setBackground(colores.oscuro);
+        btn_modificar.setBorder(border);
         btn_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_modificar.setBounds(533, 635, 500, 74);
         frame.getContentPane().add(btn_modificar);
         
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
-        btn_home.setBorder(bord);
+        btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
 	}
 

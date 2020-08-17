@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class VisAdmMain {
@@ -41,6 +42,8 @@ public class VisAdmMain {
 		frame.setSize(1600, 900);
 		frame.getContentPane().setLayout(null);
 
+		Border bord = BorderFactory.createEmptyBorder();
+
 		Image ico = new ImageIcon("images/carro.png").getImage();
 		frame.setIconImage(ico);
 		frame.setTitle("TITULO ACÁ");
@@ -72,6 +75,7 @@ public class VisAdmMain {
 		btn_usuarios.setForeground(colores.amarillo);
 		btn_usuarios.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_usuarios.setBounds(438, 170, 310, 55);
+		btn_usuarios.setBorder(bord);
 		frame.getContentPane().add(btn_usuarios);
 
 		btn_prod = new JButton("Productos");
@@ -79,6 +83,7 @@ public class VisAdmMain {
 		btn_prod.setForeground(colores.amarillo);
 		btn_prod.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_prod.setBounds(838, 170, 310, 55);
+		btn_prod.setBorder(bord);
 		frame.getContentPane().add(btn_prod);
 
 		btn_prov = new JButton("Proveedores");
@@ -86,6 +91,7 @@ public class VisAdmMain {
 		btn_prov.setForeground(colores.amarillo);
 		btn_prov.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_prov.setBounds(438, 331, 310, 55);
+		btn_prov.setBorder(bord);
 		frame.getContentPane().add(btn_prov);
 
 		btn_rep = new JButton("Reportes");
@@ -93,6 +99,7 @@ public class VisAdmMain {
 		btn_rep.setForeground(colores.amarillo);
 		btn_rep.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_rep.setBounds(838, 331, 310, 55);
+		btn_rep.setBorder(bord);
 		frame.getContentPane().add(btn_rep);
 
 		btn_cat = new JButton("Categorías");
@@ -100,6 +107,7 @@ public class VisAdmMain {
 		btn_cat.setForeground(colores.amarillo);
 		btn_cat.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
 		btn_cat.setBounds(637, 492, 310, 55);
+		btn_cat.setBorder(bord);
 		frame.getContentPane().add(btn_cat);
 	}
 }
