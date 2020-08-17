@@ -96,7 +96,9 @@ public class VisAdmListUser {
         table = new JTable(dtm);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
-        table.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+        table.setFont(new Font("Bahnschrift", Font.PLAIN, 19));
+
+
         JScrollPane scroll = new JScrollPane(table);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);

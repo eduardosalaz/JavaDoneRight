@@ -99,7 +99,6 @@ public class VisAdmMain {
 		btn_cat.setVerticalAlignment(SwingConstants.TOP);
 		btn_cat.setForeground(colores.amarillo);
 		btn_cat.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-		btn_cat.setBackground(colores.oscuro);
 		btn_cat.setBounds(637, 492, 310, 55);
 		frame.getContentPane().add(btn_cat);
 	}

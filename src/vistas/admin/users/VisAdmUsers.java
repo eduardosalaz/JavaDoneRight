@@ -44,11 +44,12 @@ public class VisAdmUsers {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(colores.oscuro);
 
         Image ico = new ImageIcon("images/carro.png").getImage();
         frame.setIconImage(ico);
         frame.setTitle("TITULO ACÁ");
+
+        Border bord = BorderFactory.createEmptyBorder();
 
         JLabel lbl_titulo = new JLabel("TITULO ACÁ");
         lbl_titulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -71,7 +72,6 @@ public class VisAdmUsers {
         lbl_usuarios.setForeground(colores.amarillo);
         lbl_usuarios.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_usuarios.setBounds(676, 91, 231, 59);
-        lbl_usuarios.setBackground(colores.oscuro);
         frame.getContentPane().add(lbl_usuarios);
 
         btn_alta = new JButton("Alta");
@@ -80,7 +80,7 @@ public class VisAdmUsers {
         btn_alta.setForeground(colores.amarillo);
         btn_alta.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
         btn_alta.setBounds(438, 170, 310, 55);
-        btn_alta.setBackground(colores.oscuro);
+        btn_alta.setBorder(bord);
         frame.getContentPane().add(btn_alta);
 
         btn_baja = new JButton("Baja");
@@ -88,8 +88,8 @@ public class VisAdmUsers {
         btn_baja.setToolTipText("Eliminar un usuario");
         btn_baja.setForeground(colores.amarillo);
         btn_baja.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_baja.setBackground(colores.oscuro);
         btn_baja.setBounds(876, 170, 310, 55);
+        btn_baja.setBorder(bord);
         frame.getContentPane().add(btn_baja);
 
         btn_modificar = new JButton("Modificar");
@@ -97,8 +97,8 @@ public class VisAdmUsers {
         btn_modificar.setToolTipText("Modificar un usuario existente");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_modificar.setBackground(colores.oscuro);
         btn_modificar.setBounds(438, 269, 310, 55);
+        btn_modificar.setBorder(bord);
         frame.getContentPane().add(btn_modificar);
 
         btn_listar = new JButton("Listar");
@@ -106,15 +106,13 @@ public class VisAdmUsers {
         btn_listar.setToolTipText("Mostrar a todos los usuarios");
         btn_listar.setForeground(colores.amarillo);
         btn_listar.setFont(new Font("Bahnschrift", Font.PLAIN, 48));
-        btn_listar.setBackground(colores.oscuro);
         btn_listar.setBounds(876, 269, 310, 55);
+        btn_listar.setBorder(bord);
         frame.getContentPane().add(btn_listar);
 
         btn_home = new JButton();
-        btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
-        Border bord = BorderFactory.createLineBorder(colores.amarillo);
         btn_home.setBorder(bord);
         frame.getContentPane().add(btn_home);
     }
