@@ -1,27 +1,25 @@
 package vistas.admin.productos;
 
-import java.awt.Font;
-import java.awt.Image;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-
 import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+
 public class VisAdmProd {
     private final CustomColors colores = new CustomColors();
-    public JButton btn_registrar, btn_borrar,btn_modificar, btn_listar, btn_home;
+    public JButton btn_registrar, btn_borrar, btn_modificar, btn_listar, btn_home;
     public JFrame frame;
     public boolean finished = false;
 
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -36,6 +34,7 @@ public class VisAdmProd {
             e.printStackTrace();
         }
     }
+
     private void crearGUI() {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));

@@ -9,16 +9,16 @@ import java.awt.*;
 
 public class VisAdmCat {
     private final CustomColors colores = new CustomColors();
-    public JButton btn_registrar, btn_borrar,btn_modificar, btn_listar, btn_home;
+    public JButton btn_registrar, btn_borrar, btn_modificar, btn_listar, btn_home;
     public JFrame frame;
     public boolean finished = false;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;

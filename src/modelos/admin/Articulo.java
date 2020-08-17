@@ -1,9 +1,9 @@
 package modelos.admin;
 
 public class Articulo {
-    private int cve_art, inv_art,cat_art,IDprov_art;
+    private int cve_art, inv_art, cat_art, IDprov_art;
     private float pre_art;
-    private String nom_art, nom_cat,nom_prov;
+    private String nom_art, nom_cat, nom_prov;
 
     public Articulo(int cve_art, int inv_art, String nom_cat, String nom_prov, float pre_art, String nom_art) {
         this.cve_art = cve_art;
@@ -30,11 +30,11 @@ public class Articulo {
         this.nom_prov = nom_prov;
     }
 
-    public Articulo(){
+    public Articulo() {
 
     }
 
-    public Articulo(int cve_art, String nom_art, float pre_art, int inv_art){
+    public Articulo(int cve_art, String nom_art, float pre_art, int inv_art) {
         this.cve_art = cve_art;
         this.nom_art = nom_art;
         this.pre_art = pre_art;

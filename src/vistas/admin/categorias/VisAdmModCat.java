@@ -12,14 +12,14 @@ public class VisAdmModCat {
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
-    public JButton btn_mod,btn_home;
+    public JButton btn_mod, btn_home;
 
     public void lanzarVista() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;

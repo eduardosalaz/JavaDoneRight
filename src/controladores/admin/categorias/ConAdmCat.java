@@ -6,11 +6,8 @@ import modelos.admin.categorias.ModAdmListCat;
 import modelos.admin.categorias.ModAdmModCat;
 import modelos.admin.categorias.ModAdmRegCat;
 import vistas.admin.VisAdmMain;
-import vistas.admin.categorias.VisAdmBorCat;
-import vistas.admin.categorias.VisAdmCat;
-import vistas.admin.categorias.VisAdmListCat;
-import vistas.admin.categorias.VisAdmModCat;
 import vistas.admin.categorias.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,13 +38,13 @@ public class ConAdmCat implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btn_borrar) {
             borrar();
-        }else if (e.getSource() == vista.btn_home) {
+        } else if (e.getSource() == vista.btn_home) {
             home();
-        }else if (e.getSource() == vista.btn_listar) {
+        } else if (e.getSource() == vista.btn_listar) {
             listar();
-        }else if (e.getSource() == vista.btn_modificar) {
+        } else if (e.getSource() == vista.btn_modificar) {
             modificar();
-        }else if (e.getSource() == vista.btn_registrar) {
+        } else if (e.getSource() == vista.btn_registrar) {
             registrar();
         }
         vista.frame.dispose();

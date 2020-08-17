@@ -5,6 +5,7 @@ import modelos.admin.Articulo;
 import modelos.user.venta.ModUsrVenta;
 import vistas.user.VisUsrMain;
 import vistas.user.venta.VisUsrVenta;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -32,7 +33,7 @@ public class ConUsrVenta implements ActionListener {
     }
 
     private void agregarListeners() {
-        if (vista.finished){
+        if (vista.finished) {
             vista.btn_agregar.addActionListener(this);
             vista.btn_home.addActionListener(this);
             vista.btn_eliminar.addActionListener(this);
@@ -44,18 +45,18 @@ public class ConUsrVenta implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_pagar){
+        if (e.getSource() == vista.btn_pagar) {
             modelo.idUser = idUser;
             modelo.total_venta = dineroTotal;
 
-            if(dineroTotal > 0){
-                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+            if (dineroTotal > 0) {
+                for (int i = 0; i < vista.table.getModel().getRowCount(); i++) {
                     modelo.Claves.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 0)));
                 }
-                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                for (int i = 0; i < vista.table.getModel().getRowCount(); i++) {
                     modelo.Cantidades.add(Integer.parseInt((String) vista.table.getModel().getValueAt(i, 3)));
                 }
-                for (int i=0; i<vista.table.getModel().getRowCount();i++){
+                for (int i = 0; i < vista.table.getModel().getRowCount(); i++) {
                     modelo.Montos.add(Float.parseFloat((String) vista.table.getModel().getValueAt(i, 4)));
                 }
                 modelo.pagar();
@@ -67,11 +68,11 @@ public class ConUsrVenta implements ActionListener {
                 modelo.Claves.clear();
                 modelo.Montos.clear();
                 dineroTotal = 0;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Agregue productos para realizar la venta", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
-        }else if(e.getSource() == vista.btn_cancelar){
+        } else if (e.getSource() == vista.btn_cancelar) {
             ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
             vista.lbl_dinero.setText("$$$");
             vista.txt_cantidad.setText("");
@@ -80,61 +81,61 @@ public class ConUsrVenta implements ActionListener {
             modelo.Claves.clear();
             modelo.Montos.clear();
             dineroTotal = 0;
-        }else if(e.getSource() == vista.btn_eliminar){
-            if(vista.table.getSelectedRow() != -1){
-               DefaultTableModel dtm = (DefaultTableModel) vista.table.getModel();
-               dtm.removeRow(vista.table.getSelectedRow());
-               JOptionPane.showMessageDialog(null, "Se ha eliminado el producto exitosamente", "Producto Eliminado", JOptionPane.ERROR_MESSAGE);
+        } else if (e.getSource() == vista.btn_eliminar) {
+            if (vista.table.getSelectedRow() != -1) {
+                DefaultTableModel dtm = (DefaultTableModel) vista.table.getModel();
+                dtm.removeRow(vista.table.getSelectedRow());
+                JOptionPane.showMessageDialog(null, "Se ha eliminado el producto exitosamente", "Producto Eliminado", JOptionPane.ERROR_MESSAGE);
             }
-        }else if (e.getSource() == vista.btn_home){
+        } else if (e.getSource() == vista.btn_home) {
             VisUsrMain visUsrMain = new VisUsrMain();
             ConUsrMain conUsrMain = new ConUsrMain(visUsrMain, idUser);
             modelo.cerrarConexion();
             vista.frame.dispose();
-        }else if(e.getSource() == vista.btn_agregar){
-            if(!vista.txt_cantidad.getText().isEmpty()){
-                try{
+        } else if (e.getSource() == vista.btn_agregar) {
+            if (!vista.txt_cantidad.getText().isEmpty()) {
+                try {
                     int cantidad = Integer.parseInt(vista.txt_cantidad.getText());
                     int id = (Integer) vista.cmb_id.getSelectedItem();
                     modelo.calcularPrecio(id, cantidad);
                     float prec_ind = obtenerPrecio(id);
                     float prec_total = modelo.prec_total;
-                    if(modelo.prec_total>0){
+                    if (modelo.prec_total > 0) {
                         DefaultTableModel model = (DefaultTableModel) vista.table.getModel();
-                        model.addRow(new Object[]{""+id,""+vista.lbl_producto.getText(),""+prec_ind,""+cantidad,""+prec_total});
+                        model.addRow(new Object[]{"" + id, "" + vista.lbl_producto.getText(), "" + prec_ind, "" + cantidad, "" + prec_total});
                         dineroTotal += prec_total;
                     }
-                    vista.lbl_dinero.setText(""+dineroTotal);
-                }catch (NumberFormatException ex){
+                    vista.lbl_dinero.setText("" + dineroTotal);
+                } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Use sólo numeros enteros", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }else if(e.getSource() == vista.cmb_id){
-            int clave =(Integer) vista.cmb_id.getSelectedItem();
+        } else if (e.getSource() == vista.cmb_id) {
+            int clave = (Integer) vista.cmb_id.getSelectedItem();
             cambiarArt(clave);
         }
     }
 
-    private void comboID(){
-        for (Articulo art:modelo.Articulos){
+    private void comboID() {
+        for (Articulo art : modelo.Articulos) {
             vista.cmb_id.addItem(art.getCve_art());
         }
     }
 
-    private float obtenerPrecio(int cve){
-        for (Articulo art: modelo.Articulos){
-            if(art.getCve_art() == cve){
+    private float obtenerPrecio(int cve) {
+        for (Articulo art : modelo.Articulos) {
+            if (art.getCve_art() == cve) {
                 return art.getPre_art();
             }
         }
         return 0;
     }
 
-    private void cambiarArt(int cve){
-        for (Articulo art:modelo.Articulos){
-            if(art.getCve_art() == cve){
+    private void cambiarArt(int cve) {
+        for (Articulo art : modelo.Articulos) {
+            if (art.getCve_art() == cve) {
                 vista.lbl_producto.setText(art.getNom_art());
             }
         }

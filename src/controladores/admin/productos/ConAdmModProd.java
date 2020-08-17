@@ -31,7 +31,7 @@ public class ConAdmModProd implements ActionListener {
     }
 
     private void agregarListeners() {
-        if (vista.finished){
+        if (vista.finished) {
             vista.btn_home.addActionListener(this);
             vista.btn_modificar.addActionListener(this);
         }
@@ -39,81 +39,82 @@ public class ConAdmModProd implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_modificar){
+        if (e.getSource() == vista.btn_modificar) {
             modificar();
-        }else if(e.getSource() == vista.btn_home){
+        } else if (e.getSource() == vista.btn_home) {
             home();
         }
     }
-    private void comboProv(){
+
+    private void comboProv() {
         cmb_prov.removeAllItems();
-        for(Proveedor prov:modelo.Proveedores){
+        for (Proveedor prov : modelo.Proveedores) {
             cmb_prov.addItem(prov.getNom_prov());
         }
     }
 
-    private void comboCat(){
+    private void comboCat() {
         cmb_cat.removeAllItems();
-        for(Categoria cat: modelo.Categorias){
+        for (Categoria cat : modelo.Categorias) {
             cmb_cat.addItem(cat.getNom_cat());
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         modelo.cerrar();
         vista.frame.dispose();
     }
 
-    private void modificar(){
-        try{
+    private void modificar() {
+        try {
             int id = Integer.parseInt(vista.txt_id.getText());
             modelo.recibir(id);
             modelo.ejecutar();
-            if(modelo.checked){
+            if (modelo.checked) {
                 JTextField nombre = new JTextField();
                 JTextField cve = new JTextField();
                 JTextField prec = new JTextField();
                 JSpinner inv = new JSpinner();
-                cmb_cat  = new JComboBox<String>();
+                cmb_cat = new JComboBox<String>();
                 cmb_prov = new JComboBox<String>();
                 comboCat();
                 comboProv();
-                Object[] message ={
+                Object[] message = {
                         "Ingresar datos nuevos\n",
-                        "Clave:",cve,
-                        "Nombre:",nombre,
-                        "Precio:",prec,
-                        "Existencias:",inv,
-                        "Categoría:",cmb_cat,
-                        "Proveedor:",cmb_prov
+                        "Clave:", cve,
+                        "Nombre:", nombre,
+                        "Precio:", prec,
+                        "Existencias:", inv,
+                        "Categoría:", cmb_cat,
+                        "Proveedor:", cmb_prov
                 };
                 int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);
-                if (option == JOptionPane.OK_OPTION){
-                    if(nombre.getText().isEmpty()||cve.getText().isEmpty()||prec.getText().isEmpty()){
+                if (option == JOptionPane.OK_OPTION) {
+                    if (nombre.getText().isEmpty() || cve.getText().isEmpty() || prec.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-                    }else{
+                    } else {
                         int inventario = (Integer) inv.getValue();
-                        if(inventario<0){
+                        if (inventario < 0) {
                             JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
-                        }else{
-                            try{
+                        } else {
+                            try {
                                 String n_nombre = nombre.getText();
                                 int n_cve = Integer.parseInt(cve.getText());
                                 float n_prec = Float.parseFloat(prec.getText());
                                 String cat = (String) cmb_cat.getSelectedItem();
                                 String prov = (String) cmb_prov.getSelectedItem();
-                                modelo.recibirDatos(n_cve,n_nombre,n_prec,inventario,cat,prov);
+                                modelo.recibirDatos(n_cve, n_nombre, n_prec, inventario, cat, prov);
                                 modelo.modProducto();
-                            }catch (NumberFormatException e2){
+                            } catch (NumberFormatException e2) {
                                 JOptionPane.showMessageDialog(null, "Número no válido", "Error", JOptionPane.ERROR_MESSAGE);
                             }
                         }
                     }
                 }
             }
-        }catch (NumberFormatException e2){
+        } catch (NumberFormatException e2) {
             e2.printStackTrace();
         }
     }

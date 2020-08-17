@@ -3,10 +3,9 @@ package vistas.admin.reportes;
 import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
 
-import java.awt.*;
-
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.*;
 
 public class VisAdmRep {
 
@@ -15,12 +14,12 @@ public class VisAdmRep {
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -38,7 +37,7 @@ public class VisAdmRep {
 
     private void crearGUI() {
         frame = new JFrame();
-        frame.getContentPane().setFont(new Font("Bahnschrift",  Font.PLAIN, 40));
+        frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);

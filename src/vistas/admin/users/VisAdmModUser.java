@@ -9,18 +9,18 @@ import java.awt.*;
 
 public class VisAdmModUser {
 
-	public JFrame frame;
+    public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
     public JButton btn_modificar, btn_home;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -37,8 +37,8 @@ public class VisAdmModUser {
     }
 
 
-	private void crearGUI() {
-		frame = new JFrame();
+    private void crearGUI() {
+        frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +72,7 @@ public class VisAdmModUser {
         lbl_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_modificar.setBounds(436, 91, 712, 59);
         frame.getContentPane().add(lbl_modificar);
-        
+
         JLabel lbl_id = new JLabel("Inserte el ID del usuario a modificar");
         lbl_id.setVerticalAlignment(SwingConstants.TOP);
         lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
@@ -80,7 +80,7 @@ public class VisAdmModUser {
         lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
         lbl_id.setBounds(436, 230, 712, 59);
         frame.getContentPane().add(lbl_id);
-        
+
         txt_id = new JTextField();
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
         txt_id.setForeground(colores.azul);
@@ -88,19 +88,19 @@ public class VisAdmModUser {
         txt_id.setBounds(617, 300, 350, 50);
         frame.getContentPane().add(txt_id);
         txt_id.setColumns(10);
-        
+
         btn_modificar = new JButton("Modificar Usuario");
         btn_modificar.setForeground(colores.amarillo);
         btn_modificar.setBorder(border);
         btn_modificar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_modificar.setBounds(550, 635, 483, 74);
         frame.getContentPane().add(btn_modificar);
-        
+
         btn_home = new JButton();
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
         btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
-	}
+    }
 
 }

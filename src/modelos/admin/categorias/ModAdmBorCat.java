@@ -1,6 +1,7 @@
 package modelos.admin.categorias;
 
 import DBManager.Conexion;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,23 +37,23 @@ public class ModAdmBorCat {
                     pstm.setInt(1, id);
                     pstm.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Categoría eliminada con éxito");
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(null, "Categoría no eliminada");
                 }
-            }else {
-                JOptionPane.showMessageDialog(null, "No se ha encontrado al categoría","Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha encontrado al categoría", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public void cerrar() {
-        try{
-            if(con!=null) con.close();
-            if(rs!=null) rs.close();
-            if(pstm!=null) pstm.close();
-        }catch (SQLException e){
+        try {
+            if (con != null) con.close();
+            if (rs != null) rs.close();
+            if (pstm != null) pstm.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

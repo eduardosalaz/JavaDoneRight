@@ -4,6 +4,7 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.prov.ModAdmModProv;
 import vistas.admin.VisAdmMain;
 import vistas.admin.prov.VisAdmModProv;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +25,7 @@ public class ConAdmModProv implements ActionListener {
     }
 
     private void agregarListeners() {
-        if (vista.finished){
+        if (vista.finished) {
             vista.btn_home.addActionListener(this);
             vista.btn_mod.addActionListener(this);
         }
@@ -32,21 +33,21 @@ public class ConAdmModProv implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_home){
+        if (e.getSource() == vista.btn_home) {
             home();
-        }else if(e.getSource() == vista.btn_mod){
+        } else if (e.getSource() == vista.btn_mod) {
             modificar();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         modelo.cerrar();
         vista.frame.dispose();
     }
 
-    private void modificar(){
+    private void modificar() {
         try {
             int id = Integer.parseInt(vista.txt_id.getText());
             modelo.recibir(id);
@@ -56,7 +57,7 @@ public class ConAdmModProv implements ActionListener {
                 JTextField txt_id = new JTextField();
                 Object[] message = {
                         "Ingresar datos nuevos\n",
-                        "ID:",txt_id,
+                        "ID:", txt_id,
                         "Nombre:", nombre,
                 };
                 int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);

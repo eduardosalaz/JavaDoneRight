@@ -1,29 +1,26 @@
 package vistas.admin.users;
 
-import java.awt.Font;
-import java.awt.Image;
+import com.formdev.flatlaf.FlatDarkLaf;
+import crearColores.CustomColors;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
-import com.formdev.flatlaf.FlatDarkLaf;
-import crearColores.CustomColors;
-import java.awt.Color;
+import java.awt.*;
 
 public class VisAdmBajaUser {
 
-	public JFrame frame;
+    public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
     public JButton btn_borrar, btn_home;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -39,8 +36,8 @@ public class VisAdmBajaUser {
         }
     }
 
-	private void crearGUI() {
-		frame = new JFrame();
+    private void crearGUI() {
+        frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +71,7 @@ public class VisAdmBajaUser {
         lbl_baja.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_baja.setBounds(436, 91, 712, 59);
         frame.getContentPane().add(lbl_baja);
-        
+
         JLabel lbl_id = new JLabel("Inserte el ID del usuario a eliminar");
         lbl_id.setVerticalAlignment(SwingConstants.TOP);
         lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
@@ -82,7 +79,7 @@ public class VisAdmBajaUser {
         lbl_id.setFont(new Font("Bahnschrift", Font.BOLD, 40));
         lbl_id.setBounds(436, 230, 712, 59);
         frame.getContentPane().add(lbl_id);
-        
+
         txt_id = new JTextField();
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
         txt_id.setForeground(colores.azul);
@@ -90,18 +87,18 @@ public class VisAdmBajaUser {
         txt_id.setBounds(617, 300, 350, 50);
         frame.getContentPane().add(txt_id);
         txt_id.setColumns(10);
-        
+
         btn_borrar = new JButton("Borrar Usuario");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setBorder(border);
         btn_borrar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_borrar.setBounds(584, 635, 416, 74);
         frame.getContentPane().add(btn_borrar);
-        
+
         btn_home = new JButton();
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
         btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
-	}
+    }
 }

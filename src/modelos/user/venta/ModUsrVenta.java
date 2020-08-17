@@ -4,7 +4,10 @@ import DBManager.Conexion;
 import modelos.admin.Articulo;
 
 import javax.swing.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ModUsrVenta {
@@ -20,60 +23,61 @@ public class ModUsrVenta {
     public float total_venta;
 
 
-    public void queryProductos(){
+    public void queryProductos() {
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM articulo";
             pstm = con.prepareStatement(query);
             rs = pstm.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Articulos.add(
                         new Articulo(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4)));
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public void calcularPrecio(int id, int cantidad) {
         prec_total = 0;
-        try{
+        try {
             String query = "SELECT pre_art FROM articulo WHERE cve_art=?";
             pstm = con.prepareStatement(query);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 float prec_ind = rs.getFloat(1);
                 prec_total = prec_ind * cantidad;
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
     }
+
     public void cerrarConexion() {
-        try{
+        try {
             rs.close();
             pstm.close();
             con.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void pagar(){
+    public void pagar() {
         int totalArticulos = Claves.size();
-        try{
+        try {
             String query = "INSERT INTO venta (iduser_venta,fecha_venta,total_venta) VALUES (?, NOW(), ?)";
             pstm = con.prepareStatement(query);
             pstm.setInt(1, idUser);
             pstm.setFloat(2, total_venta);
             pstm.executeUpdate();
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        for (int i=0;i<totalArticulos;i++){
-            try{
+        for (int i = 0; i < totalArticulos; i++) {
+            try {
                 int clave_actual = Claves.get(i);
                 int cant_actual = Cantidades.get(i);
                 float monto_actual = Montos.get(i);
@@ -89,9 +93,9 @@ public class ModUsrVenta {
                 pstm.setInt(1, clave_actual);
                 rs = pstm.executeQuery();
 
-                while (rs.next()){
+                while (rs.next()) {
                     int cantidad = rs.getInt(1);
-                    if(cantidad<0){
+                    if (cantidad < 0) {
                         JOptionPane.showMessageDialog(null, "Has intentado vender más artículos de los que hay en existencias", "Error", JOptionPane.ERROR_MESSAGE);
                         query = "UPDATE articulo SET inv_art = (inv_art + ?) WHERE cve_art = ?";
                         pstm = con.prepareStatement(query);
@@ -102,16 +106,16 @@ public class ModUsrVenta {
                         query = "DELETE FROM venta WHERE id_venta = LAST_INSERT_ID()";
                         pstm = con.prepareStatement(query);
                         pstm.executeUpdate();
-                    }else{
+                    } else {
                         query = "INSERT INTO detalle_venta (idventa_det,cveart_det,cant_det,cost_det) VALUES (LAST_INSERT_ID(), ?,?,?)";
                         pstm = con.prepareStatement(query);
                         pstm.setInt(1, clave_actual);
                         pstm.setInt(2, cant_actual);
                         pstm.setFloat(3, monto_actual);
                         pstm.executeUpdate();
-                        }
                     }
-            }catch (SQLException ex){
+                }
+            } catch (SQLException ex) {
                 ex.printStackTrace();
             }
         }

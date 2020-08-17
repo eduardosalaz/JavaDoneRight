@@ -2,8 +2,9 @@ package controladores.admin.users;
 
 import controladores.admin.ConAdmMain;
 import modelos.admin.users.ModAdmModUser;
-import vistas.admin.users.VisAdmModUser;
 import vistas.admin.VisAdmMain;
+import vistas.admin.users.VisAdmModUser;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,19 +35,19 @@ public class ConAdmModUser implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btn_modificar) {
             modificar();
-        }else if(e.getSource() == vista.btn_home){
+        } else if (e.getSource() == vista.btn_home) {
             home();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         modelo.cerrar();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         vista.frame.dispose();
     }
 
-    private void modificar(){
+    private void modificar() {
         try {
             int id = Integer.parseInt(vista.txt_id.getText());
             modelo.recibir(id);
@@ -67,7 +68,7 @@ public class ConAdmModUser implements ActionListener {
                 if (option == JOptionPane.OK_OPTION) {
                     if (nombre.getText().isEmpty() || password.getText().isEmpty() || telefono.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Rellenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-                    }else {
+                    } else {
                         try {
                             String n_nombre = nombre.getText();
                             String n_tel = telefono.getText();
@@ -82,10 +83,10 @@ public class ConAdmModUser implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario no modificado");
                 }
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }catch (Exception e2) {
+        } catch (Exception e2) {
             JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }

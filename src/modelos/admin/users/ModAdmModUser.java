@@ -1,6 +1,7 @@
 package modelos.admin.users;
 
 import DBManager.Conexion;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,26 +18,27 @@ public class ModAdmModUser {
     public void recibir(int id) {
         this.id = id;
     }
-    public void ejecutar(){
+
+    public void ejecutar() {
         String nombre;
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM usuario where id_usr = ?";
             pstm = con.prepareStatement(query);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 nombre = rs.getString("nom_usr");
                 checked = nombre != null;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             checked = false;
-            try{
+            try {
                 con.close();
                 rs.close();
                 pstm.close();
-            }catch (SQLException e2){
+            } catch (SQLException e2) {
                 e2.printStackTrace();
             }
         }
@@ -44,28 +46,28 @@ public class ModAdmModUser {
 
     public void actualizar(String nombre, String pass, boolean admin, String tel) {
         String query = "UPDATE usuario SET admin=?,pass=AES_ENCRYPT(?,'secret'),nom_usr=?,tel_usr=? WHERE id_usr=?";
-        try{
+        try {
             pstm = con.prepareStatement(query);
             pstm.setBoolean(1, admin);
             pstm.setString(2, pass);
             pstm.setString(3, nombre);
-            pstm.setString(4,tel);
+            pstm.setString(4, tel);
             pstm.setInt(5, id);
             pstm.executeUpdate();
             String message = "Usuario " + nombre + " modificado con éxito";
             JOptionPane.showMessageDialog(null, message);
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
     }
 
     public void cerrar() {
-        try{
+        try {
             con.close();
             rs.close();
             pstm.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -5,6 +5,7 @@ import modelos.admin.Categoria;
 import modelos.admin.categorias.ModAdmListCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmListCat;
+
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,8 +25,8 @@ public class ConAdmListCat implements ActionListener {
         vista.lanzarVista();
         ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
         DefaultTableModel model = (DefaultTableModel) vista.table.getModel();
-        for(Categoria Cat: modelo.Categorias){
-            model.addRow(new Object[]{""+Cat.getId_cat(),""+Cat.getNom_cat()});
+        for (Categoria Cat : modelo.Categorias) {
+            model.addRow(new Object[]{"" + Cat.getId_cat(), "" + Cat.getNom_cat()});
         }
         agregarListeners();
     }

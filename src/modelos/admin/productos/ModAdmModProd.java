@@ -3,6 +3,7 @@ package modelos.admin.productos;
 import DBManager.Conexion;
 import modelos.admin.Categoria;
 import modelos.admin.Proveedor;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,11 +28,11 @@ public class ModAdmModProd {
     }
 
     public void cerrar() {
-        try{
+        try {
             con.close();
             rs.close();
             pstm.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -39,43 +40,45 @@ public class ModAdmModProd {
     public void ejecutar() {
         String nombre;
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM articulo where cve_art = ?";
             pstm = con.prepareStatement(query);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 nombre = rs.getString("nom_art");
                 checked = nombre != null;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             checked = false;
         }
     }
+
     public void queryCategorias() {
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM categoria";
             pstm = con.prepareStatement(query);
             rs = pstm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Categorias.add(new Categoria(rs.getInt("id_cat"), rs.getString("nom_cat")));
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void queryProv() {
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM proveedor";
             pstm = con.prepareStatement(query);
             rs = pstm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Proveedores.add(new Proveedor(rs.getInt("id_prov"), rs.getString("nom_prov")));
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -91,7 +94,7 @@ public class ModAdmModProd {
 
     public void modProducto() {
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "UPDATE articulo SET cve_art=?,nom_art=?,pre_art=?,inv_art=?,cat_art=(SELECT id_cat FROM categoria WHERE nom_cat=?),IDprov_art=(SELECT id_prov FROM proveedor WHERE nom_prov=?)" +
                     "WHERE cve_art=?";
             pstm = con.prepareStatement(query);
@@ -101,12 +104,12 @@ public class ModAdmModProd {
             pstm.setInt(4, inventario);
             pstm.setString(5, cat);
             pstm.setString(6, prov);
-            pstm.setInt(7,id);
+            pstm.setInt(7, id);
             pstm.executeUpdate();
             String message = "Producto " + n_nombre + " modificado con éxito";
             JOptionPane.showMessageDialog(null, message);
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

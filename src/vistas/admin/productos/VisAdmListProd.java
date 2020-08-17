@@ -12,18 +12,18 @@ import java.awt.*;
 
 public class VisAdmListProd {
 
-	public JFrame frame;
+    public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JButton btn_home;
     public JTable table;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -38,8 +38,9 @@ public class VisAdmListProd {
             e.printStackTrace();
         }
     }
-	private void crearGUI() {
-		frame = new JFrame();
+
+    private void crearGUI() {
+        frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +76,7 @@ public class VisAdmListProd {
         lbl_listProd.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_listProd.setBounds(436, 91, 712, 59);
         frame.getContentPane().add(lbl_listProd);
-        
+
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
@@ -84,13 +85,11 @@ public class VisAdmListProd {
         frame.getContentPane().add(btn_home);
 
         String[] nombreCol = {"Clave", "Nombre", "Precio", "Existencias", "Categoría", "Proveedor"};
-        DefaultTableModel dtm= new DefaultTableModel()
-        {
+        DefaultTableModel dtm = new DefaultTableModel() {
             private static final long serialVersionUID = 1L;
 
             @Override
-            public boolean isCellEditable(int row, int column)
-            {
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
@@ -101,10 +100,9 @@ public class VisAdmListProd {
         table.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         TableModel tableModel = table.getModel();
-        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
-        {
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++) {
             table.getColumnModel().getColumn(columnIndex).setCellRenderer(centerRenderer);
         }
         table.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -119,6 +117,6 @@ public class VisAdmListProd {
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scroll.setBounds(230, 146, 1100, 664);
         frame.getContentPane().add(scroll);
-	}
+    }
 
 }

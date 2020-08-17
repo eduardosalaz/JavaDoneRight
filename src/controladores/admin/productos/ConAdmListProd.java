@@ -5,6 +5,7 @@ import modelos.admin.Articulo;
 import modelos.admin.productos.ModAdmListProd;
 import vistas.admin.VisAdmMain;
 import vistas.admin.productos.VisAdmListProd;
+
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,24 +25,26 @@ public class ConAdmListProd implements ActionListener {
         vista.lanzarVista();
         ((DefaultTableModel) vista.table.getModel()).setRowCount(0);
         DefaultTableModel model = (DefaultTableModel) vista.table.getModel();
-        for(Articulo art: modelo.Articulos){
-            model.addRow(new Object[]{""+art.getCve_art(),""+art.getNom_art(),""+art.getPre_art(),""+art.getInv_art(),""+art.getNom_cat(),""+art.getNom_prov()});
+        for (Articulo art : modelo.Articulos) {
+            model.addRow(new Object[]{"" + art.getCve_art(), "" + art.getNom_art(), "" + art.getPre_art(), "" + art.getInv_art(), "" + art.getNom_cat(), "" + art.getNom_prov()});
         }
         agregarListeners();
     }
+
     private void agregarListeners() {
-        if(vista.finished){
+        if (vista.finished) {
             vista.btn_home.addActionListener(this);
         }
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_home){
+        if (e.getSource() == vista.btn_home) {
             home();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         vista.frame.dispose();

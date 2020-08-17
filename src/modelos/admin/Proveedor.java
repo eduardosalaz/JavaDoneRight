@@ -11,7 +11,8 @@ public class Proveedor {
         this.id_prov = id_prov;
         this.nom_prov = nom_prov;
     }
-    public Proveedor(){
+
+    public Proveedor() {
 
     }
 

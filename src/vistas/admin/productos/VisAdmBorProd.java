@@ -9,18 +9,18 @@ import java.awt.*;
 
 public class VisAdmBorProd {
 
-	public JFrame frame;
+    public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
     public JTextField txt_id;
     public JButton btn_borrar, btn_home;
 
-    public void lanzarVista(){
+    public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -36,8 +36,8 @@ public class VisAdmBorProd {
         }
     }
 
-	private void crearGUI() {
-		frame = new JFrame();
+    private void crearGUI() {
+        frame = new JFrame();
         frame.getContentPane().setFont(new Font("Bahnschrift", Font.PLAIN, 40));
         frame.setBounds(100, 100, 1600, 900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,7 +71,7 @@ public class VisAdmBorProd {
         lbl_borProd.setFont(new Font("Bahnschrift", Font.BOLD, 48));
         lbl_borProd.setBounds(436, 91, 712, 59);
         frame.getContentPane().add(lbl_borProd);
-        
+
         JLabel lbl_clave = new JLabel("Inserte la clave del producto a borrar");
         lbl_clave.setVerticalAlignment(SwingConstants.TOP);
         lbl_clave.setHorizontalAlignment(SwingConstants.CENTER);
@@ -79,7 +79,7 @@ public class VisAdmBorProd {
         lbl_clave.setFont(new Font("Bahnschrift", Font.BOLD, 40));
         lbl_clave.setBounds(436, 230, 712, 59);
         frame.getContentPane().add(lbl_clave);
-        
+
         txt_id = new JTextField();
         txt_id.setHorizontalAlignment(SwingConstants.CENTER);
         txt_id.setForeground(colores.azul);
@@ -87,20 +87,20 @@ public class VisAdmBorProd {
         txt_id.setBounds(617, 300, 350, 50);
         frame.getContentPane().add(txt_id);
         txt_id.setColumns(10);
-        
+
         btn_borrar = new JButton("Borrar Producto");
         btn_borrar.setForeground(colores.amarillo);
         btn_borrar.setFont(new Font("Bahnschrift", Font.BOLD, 50));
         btn_borrar.setBounds(558, 635, 468, 74);
         btn_borrar.setBorder(border);
         frame.getContentPane().add(btn_borrar);
-        
+
         btn_home = new JButton();
         btn_home.setBackground(colores.oscuro);
         btn_home.setIcon(new ImageIcon("images/home_icon.png"));
         btn_home.setBounds(10, 700, 150, 150);
         btn_home.setBorder(border);
         frame.getContentPane().add(btn_home);
-	}
+    }
 
 }

@@ -32,20 +32,20 @@ public class ConAdmRegProd implements ActionListener {
 
     private void comboProv() {
         vista.cmb_prov.removeAllItems();
-        for(Proveedor prov: modelo.Proveedores){
+        for (Proveedor prov : modelo.Proveedores) {
             vista.cmb_prov.addItem(prov.getNom_prov());
         }
     }
 
     private void comboCategoria() {
         vista.cmb_cat.removeAllItems();
-        for(Categoria categoria: modelo.Categorias){
+        for (Categoria categoria : modelo.Categorias) {
             vista.cmb_cat.addItem(categoria.getNom_cat());
         }
     }
 
     private void agregarListeners() {
-        if(vista.finished){
+        if (vista.finished) {
             vista.btn_home.addActionListener(this);
             vista.btn_reg.addActionListener(this);
         }
@@ -53,39 +53,39 @@ public class ConAdmRegProd implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_home){
+        if (e.getSource() == vista.btn_home) {
             home();
-        }else if(e.getSource() == vista.btn_reg){
+        } else if (e.getSource() == vista.btn_reg) {
             registrar();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         modelo.cerrarConexion();
         vista.frame.dispose();
     }
 
-    private void registrar(){
-        try{
-            if(vista.txt_cve.getText().isEmpty()||vista.txt_nom.getText().isEmpty()||vista.txt_prec.getText().isEmpty()){
+    private void registrar() {
+        try {
+            if (vista.txt_cve.getText().isEmpty() || vista.txt_nom.getText().isEmpty() || vista.txt_prec.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }else{
+            } else {
                 int cve = Integer.parseInt(vista.txt_cve.getText());
                 String nom = vista.txt_nom.getText();
                 float precio = Float.parseFloat(vista.txt_prec.getText());
                 int inv = (Integer) vista.spn_inv.getValue();
                 String cat = (String) vista.cmb_cat.getSelectedItem();
                 String prov = (String) vista.cmb_prov.getSelectedItem();
-                if(inv<0){
+                if (inv < 0) {
                     JOptionPane.showMessageDialog(null, "No puede haber existencias negativas", "Error", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    modelo.recibirDatos(cve,nom,precio,inv,cat,prov);
+                } else {
+                    modelo.recibirDatos(cve, nom, precio, inv, cat, prov);
                     modelo.registrarProducto();
                 }
             }
-        }catch (NumberFormatException e2){
+        } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(null, "Usa sólo numeros para la clave y el precio", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }

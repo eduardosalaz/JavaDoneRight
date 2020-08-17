@@ -1,11 +1,10 @@
 package vistas;
 
-import java.awt.EventQueue;
-import javax.swing.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 import crearColores.CustomColors;
-import java.awt.Font;
-import java.awt.Image;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class VisLogin {
     public JFrame frame;
@@ -19,9 +18,9 @@ public class VisLogin {
     public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;

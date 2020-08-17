@@ -6,7 +6,7 @@ public class Categoria implements Serializable {
     private int id_cat;
     private String nom_cat;
 
-    public Categoria(){
+    public Categoria() {
 
     }
 

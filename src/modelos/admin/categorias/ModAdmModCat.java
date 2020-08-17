@@ -22,23 +22,23 @@ public class ModAdmModCat {
     public void ejecutar() {
         String nombre;
         con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM categoria where id_cat = ?";
             pstm = con.prepareStatement(query);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 nombre = rs.getString("nom_cat");
                 checked = nombre != null;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             checked = false;
-            try{
+            try {
                 con.close();
                 rs.close();
                 pstm.close();
-            }catch (SQLException e2){
+            } catch (SQLException e2) {
                 e2.printStackTrace();
             }
         }
@@ -46,24 +46,25 @@ public class ModAdmModCat {
 
     public void actualizar(String n_nombre, int n_id) {
         String query = "UPDATE categoria SET id_cat=?, nom_cat=? WHERE id_cat=?";
-        try{
+        try {
             pstm = con.prepareStatement(query);
-            pstm.setInt(1,n_id);
-            pstm.setString(2,n_nombre);
-            pstm.setInt(3,id);
+            pstm.setInt(1, n_id);
+            pstm.setString(2, n_nombre);
+            pstm.setInt(3, id);
             pstm.executeUpdate();
             String message = "Categoría modificada con éxito";
             JOptionPane.showMessageDialog(null, message);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void cerrar() {
-        try{
-            con.close();
-            rs.close();
-            pstm.close();
-        }catch (SQLException e){
+        try {
+            if (con != null) con.close();
+            if (rs != null) rs.close();
+            if (pstm != null) pstm.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

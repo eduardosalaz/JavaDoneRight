@@ -4,6 +4,7 @@ import controladores.admin.ConAdmMain;
 import modelos.admin.categorias.ModAdmModCat;
 import vistas.admin.VisAdmMain;
 import vistas.admin.categorias.VisAdmModCat;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +35,7 @@ public class ConAdmModCat implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btn_home) {
             home();
-        }else if (e.getSource() == vista.btn_mod) {
+        } else if (e.getSource() == vista.btn_mod) {
             modificar();
         }
     }
@@ -56,28 +57,28 @@ public class ConAdmModCat implements ActionListener {
                 JTextField txt_id = new JTextField();
                 Object[] message = {
                         "Ingresar datos nuevos\n",
-                        "ID:",txt_id,
+                        "ID:", txt_id,
                         "Nombre:", nombre,
                 };
                 int option = JOptionPane.showConfirmDialog(null, message, "Modificar", JOptionPane.OK_CANCEL_OPTION);
                 if (option == JOptionPane.OK_OPTION) {
                     if (nombre.getText().isEmpty() || txt_id.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Rellenar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-                    }else {
+                    } else {
                         try {
                             String n_nombre = nombre.getText();
                             int n_id = Integer.parseInt(txt_id.getText());
                             modelo.actualizar(n_nombre, n_id);
-                        }catch (NumberFormatException e2) {
+                        } catch (NumberFormatException e2) {
                             JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
                             e2.printStackTrace();
                         }
                     }
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(null, "Categoría no modificada");
                 }
             }
-        }catch (Exception e2) {
+        } catch (Exception e2) {
             JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }

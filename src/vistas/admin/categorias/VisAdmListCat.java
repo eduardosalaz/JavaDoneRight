@@ -20,9 +20,9 @@ public class VisAdmListCat {
     public void lanzarVista() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -82,13 +82,11 @@ public class VisAdmListCat {
         frame.getContentPane().add(btn_home);
 
         String[] nombreCol = {"ID", "Nombre"};
-        DefaultTableModel dtm= new DefaultTableModel()
-        {
+        DefaultTableModel dtm = new DefaultTableModel() {
             private static final long serialVersionUID = 1L;
 
             @Override
-            public boolean isCellEditable(int row, int column)
-            {
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
@@ -99,11 +97,10 @@ public class VisAdmListCat {
         table.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         TableModel tableModel = table.getModel();
 
-        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
-        {
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++) {
             table.getColumnModel().getColumn(columnIndex).setCellRenderer(centerRenderer);
         }
 

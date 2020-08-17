@@ -14,7 +14,6 @@ public class Usuario implements Serializable {
     private Date Ultima_Sesion;
 
 
-
     public int getID_Usuario() {
         return ID_Usuario;
     }

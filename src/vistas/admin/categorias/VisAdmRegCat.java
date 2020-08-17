@@ -12,15 +12,15 @@ public class VisAdmRegCat {
     public JFrame frame;
     private final CustomColors colores = new CustomColors();
     public boolean finished = false;
-    public JTextField txt_id,txt_nom;
-    public JButton btn_reg,btn_home;
+    public JTextField txt_id, txt_nom;
+    public JButton btn_reg, btn_home;
 
     public void lanzarVista() {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
-                try{
+                try {
                     UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
