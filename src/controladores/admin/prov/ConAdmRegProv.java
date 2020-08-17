@@ -31,23 +31,30 @@ public class ConAdmRegProv implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
-            modelo.cerrar();
-            vista.frame.dispose();
+            home();
         }else if(e.getSource() == vista.btn_reg){
-            if(vista.txt_id.getText().isEmpty()||vista.txt_nom.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }else{
-                try{
-                    String nombre = vista.txt_nom.getText();
-                    int id = Integer.parseInt(vista.txt_id.getText());
-                    modelo.ejecutar(id,nombre);
-                }catch (NumberFormatException e2){
-                    JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
+            registrar();
+        }
+    }
 
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+        modelo.cerrar();
+        vista.frame.dispose();
+    }
+
+    private void registrar(){
+        if(vista.txt_id.getText().isEmpty()||vista.txt_nom.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            try{
+                String nombre = vista.txt_nom.getText();
+                int id = Integer.parseInt(vista.txt_id.getText());
+                modelo.ejecutar(id,nombre);
+            }catch (NumberFormatException e2){
+                JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

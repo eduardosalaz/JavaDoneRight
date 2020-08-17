@@ -72,7 +72,6 @@ public class ConAdmModProd implements ActionListener {
             modelo.recibir(id);
             modelo.ejecutar();
             if(modelo.checked){
-                System.out.println("existe el producto");
                 JTextField nombre = new JTextField();
                 JTextField cve = new JTextField();
                 JTextField prec = new JTextField();

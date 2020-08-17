@@ -20,7 +20,6 @@ public class ConAdmProd implements ActionListener {
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista admin prod lista");
         agregarListeners();
     }
 

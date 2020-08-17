@@ -18,13 +18,11 @@ public class ConAdmCat implements ActionListener {
     public VisAdmCat vista;
 
     public ConAdmCat(VisAdmCat visAdmCat){
-        System.out.println("estoy en el constructor");
         vista = visAdmCat;
         ejecutar();
     }
 
     private void ejecutar() {
-        System.out.println("en ejecutar");
         vista.lanzarVista();
         agregarListeners();
     }

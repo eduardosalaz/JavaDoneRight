@@ -11,6 +11,7 @@ public class ConUsrMain implements ActionListener {
 
 	public VisUsrMain vistaUser;
 	public int idUser;
+
 	public ConUsrMain(VisUsrMain vista, int idUser) {
 		vistaUser = vista;
 		this.idUser = idUser;
@@ -19,7 +20,6 @@ public class ConUsrMain implements ActionListener {
 
 	public void ejecutar() {
 		vistaUser.lanzarVista();
-		System.out.println("vista user finalizada");
 		agregarListeners();
 
 	}
@@ -37,13 +37,16 @@ public class ConUsrMain implements ActionListener {
 		if(e.getSource() == vistaUser.btn_compra){
 
 		}else if(e.getSource() == vistaUser.btn_corte){
-			System.out.println("corte");
 		}else if(e.getSource() == vistaUser.btn_venta){
-			VisUsrVenta visUsrVenta = new VisUsrVenta();
-			ModUsrVenta modUsrVenta = new ModUsrVenta();
-			ConUsrVenta conUsrVenta = new ConUsrVenta(visUsrVenta, modUsrVenta, idUser);
+			venta();
 		}
 		vistaUser.frame.dispose();
+	}
+
+	private void venta(){
+		VisUsrVenta visUsrVenta = new VisUsrVenta();
+		ModUsrVenta modUsrVenta = new ModUsrVenta();
+		ConUsrVenta conUsrVenta = new ConUsrVenta(visUsrVenta, modUsrVenta, idUser);
 	}
 
 }

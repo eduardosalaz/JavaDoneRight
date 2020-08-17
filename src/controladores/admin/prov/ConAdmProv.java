@@ -37,26 +37,45 @@ public class ConAdmProv implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_borrar){
-            VisAdmBorProv visAdmBorProv = new VisAdmBorProv();
-            ModAdmBorProv modAdmBorProv = new ModAdmBorProv();
-            ConAdmBorProv conAdmBorProv = new ConAdmBorProv(visAdmBorProv, modAdmBorProv);
+            borrar();
         }else if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+            home();
         }else if(e.getSource() == vista.btn_listar){
-            VisAdmListProv visAdmListProv = new VisAdmListProv();
-            ModAdmListProv modAdmListProv = new ModAdmListProv();
-            ConAdmListProv conAdmListProv = new ConAdmListProv(visAdmListProv, modAdmListProv);
+            listar();
         }else if(e.getSource() == vista.btn_modificar){
-            VisAdmModProv visAdmModProv = new VisAdmModProv();
-            ModAdmModProv modAdmModProv = new ModAdmModProv();
-            ConAdmModProv conAdmModProv = new ConAdmModProv(visAdmModProv, modAdmModProv);
-            System.out.println("modificar");
+            modificar();
         }else if(e.getSource() == vista.btn_registrar){
-            VisAdmRegProv visAdmRegProv = new VisAdmRegProv();
-            ModAdmRegProv modAdmRegProv = new ModAdmRegProv();
-            ConAdmRegProv conAdmRegProv = new ConAdmRegProv(visAdmRegProv, modAdmRegProv);
+            registrar();
         }
         vista.frame.dispose();
+    }
+
+    private void borrar(){
+        VisAdmBorProv visAdmBorProv = new VisAdmBorProv();
+        ModAdmBorProv modAdmBorProv = new ModAdmBorProv();
+        ConAdmBorProv conAdmBorProv = new ConAdmBorProv(visAdmBorProv, modAdmBorProv);
+    }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+    }
+
+    private void listar(){
+        VisAdmListProv visAdmListProv = new VisAdmListProv();
+        ModAdmListProv modAdmListProv = new ModAdmListProv();
+        ConAdmListProv conAdmListProv = new ConAdmListProv(visAdmListProv, modAdmListProv);
+    }
+
+    private void modificar(){
+        VisAdmModProv visAdmModProv = new VisAdmModProv();
+        ModAdmModProv modAdmModProv = new ModAdmModProv();
+        ConAdmModProv conAdmModProv = new ConAdmModProv(visAdmModProv, modAdmModProv);
+    }
+
+    private void registrar(){
+        VisAdmRegProv visAdmRegProv = new VisAdmRegProv();
+        ModAdmRegProv modAdmRegProv = new ModAdmRegProv();
+        ConAdmRegProv conAdmRegProv = new ConAdmRegProv(visAdmRegProv, modAdmRegProv);
     }
 }

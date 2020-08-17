@@ -33,7 +33,6 @@ public class ConLogin implements ActionListener {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("vista finalizada");
 		agregarListeners();
 	}
 
@@ -44,52 +43,57 @@ public class ConLogin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == vista.btn_login) {
-			boolean valido;
-			try{
-				usuario = Integer.parseInt(vista.txt_usuario.getText());
-				password = new String(vista.pwd_password.getPassword());
-				valido = true;
-			}catch (Exception e1){
-				JOptionPane.showMessageDialog(null, "Ese no es un input Válido");
-				valido = false;
-			}
-			if (valido) {
-				check = modelo.login(usuario, password);
-			}
-			if(intentos!=0) {
-				if(check) {
-					Usuario user = modelo.devolverUsuario();
-					String nombre = user.getNombre();
-					int id = user.getID_Usuario();
-					JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
-					if(user.isAdmin()) {
-						VisAdmMain vistaAdmin = new VisAdmMain();
-						ConAdmMain controladorAdmin = new ConAdmMain(vistaAdmin);
+			login();
+		}
+	}
 
-					}else {
-						VisUsrMain vistaUser = new VisUsrMain();
-						ConUsrMain controladorUser = new ConUsrMain(vistaUser, id);
-					}
-					vista.frame.dispose();
+	private void login(){
+		boolean valido;
+		try{
+			usuario = Integer.parseInt(vista.txt_usuario.getText());
+			password = new String(vista.pwd_password.getPassword());
+			valido = true;
+		}catch (Exception e1){
+			JOptionPane.showMessageDialog(null, "Ese no es un input Válido");
+			valido = false;
+		}
+		if (valido) {
+			check = modelo.login(usuario, password);
+		}
+
+		if(intentos!=0) {
+			if(check) {
+				Usuario user = modelo.devolverUsuario();
+				String nombre = user.getNombre();
+				int id = user.getID_Usuario();
+				JOptionPane.showMessageDialog(null, "Bienvenido de nuevo " + nombre);
+				if(user.isAdmin()) {
+					VisAdmMain vistaAdmin = new VisAdmMain();
+					ConAdmMain controladorAdmin = new ConAdmMain(vistaAdmin);
+
 				}else {
-					JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");
-					intentos--;
+					VisUsrMain vistaUser = new VisUsrMain();
+					ConUsrMain controladorUser = new ConUsrMain(vistaUser, id);
 				}
+				vista.frame.dispose();
 			}else {
-				JOptionPane.showMessageDialog(null, "Has superado la cantidad de intentos permitidos, intenta después");
-				vista.txt_usuario.setEnabled(false);
-				vista.pwd_password.setEnabled(false);
-				vista.btn_login.setEnabled(false);
-				try {
-					Thread.sleep(5000);
-					vista.txt_usuario.setEnabled(true);
-					vista.pwd_password.setEnabled(true);
-					vista.btn_login.setEnabled(true);
-					JOptionPane.showMessageDialog(null, "Puedes volver a intentarlo");
-					intentos = 5;
-				}catch(Exception e1) {
-					e1.printStackTrace();
-				}
+				JOptionPane.showMessageDialog(null, "Te quedan " + intentos + " intentos para ingresar");
+				intentos--;
+			}
+		}else {
+			JOptionPane.showMessageDialog(null, "Has superado la cantidad de intentos permitidos, intenta después");
+			vista.txt_usuario.setEnabled(false);
+			vista.pwd_password.setEnabled(false);
+			vista.btn_login.setEnabled(false);
+			try {
+				Thread.sleep(5000);
+				vista.txt_usuario.setEnabled(true);
+				vista.pwd_password.setEnabled(true);
+				vista.btn_login.setEnabled(true);
+				JOptionPane.showMessageDialog(null, "Puedes volver a intentarlo");
+				intentos = 5;
+			}catch(Exception e1) {
+				e1.printStackTrace();
 			}
 		}
 	}

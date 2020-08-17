@@ -36,25 +36,44 @@ public class ConAdmUsers implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btn_alta){
-            VisAdmAltaUser visAdmAltaUser = new VisAdmAltaUser();
-            ModAdmAltaUser modAdmAltaUser = new ModAdmAltaUser();
-            ConAdmAltaUser conAdmAltaUser = new ConAdmAltaUser(visAdmAltaUser, modAdmAltaUser);
+            alta();
         }else if(e.getSource() == vista.btn_baja){
-            VisAdmBajaUser visAdmBajaUser = new VisAdmBajaUser();
-            ModAdmBajaUser modAdmBajaUser = new ModAdmBajaUser();
-            ConAdmBajaUser conAdmBajaUser = new ConAdmBajaUser(visAdmBajaUser, modAdmBajaUser);
+            baja();
         }else if(e.getSource() == vista.btn_modificar){
-            VisAdmModUser visAdmModUser = new VisAdmModUser();
-            ModAdmModUser modAdmModUser = new ModAdmModUser();
-            ConAdmModUser conAdmModUser = new ConAdmModUser(visAdmModUser, modAdmModUser);
+            modificar();
         }else if(e.getSource() == vista.btn_listar){
-            VisAdmListUser visAdmListUser = new VisAdmListUser();
-            ModAdmListUser modAdmListUser = new ModAdmListUser();
-            ConAdmListUser conAdmListUser = new ConAdmListUser(visAdmListUser, modAdmListUser);
+            listar();
         }else if(e.getSource() == vista.btn_home){
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+            home();
         }
         vista.frame.dispose();
+    }
+
+    private void alta(){
+        VisAdmAltaUser visAdmAltaUser = new VisAdmAltaUser();
+        ModAdmAltaUser modAdmAltaUser = new ModAdmAltaUser();
+        ConAdmAltaUser conAdmAltaUser = new ConAdmAltaUser(visAdmAltaUser, modAdmAltaUser);
+    }
+
+    private void baja(){
+        VisAdmBajaUser visAdmBajaUser = new VisAdmBajaUser();
+        ModAdmBajaUser modAdmBajaUser = new ModAdmBajaUser();
+        ConAdmBajaUser conAdmBajaUser = new ConAdmBajaUser(visAdmBajaUser, modAdmBajaUser);
+    }
+
+    private void modificar(){
+        VisAdmModUser visAdmModUser = new VisAdmModUser();
+        ModAdmModUser modAdmModUser = new ModAdmModUser();
+        ConAdmModUser conAdmModUser = new ConAdmModUser(visAdmModUser, modAdmModUser);
+    }
+
+    private void listar(){
+        VisAdmListUser visAdmListUser = new VisAdmListUser();
+        ModAdmListUser modAdmListUser = new ModAdmListUser();
+        ConAdmListUser conAdmListUser = new ConAdmListUser(visAdmListUser, modAdmListUser);
+    }
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
     }
 }

@@ -39,7 +39,6 @@ public class ConAdmListUser implements ActionListener {
         if(e.getSource() == vista.btn_home){
             VisAdmMain visAdmMain = new VisAdmMain();
             ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
-            System.out.println("home");
             vista.frame.dispose();
         }
     }

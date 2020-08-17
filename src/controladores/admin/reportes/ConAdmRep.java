@@ -15,7 +15,6 @@ public class ConAdmRep implements ActionListener {
 
     private void ejecutar() {
         vista.lanzarVista();
-        System.out.println("vista admin rep lista");
         agregarListeners();
     }
 
@@ -28,10 +27,14 @@ public class ConAdmRep implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btn_home){
-            System.out.println("home");
-            VisAdmMain visAdmMain = new VisAdmMain();
-            ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
+            home();
         }
+    }
+
+    private void home(){
+        VisAdmMain visAdmMain = new VisAdmMain();
+        ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         vista.frame.dispose();
     }
+
 }

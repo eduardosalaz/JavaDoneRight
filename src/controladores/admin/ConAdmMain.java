@@ -26,6 +26,7 @@ public class ConAdmMain implements ActionListener {
 		vistaAdmin.lanzarVista();
 		agregarListeners();
 	}
+
 	private void agregarListeners(){
 		if (vistaAdmin.finished) {
 			vistaAdmin.btn_prod.addActionListener(this);
@@ -39,21 +40,41 @@ public class ConAdmMain implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == vistaAdmin.btn_prod){
-			VisAdmProd visAdmProd = new VisAdmProd();
-			ConAdmProd conAdmProd = new ConAdmProd(visAdmProd);
+			productos();
 		}else if(e.getSource() == vistaAdmin.btn_prov){
-			VisAdmProv visAdmProv = new VisAdmProv();
-			ConAdmProv conAdmProv = new ConAdmProv(visAdmProv);
+			proveedores();
 		}else if(e.getSource() == vistaAdmin.btn_rep){
-			VisAdmRep visAdmRep = new VisAdmRep();
-			ConAdmRep controladorAdminRep = new ConAdmRep(visAdmRep);
+			reportes();
 		}else if(e.getSource() == vistaAdmin.btn_usuarios){
-			VisAdmUsers visAdmUsers = new VisAdmUsers();
-			ConAdmUsers conAdmUsers = new ConAdmUsers(visAdmUsers);
+			usuarios();
 		}else if(e.getSource() == vistaAdmin.btn_cat){
-			VisAdmCat visAdmCat = new VisAdmCat();
-			ConAdmCat conAdmCat = new ConAdmCat(visAdmCat);
+			categorias();
 		}
 		vistaAdmin.frame.dispose();
+	}
+
+	private void productos(){
+		VisAdmProd visAdmProd = new VisAdmProd();
+		ConAdmProd conAdmProd = new ConAdmProd(visAdmProd);
+	}
+
+	private void proveedores(){
+		VisAdmProv visAdmProv = new VisAdmProv();
+		ConAdmProv conAdmProv = new ConAdmProv(visAdmProv);
+	}
+
+	private void reportes(){
+		VisAdmRep visAdmRep = new VisAdmRep();
+		ConAdmRep controladorAdminRep = new ConAdmRep(visAdmRep);
+	}
+
+	private void usuarios(){
+		VisAdmUsers visAdmUsers = new VisAdmUsers();
+		ConAdmUsers conAdmUsers = new ConAdmUsers(visAdmUsers);
+	}
+
+	private void categorias(){
+		VisAdmCat visAdmCat = new VisAdmCat();
+		ConAdmCat conAdmCat = new ConAdmCat(visAdmCat);
 	}
 }
