@@ -16,7 +16,7 @@ public class ModAdmListCat {
 
     public void buscar() {
         Connection con = Conexion.Conectar();
-        try{
+        try {
             String query = "SELECT * FROM categoria";
             pstm = con.prepareStatement(query);
             rs = pstm.executeQuery();
@@ -26,15 +26,11 @@ public class ModAdmListCat {
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
-            try
-            {
+            try {
                 if(rs!=null) rs.close();
                 if(pstm!=null) pstm.close();
-                if(con !=null){
-                    con.close();
-                }
-            } catch (SQLException e)
-            {
+                if(con !=null) con.close();
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }

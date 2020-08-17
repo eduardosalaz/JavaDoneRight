@@ -30,30 +30,30 @@ public class ConAdmBorCat implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_home){
+        if (e.getSource() == vista.btn_home) {
             home();
-        }else if(e.getSource() == vista.btn_bor){
+        }else if (e.getSource() == vista.btn_bor) {
             borrar();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         vista.frame.dispose();
         modelo.cerrar();
     }
 
-    private void borrar(){
-        if(vista.txt_id.getText().isEmpty()){
+    private void borrar() {
+        if (vista.txt_id.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Rellene todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            try{
+        }else {
+            try {
                 int id = Integer.parseInt(vista.txt_id.getText());
                 modelo.recibir(id);
                 modelo.ejecutar();
                 vista.txt_id.setText("");
-            }catch (NumberFormatException e2){
+            }catch (NumberFormatException e2) {
                 JOptionPane.showMessageDialog(null, "Asignar un número válido al ID", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }

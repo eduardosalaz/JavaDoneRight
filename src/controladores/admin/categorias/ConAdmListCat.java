@@ -31,19 +31,19 @@ public class ConAdmListCat implements ActionListener {
     }
 
     private void agregarListeners() {
-        if(vista.finished){
+        if (vista.finished) {
             vista.btn_home.addActionListener(this);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vista.btn_home){
+        if (e.getSource() == vista.btn_home) {
             home();
         }
     }
 
-    private void home(){
+    private void home() {
         VisAdmMain visAdmMain = new VisAdmMain();
         ConAdmMain conAdmMain = new ConAdmMain(visAdmMain);
         vista.frame.dispose();
